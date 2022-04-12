@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-// const HeroParagraph = styled.div`
-//   font-size: var(--hero-text);
-//   color: var(--white);
-// `;
-
 function HeroText() {
   return (
     <div>
