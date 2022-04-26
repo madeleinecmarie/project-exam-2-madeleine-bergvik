@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     --font-xs: 1.25em;
     --font-xxs: 0.875;
     --font-base: 1rem;
-    --subscribe-btn: 1.125rem;
+    --btn-nav: 1.125rem;
     
     // Font style
     --regular: 400;
@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     --black: 900;
 
     --radius: 5px;
+    --font-spacing: 1px;
 `;
 
 export default GlobalStyle;

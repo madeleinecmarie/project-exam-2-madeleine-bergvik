@@ -9,7 +9,7 @@ function Newsletter() {
           className="w-496 rounded-sm h-65 form-control relative flex-auto px-3 py-1.5"
           placeholder="Email"
         />
-        <button className="orangeBtn text-lg ml-2.5">Subscribe</button>
+        <button className="orangeBtn ml-2.5">Subscribe</button>
       </div>
     </div>
   );

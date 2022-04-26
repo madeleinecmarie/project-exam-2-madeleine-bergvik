@@ -7,8 +7,9 @@ body {
   margin: 0;
   text-decoration: none;
   list-style: none;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #1d282e;
+  letter-spacing: var(--font-spacing);
 }
 
 h1 {
@@ -51,7 +52,7 @@ span {
 
 button,
 li a {
-  font-size: var(--font-base);
+  font-size: var(--btn-nav);
 }
 
 .white__text {

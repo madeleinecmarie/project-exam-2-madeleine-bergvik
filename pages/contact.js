@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "../components/layout/Nav";
 import SocialMediaIcons from "../components/icons/SocialMediaIcons";
+import ContactForm from "./contactform/ContactForm";
 
 export default function Contact() {
   return (
@@ -11,17 +12,19 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      <h1 title="Contact Holidaze"></h1>
-      <p>
-        The chat is the fastest way to talk to one of our Customer Service
-        agents about your bookings.
-      </p>
-      <div>
+      <div className="white__text container mx-auto">
+        <h1>Contact Holidaze</h1>
+        <p className="w-396">
+          The chat is the fastest way to talk to one of our Customer Service
+          agents about your bookings.
+        </p>
         <p>You can also call us: + 47 000 10 200</p>
-      </div>
-      <div>
-        <h3>Find us on social media</h3>
-        <SocialMediaIcons />
+        <div>
+          <h3>Find us on social media</h3>
+          <SocialMediaIcons />
+        </div>
+
+        <ContactForm />
       </div>
     </div>
   );
