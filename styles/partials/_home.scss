@@ -1,0 +1,15 @@
+.heroImg {
+  height: 795px;
+  background-size: cover;
+  background-image: url("/images/hero-image.jpg");
+  background-repeat: no-repeat;
+}
+
+.herotext {
+  font-weight: var(--bold);
+
+  &__span {
+    font-size: var(--font-xl);
+    font-weight: var(--black);
+  }
+}

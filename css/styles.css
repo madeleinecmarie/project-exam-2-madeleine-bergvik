@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  color: #1d282e;
+}
+
+h1 {
+  color: var(--white);
+}
+
+h1,
+h2,
+h3,
+button {
+  font-weight: var(--semiBold);
+}
+
+h4,
+p {
+  font-weight: var(--regular);
+}
+
+h1 {
+  font-size: var(--font-lg);
+}
+
+h2 {
+  font-size: var(--font-md);
+}
+
+h3,
+.herotext {
+  font-size: var(--font-sm);
+}
+
+h4 {
+  font-size: var(--font-xs);
+}
+
+p,
+span {
+  font-size: var(--font-base);
+}
+
+button,
+li a {
+  font-size: var(--font-base);
+}
+
+.white__text {
+  color: #ffffff;
+}
+
+.orangeBtn {
+  background-color: var(--orange);
+  border-radius: var(--radius);
+  height: 65px;
+  width: 160px;
+}
+
+.searchbar {
+  height: 230px;
+  width: 943px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.iconify {
+  color: rgba(29, 40, 46, 0.8);
+}
+
+.searchBtn {
+  background-color: var(--orange);
+  border-radius: var(--radius);
+  height: 65px;
+  width: 86px;
+}
+
+.heroImg {
+  height: 795px;
+  background-size: cover;
+  background-image: url("/images/hero-image.jpg");
+  background-repeat: no-repeat;
+}
+
+.herotext {
+  font-weight: var(--bold);
+}
+
+.herotext__span {
+  font-size: var(--font-xl);
+  font-weight: var(--black);
+}
+
+.nav__links {
+  color: var(--white);
+  font-weight: var(--semiBold);
+  margin-top: 12px;
+}
+
+.login__btn {
+  background-color: var(--orange);
+  border-radius: var(--radius);
+  height: 48px;
+  width: 125px;
+}
+
+nav {
+  height: 150px;
+}
+
+.searchbar__stays {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+/*# sourceMappingURL=styles.css.map */
