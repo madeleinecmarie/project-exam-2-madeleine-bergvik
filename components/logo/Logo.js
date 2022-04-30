@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import LogoImage from "../../public/images/logo.png";
 
 function Logo() {
   return (
@@ -7,9 +8,9 @@ function Logo() {
       <Link href="/" passHref>
         <a>
           <Image
-            src="/images/logo.png"
-            width="122px"
-            height="36px"
+            src={LogoImage}
+            width={122}
+            height={36}
             alt="Holidaze logo"
             className="logo"
           ></Image>

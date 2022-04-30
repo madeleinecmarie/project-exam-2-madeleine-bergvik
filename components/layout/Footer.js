@@ -6,34 +6,30 @@ function Footer() {
   const router = useRouter();
 
   return (
-    <div className="bg-black flex justify-between h-56">
-      <div className="ml-16 mt-10">
-        <Logo />
-        <div className="mt-3.5">
-          <p className="text-white">
-            Copyright © 2022 Holidaze.no. All rights reserved.
-          </p>
-          <p className="text-white mb-10">For educational use only</p>
+    <div className="footer">
+      <div className="footer__inner">
+        <div className="footer__div-1">
+          <Logo />
+          <div className="footer__text">
+            <p>Copyright © 2022 Holidaze.no. All rights reserved.</p>
+            <p>For educational use only</p>
+          </div>
         </div>
-      </div>
-      <div className="mr-12 mt-10">
-        <ul className="flex flex-row justify-between mr-10">
-          <li className="nav__links">
-            <Link href="/stays" passHref>
-              <a className={router.pathname === "/stays" ? "active" : ""}>
-                Stays
-              </a>
-            </Link>
-          </li>
-          <li className="nav__links pl-11">
-            <Link href="/contact" passHref>
-              <a className={router.pathname === "/contact" ? "active" : ""}>
-                Contact
-              </a>
-            </Link>
-          </li>
-          <p className="nav__links pl-11">Privacy Policy</p>
-        </ul>
+        <div className="footer__div-2">
+          <ul className="footer__links">
+            <li className="nav__links">
+              <Link href="/stays" passHref>
+                <a className={router.pathname === "/stays"}>Stays</a>
+              </Link>
+            </li>
+            <li className="nav__links">
+              <Link href="/contact" passHref>
+                <a className={router.pathname === "/contact"}>Contact</a>
+              </Link>
+            </li>
+            <li className="nav__links">Privacy Policy</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

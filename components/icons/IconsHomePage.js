@@ -8,19 +8,14 @@ function IconsHomePage() {
   return (
     <>
       <div className="flex justify-evenly m-auto w-11/12 pt-36">
-        <Image
-          src={Event}
-          alt="Event icon"
-          height="110px"
-          width="123px"
-        ></Image>
+        <Image src={Event} alt="Event icon" height={110} width={123}></Image>
         <Image
           src={LoyaltyCard}
           alt="Loyaltycard icon"
-          height="112px"
-          width="112px"
+          height={112}
+          width={112}
         ></Image>
-        <Image src={Card} alt="Card icon" height="112px" width="112px"></Image>
+        <Image src={Card} alt="Card icon" height={112} width={112}></Image>
         <Image
           src={Headset}
           alt="Headset icon"

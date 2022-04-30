@@ -22,6 +22,8 @@ module.exports = {
         815: "815px",
         447: "447px",
         65: "65px",
+        55: "55px",
+        165: "165px",
       },
       width: {
         28: "28%",
@@ -33,6 +35,12 @@ module.exports = {
         144: "144px",
         93: "93%",
         396: "396px",
+        35: "35%",
+        943: "943px",
+        45: "45%",
+        229: "229px",
+        472: "472px",
+        700: "700px",
       },
       margin: {
         88: "88px",
@@ -41,3 +49,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+// className="col-span-6 sm:col-span-3"

@@ -4,10 +4,10 @@ import Image from "next/image";
 function Attractions() {
   const data = AttractionsData;
   return (
-    <div className="m-auto w-11/12 mb-16">
+    <div className="container m-auto w-11/12 mb-16">
       <h2 className="mb-16 mt-88">Top Attractions in Stavanger</h2>
 
-      <div className="flex flex-wrap gap-14 ml-3.5">
+      <div className="flex flex-wrap gap-10 ml-6">
         {data.map(({ id, image, title, description }) => {
           return (
             <div key={id} className="w-30">

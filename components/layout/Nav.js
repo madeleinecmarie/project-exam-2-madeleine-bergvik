@@ -10,19 +10,21 @@ function Nav() {
       <nav className="flex justify-between m-auto w-93 pt-6">
         <Logo />
         <ul className="flex justify-between w-5/12">
-          <li className="nav__links">
-            <Link href="/" passHref>
-              <a
-                className={
-                  router.pathname === "/"
-                    ? "active text-white font-semibold"
-                    : ""
-                }
-              >
-                Home
-              </a>
-            </Link>
-          </li>
+          <div className="hello">
+            <li className="nav__links">
+              <Link href="/" passHref>
+                <a
+                  className={
+                    router.pathname === "/"
+                      ? "active text-white font-semibold"
+                      : ""
+                  }
+                >
+                  Home
+                </a>
+              </Link>
+            </li>
+          </div>
           <li className="nav__links">
             <Link href="/stays" passHref>
               <a className={router.pathname === "/stays" ? "active" : ""}>

@@ -1,18 +1,19 @@
 import Nav from "../layout/Nav";
 import Searchbar from "../searchbar/Searchbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Header() {
   return (
     <>
       <div className="heroImg">
         <Nav />
-        <div className="text-white">
-          <p className="herotext leading-line-3 mt-24 pl-24">
+        <div className="herotext">
+          <p className="herotext__p">
             Be adventurous in
             <span className="herotext__span block">STAVANGER</span>
           </p>
         </div>
-        <div className="pt-64">
+        <div className="searchbar__div">
           <Searchbar />
         </div>
       </div>

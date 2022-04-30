@@ -8,10 +8,9 @@ body {
   margin: 0;
   text-decoration: none;
   list-style: none;
-  // font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
-  color: #1d282e;
-  letter-spacing: var(--font-spacing);
+  font-family: "Work Sans", sans-serif;
+  color: var(--black);
 }
 
 h1 {
@@ -53,39 +52,35 @@ span {
 }
 
 button,
-li a {
+li {
   font-size: var(--btn-nav);
 }
 
-.white__text {
-  color: #ffffff;
-}
-
-.orangeBtn {
-  background-color: var(--orange);
-  border-radius: var(--radius);
-  height: 65px;
-  width: 160px;
+button:hover {
+  background-color: #e9a44a;
 }
 
 // ::placeholder {
 //   color: var(--gray);
 // }
 
-.searchbar {
-  height: 230px;
-  width: 943px;
-  display: flex;
-  justify-content: center;
-}
-
-.iconify {
-  color: rgba(29, 40, 46, 0.8);
-}
-
-.searchBtn {
+.formBtn {
   background-color: var(--orange);
+  color: var(--black);
   border-radius: var(--radius);
-  height: 65px;
-  width: 86px;
+  height: 55px;
+  width: 183px;
+}
+
+.blackBtn {
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: var(--radius);
+  font-size: var(--font-base);
+  width: 169px;
+  height: 45px;
+
+  &:hover {
+    background-color: var(--blackHover);
+  }
 }

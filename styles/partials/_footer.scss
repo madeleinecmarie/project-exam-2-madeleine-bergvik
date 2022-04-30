@@ -1,0 +1,30 @@
+.footer {
+  background-color: var(--black);
+  height: 224px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 90%;
+  }
+
+  &__div-1,
+  &__div-2 {
+    margin-top: 40px;
+  }
+
+  &__text {
+    color: var(--white);
+  }
+
+  &__div-2 {
+    width: 30%;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

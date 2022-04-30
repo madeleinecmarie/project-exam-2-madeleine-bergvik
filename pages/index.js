@@ -16,10 +16,10 @@ export default function Home() {
       <Header />
 
       <main>
-        <div className="bg-black h-815 text-center py-36">
+        <div className="home">
           <h1>Why use Holidaze for your booking?</h1>
           <IconsHomePage />
-          <div className="flex justify-evenly m-auto w-11/12 pr-12 pt-11 white__text">
+          <div className="home__section-1">
             <h3>
               Free cancellation
               <span className="block">on most of the hotels*</span>
