@@ -1,11 +1,21 @@
-.header__stays {
+.stays {
   background-color: var(--black);
-}
 
-.searchbar__stays {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 30px;
+  &__section-1 {
+    background-color: var(--black);
+    margin: auto;
+  }
+
+  &__headline {
+    margin: auto;
+    width: 90%;
+  }
+
+  &__searchbar {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+  }
 }
 
 .filter {
@@ -39,18 +49,6 @@
   }
 }
 
-.stays {
-  &__section-1 {
-    background-color: var(--black);
-    margin: auto;
-  }
-
-  &__headline {
-    margin: auto;
-    width: 90%;
-  }
-}
-
 .hotels {
   display: flex;
   justify-content: space-between;
@@ -75,17 +73,6 @@
     width: 910px;
   }
 
-  &__h4 {
-    font-weight: var(--semiBold);
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__p {
-    width: 466px;
-    margin-top: 10px;
-  }
-
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -96,15 +83,10 @@
     border-radius: var(--radius);
   }
 
-  &__price {
-    font-weight: var(--bold);
-    font-size: var(--font-xs);
-    margin-top: 80px;
-  }
-
-  &__span {
-    font-size: var(--font-base);
+  &__h4 {
     font-weight: var(--semiBold);
+    display: flex;
+    justify-content: space-between;
   }
 
   &__starDiv {
@@ -118,9 +100,25 @@
     font-weight: var(--semiBold);
   }
 
+  &__p {
+    width: 466px;
+    margin-top: 10px;
+  }
+
   &__baseline {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+  }
+
+  &__price {
+    font-weight: var(--bold);
+    font-size: var(--font-xs);
+    margin-top: 80px;
+  }
+
+  &__span {
+    font-size: var(--font-base);
+    font-weight: var(--semiBold);
   }
 }

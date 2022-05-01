@@ -3,9 +3,9 @@ function ContactForm() {
     <div>
       <form method="POST" />
       <div>
-        <div className="flex justify-between">
+        <div className="contactform">
           <div>
-            <label htmlFor="first-name" className="block text-white">
+            <label htmlFor="first-name" className="contactform__label">
               First name
             </label>
             <input
@@ -13,11 +13,11 @@ function ContactForm() {
               name="first-name"
               id="first-name"
               placeholder="Ola"
-              className="pl-3.5 mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-sm h-55 w-229"
+              className="contactform__inputShort"
             />
           </div>
           <div>
-            <label htmlFor="last-name" className="block text-white">
+            <label htmlFor="last-name" className="contactform__label">
               Last name
             </label>
             <input
@@ -25,12 +25,12 @@ function ContactForm() {
               name="last-name"
               id="last-name"
               placeholder="Nordmann"
-              className="pl-3.5 mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-sm h-55 w-229"
+              className="contactform__inputShort"
             />
           </div>
         </div>
 
-        <label htmlFor="email" className="block text-white mt-5">
+        <label htmlFor="email" className="contactform__label">
           Email
         </label>
         <input
@@ -38,10 +38,10 @@ function ContactForm() {
           name="email"
           id="email"
           placeholder="example@email.com"
-          className="pl-3.5 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-sm h-55 w-472"
+          className="contactform__input"
         />
 
-        <label htmlFor="email-address" className="block text-white mt-5">
+        <label htmlFor="email-address" className="contactform__label">
           Subject
         </label>
         <input
@@ -49,21 +49,21 @@ function ContactForm() {
           name="subject"
           id="subject"
           placeholder="Subject"
-          className="pl-3.5 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-sm h-55 w-472"
+          className="contactform__input"
         />
 
-        <label htmlFor="message" className="block text-white mt-5">
+        <label htmlFor="message" className="contactform__label">
           Message
         </label>
         <textarea
           name="comment"
           form="userform"
-          className="pt-3.5 pl-3.5 w-472 rounded-sm h-165 resize-none text-black"
+          className="contactform__messagefield"
           placeholder="Write your message here"
         ></textarea>
       </div>
 
-      <button className="formBtn md:mr-3 mt-2" type="submit" value="submit">
+      <button className="formBtn" type="submit" value="submit">
         Send message
       </button>
     </div>

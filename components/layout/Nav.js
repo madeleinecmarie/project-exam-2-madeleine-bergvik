@@ -7,24 +7,23 @@ function Nav() {
 
   return (
     <div>
-      <nav className="flex justify-between m-auto w-93 pt-6">
+      <nav className="nav">
         <Logo />
-        <ul className="flex justify-between w-5/12">
-          <div className="hello">
-            <li className="nav__links">
-              <Link href="/" passHref>
-                <a
-                  className={
-                    router.pathname === "/"
-                      ? "active text-white font-semibold"
-                      : ""
-                  }
-                >
-                  Home
-                </a>
-              </Link>
-            </li>
-          </div>
+        <ul className="nav__ul">
+          <li className="nav__links">
+            <Link href="/" passHref>
+              <a
+                className={
+                  router.pathname === "/"
+                    ? "active text-white font-semibold"
+                    : ""
+                }
+              >
+                Home
+              </a>
+            </Link>
+          </li>
+
           <li className="nav__links">
             <Link href="/stays" passHref>
               <a className={router.pathname === "/stays" ? "active" : ""}>
@@ -40,7 +39,7 @@ function Nav() {
             </Link>
           </li>
           <div>
-            <button className="login__btn">Log in</button>
+            <button className="nav__btn">Log in</button>
           </div>
         </ul>
       </nav>

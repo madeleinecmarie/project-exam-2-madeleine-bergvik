@@ -1,11 +1,20 @@
 import Head from "next/head";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import Attractions from "../components/attractions/Attractions";
 import Newsletter from "../components/newsletter/Newsletter";
 import IconsHomePage from "../components/icons/IconsHomePage";
+import Image from "next/image";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:1337/attractions");
+  const data = await res.json();
+
+  return {
+    props: { attraction: data },
+  };
+};
+
+export default function Home({ attraction }) {
   return (
     <>
       <Head>
@@ -30,7 +39,34 @@ export default function Home() {
           </div>
         </div>
 
-        <Attractions />
+        <div className="attractions">
+          <h2 className="attractions__headline">
+            Top Attractions in Stavanger
+          </h2>
+
+          <div className="attractions__inner">
+            {attraction.map(({ id, image, headline, description }) => {
+              const myLoader = () => {
+                return image;
+              };
+
+              return (
+                <div key={id} className="attractions__card">
+                  <Image
+                    src={image}
+                    alt="image of attraction"
+                    loader={myLoader}
+                    height={320}
+                    width={345}
+                    className="attractions__img"
+                  ></Image>
+                  <h3 className="attractions__subheadline">{headline}</h3>
+                  <p className="attractions__description">{description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
         <Newsletter />
       </main>
       <Footer />

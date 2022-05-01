@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --gray: rgba(29, 40, 46, 0.5);
     --light-gray: rgba(29, 40, 46, 0.15);
     --blackHover: #38454D;
+    --orangeHover: #e9a44a;
 
     // Fonts sizes
     --font-xl: 5.938rem;

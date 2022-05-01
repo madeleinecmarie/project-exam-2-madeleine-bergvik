@@ -57,7 +57,7 @@ li {
 }
 
 button:hover {
-  background-color: #e9a44a;
+  background-color: var(--orangeHover);
 }
 
 // ::placeholder {
@@ -68,6 +68,7 @@ button:hover {
   background-color: var(--orange);
   color: var(--black);
   border-radius: var(--radius);
+  margin-top: 10px;
   height: 55px;
   width: 183px;
 }
@@ -82,5 +83,43 @@ button:hover {
 
   &:hover {
     background-color: var(--blackHover);
+  }
+}
+
+.contactform {
+  display: flex;
+  justify-content: space-between;
+
+  &__label {
+    color: var(--white);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: var(--medium);
+  }
+
+  &__inputShort {
+    width: 229px;
+  }
+
+  &__input {
+    width: 472px;
+  }
+
+  &__input,
+  &__inputShort {
+    height: 55px;
+    padding-left: 15px;
+    border-radius: var(--radius);
+  }
+
+  &__messagefield {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 472px;
+    height: 165px;
+    color: var(--black);
+    resize: none;
+    border-radius: var(--radius);
   }
 }

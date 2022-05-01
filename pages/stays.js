@@ -18,20 +18,23 @@ const Stays = ({ hotel }) => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="" />
+        <title>Stays</title>
+        <meta
+          name="description"
+          content="Book hotelrooms in Stavanger. Holidaze.com official site. Best Price Guarantee and Bonus program. Find the perfect stay for your next adventure."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="header__stays">
+      <header className="stays">
         <Nav />
       </header>
-      <main className="stays">
+      <main>
         <section className="stays__section-1">
           <div className="stays__headline">
             <h3 className="text-white">Good day,</h3>
             <h1>Find the best place for you to stay</h1>
           </div>
-          <div className="searchbar__stays">
+          <div className="stays__searchbar">
             <Searchbar className="pt-10" />
           </div>
         </section>

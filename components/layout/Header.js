@@ -1,6 +1,5 @@
 import Nav from "../layout/Nav";
 import Searchbar from "../searchbar/Searchbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Header() {
   return (

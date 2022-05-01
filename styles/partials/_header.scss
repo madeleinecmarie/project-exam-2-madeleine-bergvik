@@ -1,18 +1,29 @@
-.nav__links {
-  color: var(--white);
-  font-weight: var(--semiBold);
-  margin-top: 12px;
-}
-
-.login__btn {
-  background-color: var(--orange);
-  border-radius: var(--radius);
-  height: 48px;
-  width: 125px;
-}
-
-nav {
+.nav {
   height: 150px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 95%;
+  padding-top: 24px;
+
+  &__ul {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+  }
+
+  &__links {
+    color: var(--white);
+    font-weight: var(--semiBold);
+    margin-top: 12px;
+  }
+
+  &__btn {
+    background-color: var(--orange);
+    border-radius: var(--radius);
+    height: 48px;
+    width: 125px;
+  }
 }
 
 .active {
