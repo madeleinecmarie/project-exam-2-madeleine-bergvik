@@ -4,6 +4,7 @@ import Nav from "../components/layout/Nav";
 import Searchbar from "../components/searchbar/Searchbar";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:1337/hotels");
@@ -88,10 +89,12 @@ const Stays = ({ hotel }) => {
                         alt="Hotelroom image"
                         src={featured_img}
                         loader={myLoader}
+                        unoptimized={true}
                         width={386}
                         height={240}
                         className="hotel__img"
                       ></Image>
+
                       <div className="hotel__inner">
                         <h4 className="hotel__h4">
                           {name}
@@ -107,7 +110,9 @@ const Stays = ({ hotel }) => {
                             {price} NOK /
                             <span className="hotel__span"> night</span>
                           </p>
-                          <button className="blackBtn">Book room</button>
+                          <Link href={"/hotels/" + id} passHref>
+                            <button className="blackBtn">Book room</button>
+                          </Link>
                         </div>
                       </div>
                     </div>

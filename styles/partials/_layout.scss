@@ -68,6 +68,7 @@ button:hover {
   background-color: var(--orange);
   color: var(--black);
   border-radius: var(--radius);
+  margin-bottom: 80px;
   margin-top: 10px;
   height: 55px;
   width: 183px;
@@ -88,7 +89,6 @@ button:hover {
 
 .contactform {
   display: flex;
-  justify-content: space-between;
 
   &__label {
     color: var(--white);
@@ -121,5 +121,9 @@ button:hover {
     color: var(--black);
     resize: none;
     border-radius: var(--radius);
+  }
+
+  &__lastname {
+    margin-left: 15px;
   }
 }

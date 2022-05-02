@@ -1,6 +1,246 @@
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
   body {
-    width: 1400px;
+    width: 1500px;
     margin: auto;
+  }
+}
+
+@media (max-width: 1050px) {
+  // Footer
+  .footer {
+    &__div-2 {
+      width: 40%;
+    }
+  }
+
+  // Home
+
+  .home {
+    &__icons {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  // Contact
+  .contact {
+    &__text {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__headline {
+      text-align: center;
+      width: 55%;
+    }
+
+    &__icons {
+      margin: auto;
+      margin-top: 20px;
+      width: 50%;
+    }
+
+    &__p {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 880px) {
+    // Home
+    .home {
+      height: auto;
+
+      &__icons {
+        flex-direction: column;
+        margin-top: 80px;
+      }
+
+      &__h3 {
+        margin-bottom: 50px;
+      }
+    }
+
+    .newsletter {
+      &__btn {
+        padding: 15px;
+      }
+    }
+  }
+
+  .contactform {
+    margin-top: 50px;
+
+    &__messagefield {
+      margin-top: 6px;
+    }
+
+    &__inputShort {
+      width: 168px;
+    }
+
+    &__input,
+    &__messagefield {
+      width: 350px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__div-2 {
+      margin-top: 30px;
+      width: 50%;
+    }
+  }
+
+  // Home
+
+  .newsletter {
+    &__email {
+      width: 60%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  // Contact
+  .contact {
+    &__headline {
+      width: 80%;
+    }
+  }
+
+  // Footer
+  .footer {
+    &__div-2 {
+      width: 60%;
+    }
+  }
+
+  // Home
+  .newsletter {
+    &__email {
+      width: 75%;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  // Footer
+  .footer {
+    .footer__div-2 {
+      width: 70%;
+    }
+  }
+
+  // Home
+  .newsletter {
+    &__h2 {
+      width: 70%;
+      margin: auto;
+
+      &__h4 {
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  // Footer
+  .footer {
+    .footer__div-2 {
+      width: 80%;
+    }
+  }
+
+  // Home
+  .newsletter {
+    &__h2 {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  // Contact
+  .contactform {
+    &__inputShort {
+      width: 142px;
+    }
+
+    &__input,
+    &__messagefield {
+      width: 300px;
+    }
+  }
+
+  // Footer
+  .footer {
+    .footer__div-2 {
+      width: 90%;
+    }
+  }
+
+  // Home
+  .newsletter {
+    padding-top: 25px;
+
+    &__h4 {
+      width: 80%;
+      margin: auto;
+    }
+
+    &__email {
+      flex-direction: column;
+    }
+
+    &__emailInput {
+      width: 280px;
+    }
+
+    &__btn {
+      margin: auto;
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  // Home
+  .newsletter {
+    &__h2 {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  // Home
+  .newsletter {
+    // padding-top: 25px;
+    // &__email {
+    //   flex-direction: column;
+    //   margin-right: 50px;
+    // }
+
+    // &__emailInput {
+    //   width: 260px;
+    // }
+
+    // &__btn {
+    //   margin: auto;
+    //   margin-top: 20px;
+    // }
+  }
+
+  // Footer
+  .footer {
+    height: 240px;
   }
 }

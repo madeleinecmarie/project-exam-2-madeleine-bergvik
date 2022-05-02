@@ -31,13 +31,24 @@
   padding-top: 144px;
 
   &__section-1 {
-    display: flex;
-    justify-content: space-evenly;
-    margin: auto;
     color: var(--white);
-    width: 90%;
     padding-right: 48px;
-    padding-top: 44px;
+  }
+
+  &__span {
+    display: block;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    margin-top: 150px;
+  }
+
+  &__h3 {
+    margin-top: 20px;
   }
 }
 
@@ -160,3 +171,5 @@
     margin-top: 5px;
   }
 }
+
+// flex justify-evenly m-auto w-11/12 pt-36

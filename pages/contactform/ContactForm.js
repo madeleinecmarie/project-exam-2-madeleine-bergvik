@@ -25,7 +25,7 @@ function ContactForm() {
               name="last-name"
               id="last-name"
               placeholder="Nordmann"
-              className="contactform__inputShort"
+              className="contactform__inputShort contactform__lastname"
             />
           </div>
         </div>
@@ -41,7 +41,7 @@ function ContactForm() {
           className="contactform__input"
         />
 
-        <label htmlFor="email-address" className="contactform__label">
+        <label htmlFor="subject" className="contactform__label">
           Subject
         </label>
         <input

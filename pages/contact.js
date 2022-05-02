@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 
 export default function Contact() {
   return (
-    <div className="contact h-screen">
+    <div className="contact">
       <Head>
         <title>Contact Holidaze</title>
         <meta
@@ -14,7 +14,7 @@ export default function Contact() {
         />
       </Head>
       <Nav />
-      <div className="contact__text container px-6">
+      <div className="contact__text">
         <div className="contact__headline">
           <h1>Contact Holidaze</h1>
           <p className="contact__p">
