@@ -1,21 +1,13 @@
 .nav {
-  height: 150px;
-  display: flex;
-  justify-content: space-between;
   margin: auto;
   width: 95%;
   padding-top: 24px;
-
-  &__ul {
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-  }
+  padding-bottom: 20px;
 
   &__links {
-    color: var(--white);
+    margin-right: 50px;
+    font-size: var(--btn-nav);
     font-weight: var(--semiBold);
-    margin-top: 12px;
   }
 
   &__btn {
@@ -23,14 +15,18 @@
     border-radius: var(--radius);
     height: 48px;
     width: 125px;
+
+    &:hover {
+      background-color: var(--orangeHover);
+    }
   }
 }
 
-.active {
-  border-bottom: solid 3px white;
-  padding: 6px 6px;
-}
+// .active {
+//   border-bottom: solid 3px white;
+//   padding: 6px 6px;
+// }
 
-.active:hover:before {
-  transform: scaleX(1);
-}
+// .active:hover:before {
+//   transform: scaleX(1);
+// }

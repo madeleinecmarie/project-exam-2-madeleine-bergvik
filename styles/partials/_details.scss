@@ -1,0 +1,184 @@
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  margin-top: 60px;
+
+  &__inner {
+  }
+
+  &__headline {
+    font-size: var(--font-sm);
+    color: var(--black);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btns {
+    margin-top: 20px;
+  }
+
+  &__transparent-btn {
+    border: 1.5px solid var(--black);
+
+    &:hover {
+      background-color: var(--black);
+      color: var(--white);
+    }
+  }
+
+  &__orange-btn {
+    background-color: var(--orange);
+    margin-left: 10px;
+
+    &:hover {
+      background-color: var(--orangeHover);
+    }
+  }
+
+  &__hotel-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    // width: 90%;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    width: 85%;
+  }
+
+  &__description-wrapper {
+    margin-top: 30px;
+  }
+
+  &__p {
+    margin-top: 20px;
+  }
+
+  &__info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 90%;
+    margin-top: 120px;
+  }
+
+  &__icons-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+
+  &__icons-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icons-p {
+    margin-top: 25px;
+  }
+
+  &__location-text {
+    display: flex;
+    margin-top: 6px;
+  }
+
+  &__location-p {
+    margin-left: 4px;
+  }
+
+  &__location-img {
+    margin-top: 40px;
+  }
+
+  &__property-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+  }
+
+  &__property-headline {
+    margin-top: 80px;
+  }
+
+  &__property-inner {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  &__property-h2 {
+    font-weight: var(--medium);
+  }
+
+  &__property-bodytext {
+    width: 60%;
+  }
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+
+  &__headtitle {
+    margin-top: 80px;
+  }
+
+  &__wrapper {
+    display: flex;
+    margin-top: 60px;
+  }
+
+  &__headline-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 25px;
+  }
+
+  &__title {
+    font-weight: var(--medium);
+  }
+
+  &__body {
+    margin-top: 20px;
+  }
+}
+
+.modal {
+  background-color: var(--black);
+  width: 580px;
+  height: 640px;
+  z-index: 0;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: var(--radius);
+
+  &__close-btn {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    // box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+    margin-top: -1px;
+    margin-right: -1px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+}

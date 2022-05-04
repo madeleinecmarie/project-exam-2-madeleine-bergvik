@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Footer from "../components/layout/Footer";
-import Nav from "../components/layout/Nav";
+import { Nav } from "../components/layout/Nav";
 import Searchbar from "../components/searchbar/Searchbar";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
@@ -76,7 +76,15 @@ const Stays = ({ hotel }) => {
 
           <div className="results__div">
             {hotel.map(
-              ({ id, name, short_description, stars, featured_img, price }) => {
+              ({
+                id,
+                name,
+                short_description,
+                stars,
+                featured_img,
+                price,
+                amenities,
+              }) => {
                 const myLoader = () => {
                   return featured_img;
                 };
@@ -105,6 +113,8 @@ const Stays = ({ hotel }) => {
                         </h4>
 
                         <p className="hotel__p">{short_description}</p>
+                        <p className="hotel__amenities">{amenities}</p>
+
                         <div className="hotel__baseline">
                           <p className="hotel__price">
                             {price} NOK /

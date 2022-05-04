@@ -16,18 +16,18 @@ function Footer() {
           </div>
         </div>
         <div className="footer__div-2">
-          <ul className="footer__links">
-            <li className="nav__links">
+          <ul className="footer__ul">
+            <li className="footer__links">
               <Link href="/stays" passHref>
                 <a className={router.pathname === "/stays"}>Stays</a>
               </Link>
             </li>
-            <li className="nav__links">
+            <li className="footer__links">
               <Link href="/contact" passHref>
                 <a className={router.pathname === "/contact"}>Contact</a>
               </Link>
             </li>
-            <li className="nav__links">Privacy Policy</li>
+            <li className="footer__links">Privacy Policy</li>
           </ul>
         </div>
       </div>

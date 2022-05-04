@@ -56,9 +56,9 @@ li {
   font-size: var(--btn-nav);
 }
 
-button:hover {
-  background-color: var(--orangeHover);
-}
+// button:hover {
+//   background-color: var(--orangeHover);
+// }
 
 // ::placeholder {
 //   color: var(--gray);
@@ -72,6 +72,10 @@ button:hover {
   margin-top: 10px;
   height: 55px;
   width: 183px;
+
+  &:hover {
+    background-color: var(--orangeHover);
+  }
 }
 
 .blackBtn {
@@ -85,6 +89,13 @@ button:hover {
   &:hover {
     background-color: var(--blackHover);
   }
+}
+
+.smallBtn {
+  width: 169px;
+  height: 45px;
+  border-radius: var(--radius);
+  font-size: var(--font-base);
 }
 
 .contactform {

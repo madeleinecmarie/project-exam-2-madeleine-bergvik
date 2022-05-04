@@ -22,10 +22,15 @@
     width: 30%;
   }
 
-  &__links {
+  &__ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 95%;
+  }
+
+  &__links {
+    color: var(--white);
+    font-weight: var(--semiBold);
   }
 }
