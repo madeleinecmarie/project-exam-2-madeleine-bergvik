@@ -1,11 +1,17 @@
+.bg {
+  background-color: var(--black);
+  height: 20px;
+}
+
 .details {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 85%;
   margin: auto;
   margin-top: 60px;
 
   &__inner {
+    width: 47%;
   }
 
   &__headline {
@@ -15,8 +21,13 @@
     justify-content: space-between;
   }
 
+  &__baseline {
+    margin-top: 40px;
+  }
+
   &__btns {
     margin-top: 20px;
+    display: flex;
   }
 
   &__transparent-btn {
@@ -41,7 +52,6 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    // width: 90%;
   }
 
   &__icons {
@@ -56,7 +66,7 @@
   }
 
   &__p {
-    margin-top: 20px;
+    margin-top: 6px;
   }
 
   &__info-wrapper {
@@ -154,19 +164,20 @@
 
 .modal {
   background-color: var(--black);
-  width: 580px;
-  height: 640px;
+  width: 560px;
+  height: 690px;
   z-index: 0;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   border-radius: var(--radius);
+  margin-top: 20px;
+  box-shadow: 0 5px 20px 0 rgba(29, 40, 46, 0.6);
 
   &__close-btn {
     cursor: pointer;
     transition: all 0.25s ease;
-    // box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
     position: absolute;
     right: 0;
     top: 0;
@@ -181,4 +192,20 @@
     align-items: center;
     margin-top: 15px;
   }
+
+  &__p {
+    color: var(--white);
+    width: 70%;
+    padding-left: 45px;
+    margin-top: 20px;
+  }
+}
+
+.modal-opacity-bgd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--black-opacity);
+  height: 100%;
+  width: 100%;
 }

@@ -35,7 +35,17 @@ export const getStaticProps = async (context) => {
   };
 };
 
+const getReviews = async () => {
+  const res = await fetch("http://localhost:1337/reviews");
+  const data = await res.json();
+
+  return {
+    props: { review: data },
+  };
+};
+
 const Details = ({
+  // review: { title, headline, date, description, image },
   hotel: {
     id,
     name,
@@ -54,7 +64,6 @@ const Details = ({
     location,
     location_img,
     alt_img,
-    reviews: [{ title, headline, date, description, image }],
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,12 +81,12 @@ const Details = ({
       <header className="stays">
         <Nav />
       </header>
-
+      <div className="bg"></div>
       <div className="details">
-        <div className="slider">
+        <div className="details__slider">
           <h2>Slider here</h2>
         </div>
-        <div className="hotels__inner">
+        <div className="details__inner">
           <h1 className="details__headline">
             {name}
             <div className="hotel__starDiv">
@@ -86,10 +95,16 @@ const Details = ({
             </div>
           </h1>
 
-          <p className="hotel__p">{short_description}</p>
+          <p className="details__p">{short_description}</p>
           {/* <p className="hotel__amenities">{amenities}</p> */}
 
-          <div className="hotel__baseline">
+          <div className="details__baseline">
+            {free_cancellation === true ? (
+              <p>Free cancellation</p>
+            ) : (
+              <div style={{ display: "none" }}></div>
+            )}
+
             <p className="hotel__price">
               {price} NOK /<span className="hotel__span"> night</span>
             </p>
@@ -193,23 +208,32 @@ const Details = ({
             </div>
           </div>
         </div>
-        <div className="reviews">
-          <h3 className="reviews__headtitle">4,9/5 Reviews</h3>
-
-          <p>900 verified Holidaze guest reviews</p>
-          <div className="reviews__wrapper">
-            <img src={image} alt="Avatar image" height={82} width={82}></img>
-            <div className="reviews__headline-wrapper">
-              <h4 className="reviews__title">{title}</h4>
-              <p>{date}</p>
-            </div>
-          </div>
-          <div className="reviews__body">
-            <h4 className="reviews__title">{headline}</h4>
-            <p>{description}</p>
-          </div>
-        </div>
       </div>
+
+      {/* <div>
+        {review.map(() => {
+          return (
+            <div key={id} className="reviews">
+              <div className="reviews__wrapper">
+                <img
+                  src={image}
+                  alt="Avatar image"
+                  height={82}
+                  width={82}
+                ></img>
+                <div className="reviews__headline-wrapper">
+                  <h4 className="reviews__title">{title}</h4>
+                  <p>{date}</p>
+                </div>
+              </div>
+              <div className="reviews__body">
+                <h4 className="reviews__title">{headline}</h4>
+                <p>{description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div> */}
       <Footer />
     </>
   );

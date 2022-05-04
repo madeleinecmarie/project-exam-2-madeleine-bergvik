@@ -56,10 +56,6 @@ li {
   font-size: var(--btn-nav);
 }
 
-// button:hover {
-//   background-color: var(--orangeHover);
-// }
-
 // ::placeholder {
 //   color: var(--gray);
 // }
@@ -70,7 +66,7 @@ li {
   border-radius: var(--radius);
   margin-bottom: 80px;
   margin-top: 10px;
-  height: 55px;
+  height: 50px;
   width: 183px;
 
   &:hover {
@@ -119,7 +115,7 @@ li {
 
   &__input,
   &__inputShort {
-    height: 55px;
+    height: 50px;
     padding-left: 15px;
     border-radius: var(--radius);
   }

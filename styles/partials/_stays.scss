@@ -116,13 +116,13 @@
   &__baseline {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
+    margin-top: 50px;
   }
 
   &__price {
     font-weight: var(--bold);
     font-size: var(--font-xs);
-    margin-top: 60px;
   }
 
   &__span {

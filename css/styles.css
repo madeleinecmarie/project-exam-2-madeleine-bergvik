@@ -61,7 +61,7 @@ li {
   border-radius: var(--radius);
   margin-bottom: 80px;
   margin-top: 10px;
-  height: 55px;
+  height: 50px;
   width: 183px;
 }
 
@@ -112,7 +112,7 @@ li {
 }
 
 .contactform__input, .contactform__inputShort {
-  height: 55px;
+  height: 50px;
   padding-left: 15px;
   border-radius: var(--radius);
 }
@@ -147,7 +147,7 @@ li {
 .nav__btn {
   background-color: var(--orange);
   border-radius: var(--radius);
-  height: 48px;
+  height: 45px;
   width: 125px;
 }
 
@@ -157,7 +157,7 @@ li {
 
 .footer {
   background-color: var(--black);
-  height: 224px;
+  height: 190px;
 }
 
 .footer__inner {
@@ -548,20 +548,25 @@ li {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 50px;
 }
 
 .hotel__price {
   font-weight: var(--bold);
   font-size: var(--font-xs);
-  margin-top: 60px;
 }
 
 .hotel__span {
   font-size: var(--font-base);
   font-weight: var(--semiBold);
+}
+
+.bg {
+  background-color: var(--black);
+  height: 20px;
 }
 
 .details {
@@ -571,9 +576,13 @@ li {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 80%;
+  width: 85%;
   margin: auto;
   margin-top: 60px;
+}
+
+.details__inner {
+  width: 47%;
 }
 
 .details__headline {
@@ -587,8 +596,15 @@ li {
           justify-content: space-between;
 }
 
+.details__baseline {
+  margin-top: 40px;
+}
+
 .details__btns {
   margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .details__transparent-btn {
@@ -636,7 +652,7 @@ li {
 }
 
 .details__p {
-  margin-top: 20px;
+  margin-top: 6px;
 }
 
 .details__info-wrapper {
@@ -772,15 +788,18 @@ li {
 
 .modal {
   background-color: var(--black);
-  width: 580px;
-  height: 640px;
+  width: 560px;
+  height: 690px;
   z-index: 0;
-  top: 55%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
   border-radius: var(--radius);
+  margin-top: 20px;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(29, 40, 46, 0.6);
+          box-shadow: 0 5px 20px 0 rgba(29, 40, 46, 0.6);
 }
 
 .modal__close-btn {
@@ -808,6 +827,22 @@ li {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 15px;
+}
+
+.modal__p {
+  color: var(--white);
+  width: 70%;
+  padding-left: 45px;
+  margin-top: 20px;
+}
+
+.modal-opacity-bgd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--black-opacity);
+  height: 100%;
+  width: 100%;
 }
 
 .contact {

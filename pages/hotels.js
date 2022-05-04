@@ -84,6 +84,7 @@ const Stays = ({ hotel }) => {
                 featured_img,
                 price,
                 amenities,
+                free_cancellation,
               }) => {
                 const myLoader = () => {
                   return featured_img;
@@ -93,7 +94,7 @@ const Stays = ({ hotel }) => {
                   <div key={id} className="hotel">
                     <div className="hotel__line"></div>
                     <div className="hotel__wrapper">
-                      <Image
+                      {/* <Image
                         alt="Hotelroom image"
                         src={featured_img}
                         loader={myLoader}
@@ -101,8 +102,16 @@ const Stays = ({ hotel }) => {
                         width={386}
                         height={240}
                         className="hotel__img"
-                      ></Image>
-
+                      ></Image> */}
+                      <div
+                        className="hotel__img"
+                        style={{
+                          backgroundImage: "url(" + featured_img + ")",
+                          backgroundSize: "contain",
+                          backgroundRepeat: "no-repeat",
+                          height: "240px",
+                        }}
+                      ></div>
                       <div className="hotel__inner">
                         <h4 className="hotel__h4">
                           {name}
@@ -116,10 +125,19 @@ const Stays = ({ hotel }) => {
                         <p className="hotel__amenities">{amenities}</p>
 
                         <div className="hotel__baseline">
-                          <p className="hotel__price">
-                            {price} NOK /
-                            <span className="hotel__span"> night</span>
-                          </p>
+                          <div>
+                            {free_cancellation === true ? (
+                              <p>Free cancellation</p>
+                            ) : (
+                              <div style={{ display: "none" }}></div>
+                            )}
+
+                            <p className="hotel__price">
+                              {price} NOK /
+                              <span className="hotel__span"> night</span>
+                            </p>
+                          </div>
+
                           <Link href={"/hotels/" + id} passHref>
                             <button className="blackBtn">Book room</button>
                           </Link>
