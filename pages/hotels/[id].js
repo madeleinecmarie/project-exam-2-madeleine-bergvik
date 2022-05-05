@@ -1,11 +1,16 @@
 // import Link from "next/link";
 import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { Nav } from "../../components/layout/Nav";
 import Footer from "../../components/layout/Footer";
 import Modal from "../../components/modal/Modal";
 import React, { useState } from "react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export const getStaticPaths = async () => {
   const res = await fetch("http://localhost:1337/hotels");
@@ -35,17 +40,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const getReviews = async () => {
-  const res = await fetch("http://localhost:1337/reviews");
-  const data = await res.json();
-
-  return {
-    props: { review: data },
-  };
-};
-
 const Details = ({
-  // review: { title, headline, date, description, image },
   hotel: {
     id,
     name,
@@ -64,6 +59,8 @@ const Details = ({
     location,
     location_img,
     alt_img,
+    reviews,
+    slider,
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,8 +80,34 @@ const Details = ({
       </header>
       <div className="bg"></div>
       <div className="details">
-        <div className="details__slider">
-          <h2>Slider here</h2>
+        <div className="details__sliderDiv">
+          {slider.map(({ id, image }) => {
+            const myLoader = () => {
+              return image;
+            };
+            return (
+              <Swiper
+                className="details__slider"
+                pagination={true}
+                modules={Pagination}
+                key={id}
+                // spaceBetween={50}
+                // slidesPerView={1}
+                // onSlideChange={() => console.log("slide change")}
+                // onSwiper={(swiper) => console.log(swiper)}
+              >
+                <SwiperSlide className="mySwiper" key={id}>
+                  <Image
+                    src={image}
+                    loader={myLoader}
+                    width={500}
+                    height={500}
+                    alt=""
+                  />
+                </SwiperSlide>
+              </Swiper>
+            );
+          })}
         </div>
         <div className="details__inner">
           <h1 className="details__headline">
@@ -209,9 +232,8 @@ const Details = ({
           </div>
         </div>
       </div>
-
-      {/* <div>
-        {review.map(() => {
+      <div className="reviewsDiv">
+        {reviews.map(({ title, headline, date, description, image }) => {
           return (
             <div key={id} className="reviews">
               <div className="reviews__wrapper">
@@ -228,12 +250,12 @@ const Details = ({
               </div>
               <div className="reviews__body">
                 <h4 className="reviews__title">{headline}</h4>
-                <p>{description}</p>
+                <p className="reviews__description">{description}</p>
               </div>
             </div>
           );
         })}
-      </div> */}
+      </div>
       <Footer />
     </>
   );

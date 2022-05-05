@@ -94,7 +94,7 @@ const Stays = ({ hotel }) => {
                   <div key={id} className="hotel">
                     <div className="hotel__line"></div>
                     <div className="hotel__wrapper">
-                      {/* <Image
+                      <Image
                         alt="Hotelroom image"
                         src={featured_img}
                         loader={myLoader}
@@ -102,16 +102,7 @@ const Stays = ({ hotel }) => {
                         width={386}
                         height={240}
                         className="hotel__img"
-                      ></Image> */}
-                      <div
-                        className="hotel__img"
-                        style={{
-                          backgroundImage: "url(" + featured_img + ")",
-                          backgroundSize: "contain",
-                          backgroundRepeat: "no-repeat",
-                          height: "240px",
-                        }}
-                      ></div>
+                      ></Image>
                       <div className="hotel__inner">
                         <h4 className="hotel__h4">
                           {name}
@@ -122,7 +113,7 @@ const Stays = ({ hotel }) => {
                         </h4>
 
                         <p className="hotel__p">{short_description}</p>
-                        <p className="hotel__amenities">{amenities}</p>
+                        {/* <p className="hotel__amenities">{amenities}</p> */}
 
                         <div className="hotel__baseline">
                           <div>

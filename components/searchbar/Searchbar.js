@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { DateRangePicker } from "@mantine/dates";
+
 function Searchbar() {
+  const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
+
   return (
     <div>
       <div className="searchbar">
@@ -8,10 +13,11 @@ function Searchbar() {
             type="search"
             placeholder="Search for an adventure"
           />
-          <input
-            className="searchbar__input searchbar__input-2"
-            type="date"
-            placeholder="Check in/out"
+          <DateRangePicker
+            placeholder="Check in/out date"
+            className="searchbar__datepicker"
+            value={value}
+            onChange={setValue}
           />
           <input
             className="searchbar__input searchbar__input-3"

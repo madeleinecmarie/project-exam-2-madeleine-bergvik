@@ -102,6 +102,7 @@
 
   &__form {
     margin-top: 40px;
+    display: flex;
   }
 
   &__input {
@@ -115,12 +116,26 @@
     width: 253px;
   }
 
-  &__input-2 {
-    width: 155px;
+  &__datepicker {
+    margin: 0;
+    margin-right: 12px;
+
+    & input {
+      height: 65px;
+      width: 253px;
+      border: none;
+
+      &::placeholder {
+        font-size: var(--font-base);
+        font-weight: var(--medium);
+        color: var(--gray);
+        font-family: var(--name);
+      }
+    }
   }
 
   &__input-3 {
-    width: 144px;
+    width: 124px;
   }
 
   &__btn {
@@ -172,4 +187,12 @@
   }
 }
 
-// flex justify-evenly m-auto w-11/12 pt-36
+// .mantine-1m3pqry {
+//   font-family: var(--name);
+// }
+
+.mantine-DateRangePicker-root,
+.searchbar__datepicker,
+.mantine-1m3pqry {
+  height: 0;
+}

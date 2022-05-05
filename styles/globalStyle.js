@@ -3,6 +3,9 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 :root {
 
+    // Font name
+    --font: "Work Sans", sans-serif;
+
     // Colors
     --white: #ffffff;
     --black: #1D282E;
@@ -12,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     --light-gray: rgba(29, 40, 46, 0.15);
     --blackHover: #38454D;
     --orangeHover: #e9a44a;
-    --black-opacity: rgba(29, 40, 46, 0.6);
+    --black-opacity: rgba(29, 40, 46, 0.5);
 
     // Fonts sizes
     --font-xl: 5.938rem;

@@ -8,8 +8,7 @@ body {
   margin: 0;
   text-decoration: none;
   list-style: none;
-  font-family: "Roboto", sans-serif;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font);
   color: var(--black);
 }
 
@@ -55,10 +54,6 @@ button,
 li {
   font-size: var(--btn-nav);
 }
-
-// ::placeholder {
-//   color: var(--gray);
-// }
 
 .formBtn {
   background-color: var(--orange);
@@ -132,5 +127,13 @@ li {
 
   &__lastname {
     margin-left: 15px;
+  }
+}
+
+input {
+  &::placeholder {
+    font-size: var(--font-base);
+    font-weight: var(--medium);
+    color: var(--gray);
   }
 }
