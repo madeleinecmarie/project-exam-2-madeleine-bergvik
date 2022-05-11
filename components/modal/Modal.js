@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import ContactForm from "../contactform/ContactForm";
+import { ContactForm } from "../contactform/ContactForm";
 
 const Modal = ({ setIsOpen }) => {
   return (

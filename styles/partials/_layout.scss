@@ -59,7 +59,6 @@ li {
   background-color: var(--orange);
   color: var(--black);
   border-radius: var(--radius);
-  margin-bottom: 80px;
   margin-top: 10px;
   height: 50px;
   width: 183px;
@@ -89,49 +88,9 @@ li {
   font-size: var(--font-base);
 }
 
-.contactform {
-  display: flex;
-
-  &__label {
-    color: var(--white);
-    margin-top: 20px;
-    margin-bottom: 5px;
-    display: block;
-    font-weight: var(--medium);
-  }
-
-  &__inputShort {
-    width: 229px;
-  }
-
-  &__input {
-    width: 472px;
-  }
-
-  &__input,
-  &__inputShort {
-    height: 50px;
-    padding-left: 15px;
-    border-radius: var(--radius);
-  }
-
-  &__messagefield {
-    padding-left: 15px;
-    padding-top: 10px;
-    width: 472px;
-    height: 165px;
-    color: var(--black);
-    resize: none;
-    border-radius: var(--radius);
-  }
-
-  &__lastname {
-    margin-left: 15px;
-  }
-}
-
 input {
-  &::placeholder {
+  &::placeholder,
+  .mantine-DateRangePicker-defaultVariant.mantine-DateRangePicker-input.mantine-DateRangePicker-input.mantine-1oqua4f {
     font-size: var(--font-base);
     font-weight: var(--medium);
     color: var(--gray);

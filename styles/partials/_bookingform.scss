@@ -1,0 +1,73 @@
+.bookingform {
+  background-color: var(--black);
+  height: auto;
+  width: 600px;
+  margin-top: 40px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+  }
+
+  &__btn {
+    margin-top: 20px;
+  }
+}
+
+.cardInfo {
+  margin-top: 40px;
+}
+
+.contactform {
+  display: flex;
+
+  &__label {
+    color: var(--white);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: var(--medium);
+  }
+
+  &__inputShort {
+    width: 229px;
+  }
+
+  &__input {
+    width: 472px;
+  }
+
+  &__input,
+  &__inputShort {
+    color: var(--black);
+    height: 50px;
+    padding-left: 15px;
+    border-radius: var(--radius);
+  }
+
+  &__messagefield {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 472px;
+    height: 130px;
+    color: var(--black);
+    resize: none;
+    border-radius: var(--radius);
+  }
+
+  &__lastname {
+    margin-left: 15px;
+  }
+
+  &__firstname {
+    width: 229px;
+  }
+
+  &__BtnDiv {
+    padding-bottom: 30px;
+  }
+}

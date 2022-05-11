@@ -5,6 +5,7 @@ import Searchbar from "../components/searchbar/Searchbar";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import Filter from "../components/filter/Filter";
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:1337/hotels");
@@ -17,38 +18,43 @@ export const getStaticProps = async () => {
 
 const Stays = ({ hotel }) => {
   return (
-    <div>
+    <>
       <Head>
-        <title>Stays</title>
+        <title>Hotels</title>
         <meta
           name="description"
           content="Book hotelrooms in Stavanger. Holidaze.com official site. Best Price Guarantee and Bonus program. Find the perfect stay for your next adventure."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="stays">
+      <header className="hotels">
         <Nav />
       </header>
       <main>
-        <section className="stays__section-1">
-          <div className="stays__headline">
+        <section className="hotels__section-1">
+          <div className="hotels__headline">
             <h3 className="text-white">Good day,</h3>
-            <h1>Find the best place for you to stay</h1>
+            <h1 className="hotels__h1">Find the best place for you to stay</h1>
           </div>
-          <div className="stays__searchbar">
+          <div className="hotels__searchbar">
             <Searchbar className="pt-10" />
           </div>
         </section>
 
-        <div className="hotels">
-          <div className="filter">
+        <div className="hotelsWrapper">
+          <div className="hotels__h2-wrapper">
             <h2>Hotels</h2>
-            <div className="filter__sorting">
+            <div className="filter">
+              <Filter />
+            </div>
+          </div>
+
+          {/* <div className="filter__sorting">
               <h4>Filter by</h4>
               <input type="checkbox" className="filter__input" />
               <label className="filter__label">Free cancellation</label>
-            </div>
-            <div className="filter__rating"></div>
+            </div> */}
+          {/* <div className="filter__rating"></div>
             <h4>Star Rating</h4>
             <div className="inputs">
               <div>
@@ -72,7 +78,7 @@ const Stays = ({ hotel }) => {
                 <label className="inputs__label">5 stars</label>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="results__div">
             {hotel.map(
@@ -100,7 +106,7 @@ const Stays = ({ hotel }) => {
                         loader={myLoader}
                         unoptimized={true}
                         width={386}
-                        height={240}
+                        height={230}
                         className="hotel__img"
                       ></Image>
                       <div className="hotel__inner">
@@ -112,8 +118,8 @@ const Stays = ({ hotel }) => {
                           </div>
                         </h4>
 
+                        <p className="hotel__amenities">{amenities}</p>
                         <p className="hotel__p">{short_description}</p>
-                        {/* <p className="hotel__amenities">{amenities}</p> */}
 
                         <div className="hotel__baseline">
                           <div>
@@ -144,7 +150,7 @@ const Stays = ({ hotel }) => {
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

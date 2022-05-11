@@ -1,0 +1,16 @@
+.booking {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+
+  &__h1 {
+    color: var(--black);
+    margin-top: 40px;
+  }
+
+  &__h4 {
+    font-weight: var(--medium);
+    margin-top: 60px;
+  }
+}

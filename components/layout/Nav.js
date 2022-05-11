@@ -1,8 +1,7 @@
 // import { useRouter } from "next/router";
 import Logo from "../logo/Logo";
-
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Nav = () => {
   const [active, setActive] = useState(false);
@@ -13,7 +12,7 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className="nav flex items-center flex-wrap">
+      <nav className="nav active flex items-center flex-wrap">
         <Logo />
         <button
           className=" inline-flex p-3 rounded lg:hidden text-white ml-auto hover:text-white outline-none"
@@ -57,7 +56,9 @@ export const Nav = () => {
               </a>
             </Link>
             <div>
-              <button className="nav__btn">Log in</button>
+              <Link href="/loginPage" passHref>
+                <button className="nav__btn">Log in</button>
+              </Link>
             </div>
           </div>
         </div>

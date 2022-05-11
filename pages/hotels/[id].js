@@ -6,6 +6,7 @@ import { Nav } from "../../components/layout/Nav";
 import Footer from "../../components/layout/Footer";
 import Modal from "../../components/modal/Modal";
 import React, { useState } from "react";
+import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -75,39 +76,38 @@ const Details = ({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="stays">
+      <header className="hotels">
         <Nav />
       </header>
       <div className="bg"></div>
       <div className="details">
         <div className="details__sliderDiv">
-          {slider.map(({ id, image }) => {
-            const myLoader = () => {
-              return image;
-            };
-            return (
-              <Swiper
-                className="details__slider"
-                pagination={true}
-                modules={Pagination}
-                key={id}
-                // spaceBetween={50}
-                // slidesPerView={1}
-                // onSlideChange={() => console.log("slide change")}
-                // onSwiper={(swiper) => console.log(swiper)}
-              >
-                <SwiperSlide className="mySwiper" key={id}>
+          <Swiper
+            loop
+            key={id}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
+            {slider.map(({ id, image }) => {
+              const myLoader = () => {
+                return image;
+              };
+              return (
+                <SwiperSlide key={id}>
                   <Image
                     src={image}
                     loader={myLoader}
-                    width={500}
-                    height={500}
+                    width={625}
+                    height={371}
                     alt=""
                   />
                 </SwiperSlide>
-              </Swiper>
-            );
-          })}
+              );
+            })}
+          </Swiper>
         </div>
         <div className="details__inner">
           <h1 className="details__headline">
@@ -118,8 +118,8 @@ const Details = ({
             </div>
           </h1>
 
+          <p className="hotel__amenities">{amenities}</p>
           <p className="details__p">{short_description}</p>
-          {/* <p className="hotel__amenities">{amenities}</p> */}
 
           <div className="details__baseline">
             {free_cancellation === true ? (
@@ -141,7 +141,11 @@ const Details = ({
               Contact hotel
             </button>
             {isOpen && <Modal setIsOpen={setIsOpen} />}
-            <button className="smallBtn details__orange-btn">Book room</button>
+            <Link href="/booking">
+              <button className="smallBtn details__orange-btn">
+                Book room
+              </button>
+            </Link>
           </div>
         </div>
       </div>

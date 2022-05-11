@@ -1,0 +1,52 @@
+.admin-header {
+  background-color: var(--black);
+}
+
+.admin {
+  background-color: var(--black);
+
+  &__headline {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding-top: 60px;
+  }
+
+  &__table {
+    background-color: var(--white);
+    width: 90%;
+    border-radius: var(--radius);
+    margin: auto;
+  }
+
+  &__btn-div {
+    display: flex;
+    margin: auto;
+    margin-top: 60px;
+    width: 90%;
+  }
+
+  &__btn-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  &__btn {
+    width: 144px;
+    height: 48px;
+    background-color: var(--white);
+    border-radius: var(--radius);
+  }
+
+  &__btn-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__active {
+    background-color: var(--orange);
+  }
+}

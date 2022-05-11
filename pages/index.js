@@ -53,7 +53,7 @@ export default function Home({ attraction }) {
                 ></Image>
                 <h3 className="home__h3">15% Bonus</h3>
               </div>
-              <div>
+              <div className="card-icon">
                 <Image
                   src={Card}
                   alt="Card icon"

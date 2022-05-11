@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DateRangePicker } from "@mantine/dates";
+import { Icon } from "@iconify/react";
 
 function Searchbar() {
   const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
@@ -11,8 +12,9 @@ function Searchbar() {
           <input
             className="searchbar__input searchbar__input-1"
             type="search"
-            placeholder="Search for an adventure"
+            placeholder="Search for hotel"
           />
+
           <DateRangePicker
             placeholder="Check in/out date"
             className="searchbar__datepicker"
@@ -20,7 +22,7 @@ function Searchbar() {
             onChange={setValue}
           />
           <input
-            className="searchbar__input searchbar__input-3"
+            className="searchbar__input searchbar__input-3 searchbar__input-3-margintop"
             type="text"
             placeholder="Add guests"
           />
@@ -29,7 +31,9 @@ function Searchbar() {
             type="text"
             placeholder="Add rooms"
           />
-          <input className="searchbar__btn" type="submit" value="submit" />
+          <button className="searchbar__btn" type="submit" value="submit">
+            <Icon icon="carbon:search" color="#1d282e" width={38} height={38} />
+          </button>
         </form>
       </div>
     </div>

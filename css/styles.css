@@ -58,7 +58,6 @@ li {
   background-color: var(--orange);
   color: var(--black);
   border-radius: var(--radius);
-  margin-bottom: 80px;
   margin-top: 10px;
   height: 50px;
   width: 183px;
@@ -111,6 +110,7 @@ li {
 }
 
 .contactform__input, .contactform__inputShort {
+  color: var(--black);
   height: 50px;
   padding-left: 15px;
   border-radius: var(--radius);
@@ -120,7 +120,7 @@ li {
   padding-left: 15px;
   padding-top: 10px;
   width: 472px;
-  height: 165px;
+  height: 130px;
   color: var(--black);
   resize: none;
   border-radius: var(--radius);
@@ -130,25 +130,37 @@ li {
   margin-left: 15px;
 }
 
-input::-webkit-input-placeholder {
+.contactform__firstname {
+  width: 229px;
+}
+
+.contactform__BtnDiv {
+  padding-bottom: 30px;
+}
+
+input::-webkit-input-placeholder,
+input .mantine-DateRangePicker-defaultVariant.mantine-DateRangePicker-input.mantine-DateRangePicker-input.mantine-1oqua4f {
   font-size: var(--font-base);
   font-weight: var(--medium);
   color: var(--gray);
 }
 
-input:-ms-input-placeholder {
+input:-ms-input-placeholder,
+input .mantine-DateRangePicker-defaultVariant.mantine-DateRangePicker-input.mantine-DateRangePicker-input.mantine-1oqua4f {
   font-size: var(--font-base);
   font-weight: var(--medium);
   color: var(--gray);
 }
 
-input::-ms-input-placeholder {
+input::-ms-input-placeholder,
+input .mantine-DateRangePicker-defaultVariant.mantine-DateRangePicker-input.mantine-DateRangePicker-input.mantine-1oqua4f {
   font-size: var(--font-base);
   font-weight: var(--medium);
   color: var(--gray);
 }
 
-input::placeholder {
+input::placeholder,
+input .mantine-DateRangePicker-defaultVariant.mantine-DateRangePicker-input.mantine-DateRangePicker-input.mantine-1oqua4f {
   font-size: var(--font-base);
   font-weight: var(--medium);
   color: var(--gray);
@@ -462,9 +474,7 @@ input::placeholder {
   margin-top: 5px;
 }
 
-.mantine-DateRangePicker-root,
-.searchbar__datepicker,
-.mantine-1m3pqry {
+.mantine-DateRangePicker-root.searchbar__datepicker.mantine-1m3pqry {
   height: 0;
 }
 
@@ -644,13 +654,17 @@ input::placeholder {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 85%;
+  width: 90%;
   margin: auto;
   margin-top: 60px;
 }
 
 .details__inner {
   width: 47%;
+}
+
+.details__sliderDiv {
+  width: 45%;
 }
 
 .details__headline {
@@ -665,7 +679,7 @@ input::placeholder {
 }
 
 .details__baseline {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .details__btns {
@@ -878,15 +892,15 @@ input::placeholder {
 .modal {
   background-color: var(--black);
   width: 560px;
-  height: 690px;
-  z-index: 0;
-  top: 50%;
+  height: auto;
+  z-index: 99;
+  top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
   border-radius: var(--radius);
-  margin-top: 20px;
+  margin-top: 30px;
   -webkit-box-shadow: 0 5px 20px 0 rgba(29, 40, 46, 0.6);
           box-shadow: 0 5px 20px 0 rgba(29, 40, 46, 0.6);
 }
@@ -932,29 +946,11 @@ input::placeholder {
   background-color: var(--black-opacity);
   height: 100%;
   width: 100%;
+  z-index: 2;
 }
 
 .slider {
   width: 625px;
-}
-
-#app {
-  height: 100%;
-}
-
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
 }
 
 .swiper {
@@ -980,10 +976,18 @@ body {
 
 .swiper-slide img {
   display: block;
-  width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.swiper-pagination-bullet {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--orange);
 }
 
 .contact {
@@ -1000,7 +1004,8 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin: auto;
-  margin-top: 70px;
+  margin-top: 40px;
+  padding-bottom: 110px;
 }
 
 .contact__headline {

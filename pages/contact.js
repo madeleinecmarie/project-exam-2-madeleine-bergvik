@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Nav } from "../components/layout/Nav";
-import ContactForm from "../components/contactform/ContactForm";
+import { ContactForm } from "../components/contactform/ContactForm";
 import { Icon } from "@iconify/react";
 
 export default function Contact() {

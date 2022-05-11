@@ -4,7 +4,7 @@ import LogoImage from "../../public/images/logo.png";
 
 function Logo() {
   return (
-    <div>
+    <div className="logo-container">
       <Link href="/" passHref>
         <a>
           <Image
