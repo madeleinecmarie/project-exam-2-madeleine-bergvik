@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { ContactForm } from "../contactform/ContactForm";
+import { EnquiryForm } from "../forms/EnquiryForm";
 
 const Modal = ({ setIsOpen }) => {
   return (
@@ -15,7 +15,7 @@ const Modal = ({ setIsOpen }) => {
             you shortly.
           </p>
           <div className="modal__form">
-            <ContactForm />
+            <EnquiryForm />
           </div>
         </div>
       </div>
