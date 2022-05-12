@@ -71,3 +71,38 @@
     padding-bottom: 30px;
   }
 }
+
+.login {
+  background-color: var(--black);
+  display: flex;
+  height: 720px;
+
+  &__label {
+    margin-top: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 100px;
+  }
+
+  &__headline {
+    margin-bottom: 60px;
+  }
+
+  &__password-label {
+    margin-top: 30px;
+  }
+
+  &__btn {
+    margin-top: 25px;
+  }
+
+  &__error {
+    color: red;
+    display: block;
+    margin-top: 4px;
+  }
+}

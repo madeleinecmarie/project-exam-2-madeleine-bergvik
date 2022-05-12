@@ -84,7 +84,7 @@ const Details = ({
         <div className="details__sliderDiv">
           <Swiper
             loop
-            key={id}
+            // key={id}
             pagination={{
               clickable: true,
             }}
@@ -237,7 +237,7 @@ const Details = ({
         </div>
       </div>
       <div className="reviewsDiv">
-        {reviews.map(({ title, headline, date, description, image }) => {
+        {reviews.map(({ id, title, headline, date, description, image }) => {
           return (
             <div key={id} className="reviews">
               <div className="reviews__wrapper">

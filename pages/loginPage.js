@@ -1,34 +1,25 @@
 import nookies from "nookies";
+import Head from "next/head";
+import { Nav } from "../components/layout/Nav";
 import LoginComponent from "../components/login/LoginComponent";
 import { useRouter } from "next/router";
 
 export function LoginPage() {
-  // Log Out
-  const router = useRouter();
-  const {
-    user: { email, username },
-  } = props;
-
-  const logout = async () => {
-    try {
-      await axios.get("/api/logout");
-      router.push("/");
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   return (
     <div>
-      loginpage
+      <Head>
+        <title>{}</title>
+        <meta
+          name="description"
+          content="Book hotelrooms in Stavanger. Holidaze.com official site. Best Price Guarantee and Bonus program. Find the perfect stay for your next adventure."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <header className="hotels">
+        <Nav />
+      </header>
       <LoginComponent />
-      <div>
-        <div>
-          <div>Username: {username}</div>
-          <div>Email: {email}</div>
-          <button onClick={logout}>Logout</button>
-        </div>
-      </div>
+      <div></div>
     </div>
   );
 }
@@ -54,7 +45,7 @@ export const getServerSideProps = async (ctx) => {
     return {
       redirect: {
         permanent: false,
-        destination: "/INSER DESTINATION",
+        destination: "/",
       },
     };
   }
