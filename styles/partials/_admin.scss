@@ -8,8 +8,8 @@
   &__headline {
     display: flex;
     flex-direction: column;
-    width: 90%;
     margin: auto;
+    width: 90%;
     padding-top: 60px;
   }
 
@@ -20,33 +20,36 @@
     margin: auto;
   }
 
-  &__btn-div {
-    display: flex;
-    margin: auto;
-    margin-top: 60px;
-    width: 90%;
+  &__td,
+  &__th {
+    padding: 15px;
   }
+}
 
-  &__btn-inner {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-  }
+.mantine-Group-root.__mantine-ref-tabsList.mantine-Tabs-tabsList.mantine-1wh8mct {
+  margin: auto;
+  width: 90%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+}
 
-  &__btn {
-    width: 144px;
-    height: 48px;
-    background-color: var(--white);
-    border-radius: var(--radius);
-  }
+.mantine-15ssm7.__mantine-ref-tabActive {
+  background-color: var(--orange);
+  width: 144px;
+  height: 45px;
+}
 
-  &__btn-right {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-  }
+.mantine-Tabs-tabControl.mantine-Tabs-pills.mantine-Group-child.mantine-qi2p0q {
+  background-color: var(--white);
+  width: 144px;
+  height: 45px;
+}
 
-  &__active {
-    background-color: var(--orange);
-  }
+.mantine-1s8spa1.mantine-Tabs-tabLabel {
+  font-size: var(--btn-nav);
+  font-weight: var(--semiBold);
+  font-family: var(--font);
+  color: var(--black);
 }

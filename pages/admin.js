@@ -1,6 +1,10 @@
 import { Nav } from "../components/layout/Nav";
 import Image from "next/image";
 import Head from "next/head";
+import { Icon } from "@iconify/react";
+
+import { useState } from "react";
+import { Tabs } from "@mantine/core";
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:1337/hotels");
@@ -12,6 +16,8 @@ export const getStaticProps = async () => {
 };
 
 const Admin = ({ hotel, id }) => {
+  const [activeTab, setActiveTab] = useState(1);
+
   return (
     <div key={id}>
       <Head>
@@ -25,56 +31,94 @@ const Admin = ({ hotel, id }) => {
 
       <div className="admin">
         <h1 className="admin__headline">Admin</h1>
-        <div className="admin__btn-div">
-          <div className="admin__btn-inner">
-            <button className="admin__btn admin__active">Hotels</button>
-            <button className="admin__btn">Enquiries</button>
-            <button className="admin__btn">Message</button>
-          </div>
-          <div className="admin__btn-right">
-            <button className="admin__btn">Add Hotels</button>
-          </div>
+
+        <div>
+          <Tabs
+            color="dark"
+            variant="pills"
+            tabPadding="lg"
+            active={activeTab}
+            onTabChange={setActiveTab}
+          >
+            <Tabs.Tab label="Hotels">
+              <div key={id} className="admin__wrapper">
+                <table className="table-auto admin__table">
+                  <thead>
+                    <tr>
+                      <th className="admin__th">ID</th>
+                      <th className="admin__th">Hotels</th>
+                      <th className="admin__th">Image</th>
+                      <th className="admin__th">Description</th>
+                      <th className="admin__th">Price</th>
+                      <th className="admin__th">Amenities</th>
+                      <th className="admin__th">Location</th>
+                      <th className="admin__th">Edit</th>
+                      <th className="admin__th">Delete</th>
+                    </tr>
+                  </thead>
+                  <>
+                    <tbody>
+                      {hotel.map(
+                        ({
+                          id,
+                          name,
+                          short_description,
+                          // stars,
+                          featured_img,
+                          price,
+                          amenities,
+                          // free_cancellation,
+                          location,
+                        }) => {
+                          return (
+                            <tr key={id}>
+                              <td className="admin__td">{id}</td>
+                              <td className="admin__td">{name}</td>
+                              <td className="admin__td">
+                                <img
+                                  alt=""
+                                  src={featured_img}
+                                  height={400}
+                                  width={400}
+                                ></img>
+                              </td>
+                              <td className="admin__td">{short_description}</td>
+                              <td className="admin__td">{price}</td>
+                              <td className="admin__td">{amenities}</td>
+                              <td className="admin__td">{location}</td>
+                              <td className="admin__td">
+                                <Icon
+                                  icon="akar-icons:edit"
+                                  color="#1d282e"
+                                  height={20}
+                                />
+                              </td>
+                              <td className="admin__td">
+                                <Icon
+                                  icon="cil:trash"
+                                  color="#1d282e"
+                                  height={20}
+                                />
+                              </td>
+                            </tr>
+                          );
+                        }
+                      )}
+                    </tbody>
+                  </>
+                </table>
+                ;
+              </div>
+            </Tabs.Tab>
+            <Tabs.Tab label="Enquiries">Settings tab content</Tabs.Tab>
+            <Tabs.Tab label="Messages">Messages tab content</Tabs.Tab>
+          </Tabs>
         </div>
 
-        <div className="">
-          {hotel.map(
-            ({
-              id,
-              name,
-              short_description,
-              stars,
-              featured_img,
-              price,
-              amenities,
-              free_cancellation,
-              location,
-            }) => {
-              return (
-                <div key={id} className="admin__wrapper">
-                  {/* <table className="admin__table">
-                    <td>{id}</td>
-
-                    <td>{name}</td>
-
-                    <td>
-                      <img
-                        src={featured_img}
-                        alt="Image of hotelroom"
-                        width={50}
-                        height={50}
-                      ></img>
-                    </td>
-
-                    <td>{short_description}</td>
-
-                    <td>{price}</td>
-                    <td>{location}</td>
-                  </table> */}
-                </div>
-              );
-            }
-          )}
-        </div>
+        {/* 
+        <div className="admin__btn-right">
+          <button className="admin__btn">Add Hotels</button>
+        </div> */}
       </div>
     </div>
   );

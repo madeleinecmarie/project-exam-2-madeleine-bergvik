@@ -7,7 +7,7 @@ import * as Yup from "yup";
 const SignupSchema = Yup.object().shape({
   identifier: Yup.string()
     .email("Invalid username")
-    .required("Username is required"),
+    .required("Email is required"),
   password: Yup.string()
     .min(6, "You need more then 6 letters in your password")
     .max(30, "Your password is too long.")
@@ -52,7 +52,7 @@ const LoginComponent = () => {
                     htmlFor="identifier"
                     className="contactform__label login__label"
                   >
-                    Username
+                    Email
                   </label>
                   <Field
                     className="contactform__input"

@@ -6,17 +6,21 @@ import axios from "axios";
 function Searchbar() {
   const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
 
   useEffect(() => {
     const loadPosts = async () => {
-      setLoading(true);
+      // setLoading(true);
       const response = await axios.get("http://localhost:1337/hotels");
       setPosts(response.data);
-      setLoading(false);
+      // setLoading(false);
     };
+
+    // loading ? (
+    //   <h4>Loading ...</h4>
+    // ) :
 
     loadPosts();
   }, []);
@@ -28,29 +32,27 @@ function Searchbar() {
           <div>
             <input
               className="searchbar__input searchbar__input-1"
-              // type="search"
               placeholder="Search for hotel"
               type="text"
               onChange={(e) => setSearchTitle(e.target.value)}
             />
 
-            {loading ? (
-              <h4>Loading ...</h4>
-            ) : (
-              posts
-                .filter((value) => {
-                  if (searchTitle === "") {
-                    return value;
-                  } else if (
-                    value.name
-                      .toLowerCase()
-                      .includes(searchTitle.toLocaleLowerCase())
-                  ) {
-                    return value;
-                  }
-                })
-                .map((item) => <h5 key={item.id}>{item.name}</h5>)
-            )}
+            {posts
+              .filter((value) => {
+                if (searchTitle === "") {
+                  return value;
+                } else if (
+                  value.name
+                    .toLowerCase()
+                    .includes(searchTitle.toLocaleLowerCase())
+                ) {
+                  return value;
+                }
+              })
+
+              .map((item) => (
+                <h5 key={item.id}>{item.name}</h5>
+              ))}
           </div>
 
           <DateRangePicker
