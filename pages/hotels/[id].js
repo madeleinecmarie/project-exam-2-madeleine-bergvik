@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { Nav } from "../../components/layout/Nav";
 import Footer from "../../components/layout/Footer";
 import Modal from "../../components/modal/Modal";
+import ModalBooking from "../../components/modal/ModalBooking";
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -65,6 +66,7 @@ const Details = ({
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalOpen, modalIsOpen] = useState(false);
 
   return (
     <>
@@ -141,11 +143,14 @@ const Details = ({
               Contact hotel
             </button>
             {isOpen && <Modal setIsOpen={setIsOpen} />}
-            <Link href="/booking">
-              <button className="smallBtn details__orange-btn">
-                Book room
-              </button>
-            </Link>
+
+            <button
+              onClick={() => modalIsOpen(true)}
+              className="smallBtn details__orange-btn"
+            >
+              Contact hotel
+            </button>
+            {modalOpen && <ModalBooking setIsOpen={modalIsOpen} />}
           </div>
         </div>
       </div>
@@ -236,6 +241,10 @@ const Details = ({
           </div>
         </div>
       </div>
+      <div className="reviewsHeadline">
+        <h3>4,9/5 Reviews</h3>
+        <p>900 verified Holidaze guest reviews</p>
+      </div>
       <div className="reviewsDiv">
         {reviews.map(({ id, title, headline, date, description, image }) => {
           return (
@@ -259,6 +268,9 @@ const Details = ({
             </div>
           );
         })}
+      </div>
+      <div>
+        <p className="reviewsLink">See all 900 reviews</p>
       </div>
       <Footer />
     </>
