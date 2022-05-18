@@ -1,0 +1,75 @@
+.searchbar__div {
+  margin-top: 290px;
+}
+
+.searchbar {
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  border-radius: var(--radius);
+  height: 160px;
+  width: 943px;
+  margin: auto;
+
+  &__form {
+    margin-top: 40px;
+    display: flex;
+  }
+
+  &__input {
+    border-radius: var(--radius);
+    height: 65px;
+    margin-right: 12px;
+    padding-left: 10px;
+  }
+
+  &__input-1 {
+    width: 253px;
+
+    &::placeholder {
+      color: var(--black);
+    }
+  }
+
+  &__datepicker {
+    margin: 0;
+    margin-right: 12px;
+
+    & input {
+      height: 65px;
+      width: 253px;
+      border: none;
+
+      &::placeholder {
+        font-size: var(--font-base);
+        font-weight: var(--medium);
+        color: var(--black);
+        font-family: var(--name);
+      }
+
+      &::active {
+        font-weight: var(--medium);
+      }
+    }
+  }
+
+  &__input-3 {
+    width: 124px;
+    color: var(--black);
+    font-weight: var(--medium);
+  }
+
+  &__btn {
+    background-color: var(--orange);
+    border-radius: var(--radius);
+    height: 65px;
+    width: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: var(--orangeHover);
+    }
+  }
+}

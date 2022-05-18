@@ -309,6 +309,8 @@
 }
 
 .modalBooking {
+  margin-bottom: 40px;
+
   &__close-btn {
     display: flex;
     justify-content: flex-end;
@@ -321,16 +323,56 @@
 .booking {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 84%;
   margin: auto;
 
   &__h1 {
     color: var(--black);
-    margin-top: 20px;
+  }
+
+  &__img {
+    border-radius: var(--radius);
+    margin-top: 44px;
   }
 
   &__h4 {
     font-weight: var(--medium);
+    margin-top: 20px;
+  }
+
+  &__location {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  &__location-text {
+    padding-left: 4px;
+  }
+
+  &__amenities {
+    margin-top: 4px;
+  }
+
+  &__line {
+    border-bottom: 1px solid var(--light-gray);
+    width: 311px;
+    margin-top: 40px;
+  }
+
+  &__summary {
+    margin-top: 30px;
+  }
+
+  &__summary-wrapper {
+    margin-top: 15px;
+  }
+
+  &__dates,
+  &__price {
+    margin-top: 4px;
+  }
+
+  &__h3 {
     margin-top: 40px;
   }
 }

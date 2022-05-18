@@ -7,14 +7,17 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Filter from "../components/filter/Filter";
 
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:1337/hotels");
-  const data = await res.json();
+//API Call
+import { getHotels } from "../lib/apiCall";
+import { BaseURL } from "../lib/apiUrl";
+
+export async function getStaticProps() {
+  const hotelsArray = await getHotels(BaseURL + "/hotels");
 
   return {
-    props: { hotel: data },
+    props: { hotel: hotelsArray },
   };
-};
+}
 
 const Stays = ({ hotel }) => {
   return (
@@ -91,6 +94,7 @@ const Stays = ({ hotel }) => {
                 price,
                 amenities,
                 free_cancellation,
+                alt_featured_img,
               }) => {
                 const myLoader = () => {
                   return featured_img;
@@ -101,7 +105,7 @@ const Stays = ({ hotel }) => {
                     <div className="hotel__line"></div>
                     <div className="hotel__wrapper">
                       <Image
-                        alt="Hotelroom image"
+                        alt={alt_featured_img}
                         src={featured_img}
                         loader={myLoader}
                         unoptimized={true}

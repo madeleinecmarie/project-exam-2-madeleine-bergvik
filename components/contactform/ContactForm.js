@@ -28,7 +28,7 @@ export const ContactForm = () => {
 
   const HandleSubmit = async (values) => {
     try {
-      await axios.post("http://localhost:1337/hotel-messages", values);
+      await axios.post("http://localhost:1337/messages", values);
       setError(false);
     } catch (err) {
       console.log(err.response.data.messages);

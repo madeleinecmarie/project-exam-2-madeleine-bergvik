@@ -7,14 +7,17 @@ import LoyaltyCard from "../public/images/loyaltycard.png";
 import Card from "../public/images/card.png";
 import Headset from "../public/images/headset.png";
 
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:1337/attractions");
-  const data = await res.json();
+//API Call
+import { getHotels } from "../lib/apiCall";
+import { BaseURL } from "../lib/apiUrl";
+
+export async function getStaticProps() {
+  const attractionArray = await getHotels(BaseURL + "/attractions");
 
   return {
-    props: { attraction: data },
+    props: { attraction: attractionArray },
   };
-};
+}
 
 export default function Home({ attraction }) {
   return (
@@ -81,7 +84,7 @@ export default function Home({ attraction }) {
           </h2>
 
           <div className="attractions__inner">
-            {attraction.map(({ id, image, headline, description }) => {
+            {attraction.map(({ id, image, headline, description, alt }) => {
               const myLoader = () => {
                 return image;
               };
@@ -90,9 +93,9 @@ export default function Home({ attraction }) {
                 <div key={id} className="attractions__card">
                   <Image
                     src={image}
-                    alt="image of attraction"
+                    alt={alt}
                     loader={myLoader}
-                    // unoptimized={true}
+                    unoptimized={true}
                     height={320}
                     width={345}
                     className="attractions__img"

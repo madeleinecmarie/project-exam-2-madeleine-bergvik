@@ -1,33 +1,33 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-
-const regExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+import Link from "next/link";
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, "Firstname is too short")
     .max(50, "Firstname is way too long")
-    .required("Required"),
+    .required("Firstname is required"),
   lastName: Yup.string()
     .min(2, "Lastname is too short")
     .max(50, "Lastname is way too long")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+    .required("Lastname is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
   phoneNumber: Yup.string()
-    .matches(regExp, "The phonenumber is not valid")
-    .required("Required"),
+    .min(2, "Phonenumber must be over 6 letters")
+    .max(16, "Phonenumber needs to be less than 16 letters")
+    .required("Phonenumber is required"),
   cardNumber: Yup.string()
-    .matches(regExp, "Invalid cardnumber")
-    .required("Required"),
+    .min(4, "Cardnumber too short")
+    .max(16, "Cardnumber must be 16 letters long")
+    .required("Cardnumber is required"),
   expireDate: Yup.string()
     .min(2, "Expiredate do not match the cardnumber")
-    .max(8, "Date too short")
-    .required("Required"),
+    .max(12, "Date too long")
+    .required("Expire date is required"),
   cvcCode: Yup.string()
-    .min(2, "Security code not valid")
-    .max(4, "Security code must be 3 numbers long")
-    .required("Required"),
+    .min(1, "Security code too short")
+    .max(3, "Security code must be 3 letters long")
+    .required("CVC is required"),
 });
 
 export const Bookingform = () => (
@@ -51,7 +51,7 @@ export const Bookingform = () => (
         <Form>
           <div className="bookingform">
             <div className="bookingform__wrapper">
-              <div className="contactform">
+              <div className="contactform bookingform__form">
                 <div>
                   <label htmlFor="first-name" className="contactform__label">
                     Firstname
@@ -60,9 +60,10 @@ export const Bookingform = () => (
                     name="firstName"
                     className="contactform__inputShort"
                     placeholder="Firstname"
+                    type="text"
                   />
                   {errors.firstName && touched.firstName ? (
-                    <div style={{ color: "red" }}>{errors.firstName}</div>
+                    <div className="input__error">{errors.firstName}</div>
                   ) : null}
                 </div>
 
@@ -74,9 +75,10 @@ export const Bookingform = () => (
                     name="lastName"
                     className="contactform__inputShort"
                     placeholder="Lastname"
+                    type="text"
                   />
                   {errors.lastName && touched.lastName ? (
-                    <div style={{ color: "red" }}>{errors.lastName}</div>
+                    <div className="input__error">{errors.lastName}</div>
                   ) : null}
                 </div>
               </div>
@@ -90,32 +92,32 @@ export const Bookingform = () => (
                 placeholder="example@gmail.com"
               />
               {errors.email && touched.email ? (
-                <div style={{ color: "red" }}>{errors.email}</div>
+                <div className="input__error">{errors.email}</div>
               ) : null}
               <label htmlFor="phone" className="contactform__label">
                 Phone Number
               </label>
               <Field
-                name="phone"
-                type="number"
+                name="phoneNumber"
+                type="text"
                 className="contactform__input"
                 placeholder="+ 47"
               />
               {errors.phoneNumber && touched.phoneNumber ? (
-                <div style={{ color: "red" }}>{errors.phoneNumber}</div>
+                <div className="input__error">{errors.phoneNumber}</div>
               ) : null}
               <div className="cardInfo">
                 <label htmlFor="cardnumber" className="contactform__label">
                   Card Number
                 </label>
                 <Field
-                  name="cardnumber"
-                  type="number"
+                  name="cardNumber"
                   className="contactform__input"
+                  type="text"
                   placeholder="---- ---- ---- ----"
                 />
                 {errors.cardNumber && touched.cardNumber ? (
-                  <div style={{ color: "red" }}>{errors.cardNumber}</div>
+                  <div className="input__error">{errors.cardNumber}</div>
                 ) : null}
 
                 <div className="form__date-code-div">
@@ -126,30 +128,32 @@ export const Bookingform = () => (
                     name="expireDate"
                     type="date"
                     className="contactform__input"
-                    placeholder="MM / YY"
+                    placeholder="MM/YY"
                   />
                   {errors.expireDate && touched.expireDate ? (
-                    <div style={{ color: "red" }}>{errors.email}</div>
+                    <div className="input__error">{errors.expireDate}</div>
                   ) : null}
                   <label htmlFor="CVC" className="contactform__label">
                     CVC/CVV
                   </label>
                   <Field
-                    name="CVC"
-                    type="number"
+                    name="cvcCode"
+                    type="text"
                     className="contactform__input"
                     placeholder="Code"
                   />
                   {errors.cvcCode && touched.cvcCode ? (
-                    <div style={{ color: "red" }}>{errors.cvcCode}</div>
+                    <div className="input__error">{errors.cvcCode}</div>
                   ) : null}
                 </div>
               </div>
 
               <div className="contactform__BtnDiv bookingform__btn">
+                {/* <Link href={"/"} passHref> */}
                 <button type="submit" className="formBtn">
                   Send booking
                 </button>
+                {/* </Link> */}
               </div>
             </div>
           </div>

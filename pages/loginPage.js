@@ -8,10 +8,10 @@ export function LoginPage() {
   return (
     <div>
       <Head>
-        <title>{}</title>
+        <title>Login</title>
         <meta
           name="description"
-          content="Book hotelrooms in Stavanger. Holidaze.com official site. Best Price Guarantee and Bonus program. Find the perfect stay for your next adventure."
+          content="Login in to get access to the Holidaze admin page"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

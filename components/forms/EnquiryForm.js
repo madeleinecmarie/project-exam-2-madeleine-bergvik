@@ -28,7 +28,7 @@ export const EnquiryForm = () => {
 
   const HandleSubmit = async (values) => {
     try {
-      await axios.post("http://localhost:1337/enquiry-messages", values);
+      await axios.post("http://localhost:1337/enquiries", values);
       setError(false);
     } catch (err) {
       console.log(err.response.data.messages);

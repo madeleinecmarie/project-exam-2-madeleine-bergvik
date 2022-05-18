@@ -61,16 +61,29 @@ function Searchbar() {
             value={value}
             onChange={setValue}
           />
-          <input
+          <select
             className="searchbar__input searchbar__input-3 searchbar__input-3-margintop"
             type="text"
-            placeholder="Add guests"
-          />
-          <input
-            className="searchbar__input searchbar__input-3"
-            type="text"
-            placeholder="Add rooms"
-          />
+          >
+            <option value="Add guests">Add guests</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+
+          <select className="searchbar__input searchbar__input-3" type="text">
+            <option value="Add rooms">Add rooms</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+
           <button className="searchbar__btn" type="submit" value="submit">
             <Icon icon="carbon:search" color="#1d282e" width={38} height={38} />
           </button>

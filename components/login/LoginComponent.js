@@ -61,7 +61,7 @@ const LoginComponent = () => {
                     name="identifier"
                   />
                   {errors.identifier && touched.identifier ? (
-                    <span className="login__error">{errors.identifier}</span>
+                    <span className="input__error">{errors.identifier}</span>
                   ) : null}
                 </div>
 
@@ -79,12 +79,12 @@ const LoginComponent = () => {
                     name="password"
                   />
                   {errors.password && touched.password ? (
-                    <span className="login__error">{errors.password}</span>
+                    <span className="input__error">{errors.password}</span>
                   ) : null}
 
                   <div>
                     {error ? (
-                      <span className="login__error">
+                      <span className="input__error">
                         Username or password is wrong
                       </span>
                     ) : (

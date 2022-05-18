@@ -7,15 +7,18 @@ import Footer from "../../components/layout/Footer";
 import Modal from "../../components/modal/Modal";
 import ModalBooking from "../../components/modal/ModalBooking";
 import React, { useState } from "react";
-import Link from "next/link";
 
+//API Call
+import { BaseURL, apiCall } from "../../lib/apiUrl";
+
+// Slider
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:1337/hotels");
+  const res = await fetch(BaseURL + "/hotels");
   const data = await res.json();
 
   console.log(data);
@@ -47,6 +50,7 @@ const Details = ({
     id,
     name,
     short_description,
+    featured_img,
     stars,
     price,
     amenities,
@@ -63,10 +67,15 @@ const Details = ({
     alt_img,
     reviews,
     slider,
+    alt_featured_img,
+    alt,
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [modalOpen, modalIsOpen] = useState(false);
+  const [isBooking, setIsBooking] = useState(false);
+  const myLoader = () => {
+    return featured_img;
+  };
 
   return (
     <>
@@ -102,9 +111,10 @@ const Details = ({
                   <Image
                     src={image}
                     loader={myLoader}
+                    unoptimized={true}
                     width={625}
                     height={371}
-                    alt=""
+                    alt={alt}
                   />
                 </SwiperSlide>
               );
@@ -145,12 +155,21 @@ const Details = ({
             {isOpen && <Modal setIsOpen={setIsOpen} />}
 
             <button
-              onClick={() => modalIsOpen(true)}
+              onClick={() => setIsBooking(true)}
               className="smallBtn details__orange-btn"
             >
-              Contact hotel
+              Book room
             </button>
-            {modalOpen && <ModalBooking setIsOpen={modalIsOpen} />}
+            {isBooking && (
+              <ModalBooking
+                setIsBooking={setIsBooking}
+                featured_img={featured_img}
+                name={name}
+                location={location}
+                amenities={amenities}
+                price={price}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -246,28 +265,25 @@ const Details = ({
         <p>900 verified Holidaze guest reviews</p>
       </div>
       <div className="reviewsDiv">
-        {reviews.map(({ id, title, headline, date, description, image }) => {
-          return (
-            <div key={id} className="reviews">
-              <div className="reviews__wrapper">
-                <img
-                  src={image}
-                  alt="Avatar image"
-                  height={82}
-                  width={82}
-                ></img>
-                <div className="reviews__headline-wrapper">
-                  <h4 className="reviews__title">{title}</h4>
-                  <p>{date}</p>
+        {reviews.map(
+          ({ id, title, headline, date, description, image, alt }) => {
+            return (
+              <div key={id} className="reviews">
+                <div className="reviews__wrapper">
+                  <img src={image} alt={alt} height={82} width={82}></img>
+                  <div className="reviews__headline-wrapper">
+                    <h4 className="reviews__title">{title}</h4>
+                    <p>{date}</p>
+                  </div>
+                </div>
+                <div className="reviews__body">
+                  <h4 className="reviews__title">{headline}</h4>
+                  <p className="reviews__description">{description}</p>
                 </div>
               </div>
-              <div className="reviews__body">
-                <h4 className="reviews__title">{headline}</h4>
-                <p className="reviews__description">{description}</p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          }
+        )}
       </div>
       <div>
         <p className="reviewsLink">See all 900 reviews</p>
