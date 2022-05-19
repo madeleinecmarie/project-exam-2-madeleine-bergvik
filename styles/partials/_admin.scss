@@ -25,7 +25,6 @@
     margin: auto;
   }
 
-  // &__td {
   &__tr {
     text-align: left;
     height: 110px;
@@ -60,10 +59,6 @@
   &__td-delete {
     padding-left: 20px;
   }
-
-  // &__td-delete {
-  //   padding-left: 35px;
-  // }
 
   &__logout {
     color: var(--white);
@@ -128,10 +123,10 @@
 }
 
 // Add modal
-
 .addmodal {
   &__opacity {
     background-color: rgba(165, 167, 167, 0.1);
+    overflow-y: auto;
   }
 
   &__wrapper {
@@ -140,6 +135,8 @@
     z-index: 99;
     background-color: var(--black);
     color: var(--white);
+    top: 95%;
+    padding-bottom: 60px;
   }
 
   &__headline {
@@ -153,6 +150,14 @@
   &__flex {
     display: flex;
     gap: 20px;
+  }
+
+  &__h3 {
+    margin-top: 40px;
+  }
+
+  &__input {
+    height: 120px !important;
   }
 }
 

@@ -20,33 +20,33 @@ const SignupSchema = Yup.object().shape({
     .max(40, "Location is too long")
     .required("Location is required"),
   description_1: Yup.string()
-    .min(5, "Description is too short")
-    .max(20, "Security code must be 3 letters long")
-    .required("Description is required"),
+    .min(5, "Description 1 is too short")
+    .max(20, "Description 1 is too long")
+    .required("Description 1 is required"),
   description_2: Yup.string()
-    .min(5, "Description is too short")
-    .max(20, "Description is too long")
-    .required("Description is required"),
+    .min(5, "Description 2 is too short")
+    .max(20, "Description 2 is too long")
+    .required("Description 2 is required"),
   description_3: Yup.string()
-    .min(5, "Description is too short")
-    .max(20, "Description is too long")
-    .required("Description is required"),
+    .min(5, "Description 3 is too short")
+    .max(20, "Description 3 is too long")
+    .required("Description 3 is required"),
   description_4: Yup.string()
-    .min(5, "Description is too short")
-    .max(20, "Description is too long")
-    .required("Description is required"),
+    .min(5, "Description  4 is too short")
+    .max(20, "Description 4 is too long")
+    .required("Description 4 is required"),
   property_surroundings_1: Yup.string()
-    .min(5, "Property surroundings too short")
-    .max(30, "Property surroundings too long")
-    .required("Property surroundings is required"),
+    .min(5, "Property surroundings 1 too short")
+    .max(30, "Property surroundings 1 too long")
+    .required("Property surroundings 1 is required"),
   property_surroundings_2: Yup.string()
-    .min(1, "Property surroundings too short")
-    .max(3, "Property surroundings too long")
-    .required("Property surroundings is required"),
+    .min(1, "Property surroundings 2 is too short")
+    .max(3, "Property surroundings 2 is too long")
+    .required("Property surroundings 2 is required"),
   property_surroundings_3: Yup.string()
-    .min(1, "Property surroundings too short")
-    .max(3, "Security code must be 3 letters long")
-    .required("Property surroundings is required"),
+    .min(1, "Property surroundings 3 too short")
+    .max(3, "Property surroundings 3 is too long")
+    .required("Property surroundings 3 is required"),
   alt_featured_img: Yup.string()
     .min(5, "Alt text must be longer than 5 letters")
     .max(30, "Alt text are way too long")
@@ -176,7 +176,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                             ) : null}
                           </div>
                         </div>
-                        <h3>Descriptions</h3>
+                        <h3 className="addhotelsform__h3">Descriptions</h3>
                         <div className="addhotelsform__flex">
                           <div>
                             <label
@@ -187,8 +187,9 @@ const AddHotelsModal = ({ setIsOpen }) => {
                             </label>
                             <Field
                               name="description_1"
-                              className="contactform__input"
+                              className="contactform__input addhotelsform__input"
                               type="text"
+                              component="textarea"
                             />
                             {errors.description_1 && touched.description_1 ? (
                               <div className="input__error">
@@ -205,8 +206,9 @@ const AddHotelsModal = ({ setIsOpen }) => {
                             </label>
                             <Field
                               name="description_2"
-                              className="contactform__input"
+                              className="contactform__input addhotelsform__input"
                               type="text"
+                              component="textarea"
                             />
                             {errors.description_2 && touched.description_2 ? (
                               <div className="input__error">
@@ -225,8 +227,9 @@ const AddHotelsModal = ({ setIsOpen }) => {
                             </label>
                             <Field
                               name="description_3"
-                              className="contactform__input"
+                              className="contactform__input addhotelsform__input"
                               type="text"
+                              component="textarea"
                             />
                             {errors.description_3 && touched.description_3 ? (
                               <div className="input__error">
@@ -243,8 +246,9 @@ const AddHotelsModal = ({ setIsOpen }) => {
                             </label>
                             <Field
                               name="description_4"
-                              className="contactform__input"
+                              className="contactform__input addhotelsform__input"
                               type="text"
+                              component="textarea"
                             />
                             {errors.description_4 && touched.description_4 ? (
                               <div className="input__error">
@@ -253,8 +257,133 @@ const AddHotelsModal = ({ setIsOpen }) => {
                             ) : null}
                           </div>
                         </div>
+                        <h3 className="addhotelsform__h3">
+                          Property surroundings
+                        </h3>
                         <div className="addhotelsform__flex">
+                          <div>
+                            <label
+                              htmlFor="property_surroundings_1"
+                              className="contactform__label"
+                            >
+                              Property surroundings 1
+                            </label>
+                            <Field
+                              name="property_surroundings_1"
+                              className="contactform__input addhotelsform__input"
+                              type="text"
+                            />
+                            {errors.property_surroundings_1 &&
+                            touched.property_surroundings_1 ? (
+                              <div className="input__error">
+                                {errors.property_surroundings_1}
+                              </div>
+                            ) : null}
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="property_surroundings_2"
+                              className="contactform__label"
+                            >
+                              Property surroundings 2
+                            </label>
+                            <Field
+                              name="property_surroundings_2"
+                              className="contactform__input addhotelsform__input"
+                              type="text"
+                            />
+                            {errors.property_surroundings_2 &&
+                            touched.property_surroundings_2 ? (
+                              <div className="input__error">
+                                {errors.property_surroundings_2}
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                        <div className="addhotelsform__flex">
+                          <div>
+                            <label
+                              htmlFor="property_surroundings_3"
+                              className="contactform__label"
+                            >
+                              Property surroundings 3
+                            </label>
+                            <Field
+                              name="property_surroundings_3"
+                              className="contactform__input addhotelsform__input"
+                              type="text"
+                            />
+                            {errors.property_surroundings_3 &&
+                            touched.property_surroundings_3 ? (
+                              <div className="input__error">
+                                {errors.property_surroundings_3}
+                              </div>
+                            ) : null}
+                          </div>
                           <div></div>
+                        </div>
+                        <h3 className="addhotelsform__h3">
+                          Alt text for images
+                        </h3>
+                        <div className="addhotelsform__flex">
+                          <div>
+                            <label
+                              htmlFor="alt_featured_img"
+                              className="contactform__label"
+                            >
+                              Featured image alt
+                            </label>
+                            <Field
+                              name="alt_featured_img"
+                              className="contactform__input"
+                              type="text"
+                            />
+                            {errors.alt_featured_img &&
+                            touched.alt_featured_img ? (
+                              <div className="input__error">
+                                {errors.alt_featured_img}
+                              </div>
+                            ) : null}
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="alt_img"
+                              className="contactform__label"
+                            >
+                              Location image alt
+                            </label>
+                            <Field
+                              name="alt_img"
+                              className="contactform__input"
+                              type="text"
+                            />
+                            {errors.alt_img && touched.alt_img ? (
+                              <div className="input__error">
+                                {errors.alt_img}
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                        <h3 className="addhotelsform__h3">Amenities</h3>
+                        <div className="addhotelsform__flex">
+                          <div>
+                            <label
+                              htmlFor="amenities"
+                              className="contactform__label"
+                            >
+                              Amenities
+                            </label>
+                            <Field
+                              name="amenities"
+                              className="contactform__input"
+                              type="text"
+                            />
+                            {errors.amenities && touched.amenities ? (
+                              <div className="input__error">
+                                {errors.amenities}
+                              </div>
+                            ) : null}
+                          </div>
                           <div></div>
                         </div>
                       </div>
@@ -272,6 +401,10 @@ const AddHotelsModal = ({ setIsOpen }) => {
 
 export default AddHotelsModal;
 
-{
-  /* <h3>About the hotel</h3> */
-}
+// Need to add:
+
+// Id
+// free_cancellation
+// stars
+// slider (with 4 images)
+// alt tag on slider images
