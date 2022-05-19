@@ -9,7 +9,7 @@ import ModalBooking from "../../components/modal/ModalBooking";
 import React, { useState } from "react";
 
 //API Call
-import { BaseURL, apiCall } from "../../lib/apiUrl";
+import { BaseURL } from "../../lib/apiUrl";
 
 // Slider
 import { Swiper, SwiperSlide } from "swiper/react";

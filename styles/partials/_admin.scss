@@ -27,10 +27,67 @@
 
   // &__td {
   &__tr {
-    // padding: 15px;
     text-align: left;
+    height: 110px;
+  }
+
+  &__tr-body,
+  &__td-names {
+    height: 180px;
+  }
+
+  &__td-id {
+    width: 60px;
+  }
+
+  &__td-img {
+    width: 230px;
+  }
+
+  &__td-email,
+  &__td-description {
+    width: 290px;
+  }
+
+  &__td-description {
+    width: 360px;
+  }
+
+  &__td-name {
+    width: 255px;
+  }
+
+  &__td-delete {
+    padding-left: 20px;
+  }
+
+  // &__td-delete {
+  //   padding-left: 35px;
+  // }
+
+  &__logout {
+    color: var(--white);
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+  }
+
+  &__btn-wrapper {
+    height: 40px;
+    margin-top: 38px;
+    margin-right: 50px;
+    width: 12%;
+  }
+
+  &__addhotel-btn {
+    border-radius: var(--radius);
+    color: var(--white);
   }
 }
+
+// .admin__addhotel-btn:hover {
+//   background-color: var(--orange);
+// }
 
 .mantine-Group-root.__mantine-ref-tabsList.mantine-Tabs-tabsList.mantine-1wh8mct {
   margin: auto;
@@ -48,14 +105,19 @@
   height: 45px;
 }
 
-.mantine-15ssm7.__mantine-ref-tabActive:active {
+.mantine-15ssm7.__mantine-ref-tabActive {
   color: var(--black);
 }
 
-.mantine-Tabs-tabControl.mantine-Tabs-pills.mantine-Group-child.mantine-qi2p0q {
+.mantine-Tabs-tabControl.mantine-Tabs-pills.mantine-Group-child.mantine-qi2p0q,
+.admin__addhotel-btn {
   background-color: var(--black);
   width: 144px;
   height: 45px;
+}
+
+.mantine-Tabs-root.mantine-jjhffj {
+  width: 100%;
 }
 
 .mantine-1s8spa1.mantine-Tabs-tabLabel {
@@ -63,4 +125,39 @@
   font-weight: var(--semiBold);
   font-family: var(--font);
   color: var(--white);
+}
+
+// Add modal
+
+.addmodal {
+  &__opacity {
+    background-color: rgba(165, 167, 167, 0.1);
+  }
+
+  &__wrapper {
+    height: auto;
+    width: 1100px;
+    z-index: 99;
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  &__headline {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
+}
+
+.addhotelsform {
+  &__flex {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.tabsWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

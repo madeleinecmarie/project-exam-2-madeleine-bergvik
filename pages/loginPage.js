@@ -1,8 +1,6 @@
-import nookies from "nookies";
 import Head from "next/head";
 import { Nav } from "../components/layout/Nav";
 import LoginComponent from "../components/login/LoginComponent";
-import { useRouter } from "next/router";
 
 export function LoginPage() {
   return (
@@ -11,7 +9,7 @@ export function LoginPage() {
         <title>Login</title>
         <meta
           name="description"
-          content="Login in to get access to the Holidaze admin page"
+          content="Login in to get access to the Holidaze admin page where you can add new, edit and delete hotels."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -24,35 +22,35 @@ export function LoginPage() {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
-  const cookies = nookies.get(ctx);
-  let user = null;
+// export const getServerSideProps = async (ctx) => {
+//   const cookies = nookies.get(ctx);
+//   let user = null;
 
-  if (cookies?.jwt) {
-    try {
-      const { data } = await axios.get("http://localhost:1337/users/me", {
-        headers: {
-          Authorization: `Bearer ${cookies.jwt}`,
-        },
-      });
-      user = data;
-    } catch (e) {
-      console.log(e);
-    }
-  }
+//   if (cookies?.jwt) {
+//     try {
+//       const { data } = await axios.get("http://localhost:1337/users/me", {
+//         headers: {
+//           Authorization: `Bearer ${cookies.jwt}`,
+//         },
+//       });
+//       user = data;
+//     } catch (e) {
+//       console.log(e);
+//     }
+//   }
 
-  if (user) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/",
-      },
-    };
-  }
+//   if (user) {
+//     return {
+//       redirect: {
+//         permanent: false,
+//         destination: "/",
+//       },
+//     };
+//   }
 
-  return {
-    props: {},
-  };
-};
+//   return {
+//     props: {},
+//   };
+// };
 
 export default LoginPage;
