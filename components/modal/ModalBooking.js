@@ -51,7 +51,8 @@ const ModalBooking = ({
                 <h4 className="booking__h4 booking__summary">Summary</h4>
                 <div className="booking__summary-wrapper">
                   <p className="booking__dates">Booking dates:</p>
-                  <p className="booking__price">{price} x nights</p>
+                  {/* <p className="booking__price">{price} NOK x nights</p> */}
+                  <p className="booking__price">{price} NOK / per night</p>
                   <p>Bonus 15%</p>
                 </div>
                 <h3 className="booking__h3">Total</h3>

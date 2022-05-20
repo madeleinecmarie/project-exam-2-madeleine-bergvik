@@ -206,6 +206,7 @@
   position: absolute;
   border-radius: var(--radius);
   margin-top: 30px;
+  overflow-y: scroll;
   box-shadow: 0 5px 20px 0 rgba(29, 40, 46, 0.6);
 
   &__close-btn {
@@ -216,7 +217,7 @@
     top: 0;
     align-self: flex-end;
     margin-top: -1px;
-    margin-right: -1px;
+    margin-right: 1px;
   }
 
   &__form {
@@ -238,7 +239,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--black-opacity);
+  background-color: rgba(123, 129, 129, 0.1);
+  // background-color: var(--black-opacity);
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -304,8 +306,7 @@
   height: 100%;
   width: 100%;
   z-index: 2;
-  // overflow: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .modalBooking {

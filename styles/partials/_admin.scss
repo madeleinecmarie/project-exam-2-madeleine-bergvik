@@ -124,23 +124,19 @@
 
 // Add modal
 .addmodal {
-  &__opacity {
-    background-color: rgba(165, 167, 167, 0.1);
-    overflow-y: auto;
-  }
-
-  &__wrapper {
-    height: auto;
-    width: 1100px;
-    z-index: 99;
-    background-color: var(--black);
-    color: var(--white);
-    top: 95%;
-    padding-bottom: 60px;
-  }
+  max-height: 650px;
+  width: 900px;
+  z-index: 99;
+  background-color: var(--black);
+  color: var(--white);
+  top: 48%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__headline {
-    width: 90%;
+    width: 88%;
     margin: auto;
     margin-top: 40px;
   }
@@ -157,8 +153,48 @@
   }
 
   &__input {
-    height: 120px !important;
+    width: 380px;
+    border-radius: var(--radius);
+    color: var(--black);
+    height: 50px;
+    padding-left: 10px;
   }
+
+  &__input-height {
+    height: 120px;
+  }
+
+  &__input-short {
+    width: 113px;
+  }
+
+  &__checkbox-wrapper {
+    margin-top: 40px;
+  }
+
+  &__checkbox-span {
+    margin-left: 10px;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__btn {
+    background-color: var(--white);
+    color: var(--black);
+    height: 45px;
+    width: 180px;
+    border-radius: var(--radius);
+    font-size: var(--font-base);
+    margin-top: 14px;
+    margin-bottom: 20px;
+  }
+
+  // &__btn-remove {
+  //   background-color: var(--white);
+  // }
 }
 
 .tabsWrapper {
