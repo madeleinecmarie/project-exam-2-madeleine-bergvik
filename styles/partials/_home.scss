@@ -7,13 +7,12 @@
 
 .herotext {
   color: var(--white);
-  margin-top: 40px;
   padding-left: 60px;
 
   &__p {
     font-weight: var(--bold);
     font-size: var(--font-sm);
-    margin-top: 165px;
+    padding-top: 195px;
     margin-left: 40px;
     line-height: 48px;
   }
@@ -32,7 +31,6 @@
 
   &__section-1 {
     color: var(--white);
-    // padding-right: 48px;
   }
 
   &__span {
@@ -88,10 +86,6 @@
 }
 
 .attractions {
-  // margin: auto;
-  // display: flex;
-  // flex-direction: column;
-
   margin-bottom: 60px;
 
   &__headline {

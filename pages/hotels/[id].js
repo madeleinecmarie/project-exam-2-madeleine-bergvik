@@ -2,11 +2,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import React, { useState } from "react";
+
+// Components
 import { Nav } from "../../components/layout/Nav";
 import Footer from "../../components/layout/Footer";
 import Modal from "../../components/modal/Modal";
 import ModalBooking from "../../components/modal/ModalBooking";
-import React, { useState } from "react";
 
 //API Call
 import { BaseURL } from "../../lib/apiUrl";
@@ -67,23 +69,23 @@ const Details = ({
     alt_img,
     reviews,
     slider,
-    alt_featured_img,
     alt,
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBooking, setIsBooking] = useState(false);
-  const myLoader = () => {
-    return featured_img;
-  };
 
+  const myLoader_2 = ({ width = 150 }) => {
+    return `${location_img}?w=${width}
+    `;
+  };
   return (
     <>
       <Head>
         <title>{name}</title>
         <meta
           name="description"
-          content="Book hotelrooms in Stavanger. Holidaze.com official site. Best Price Guarantee and Bonus program. Find the perfect stay for your next adventure."
+          content={`Book a stay at ${name} in the amazing Stavanger! Holidaze makes booking easier. Feel free to contact the hotel directly or Holidaze admin if you have any questions regarding your bookings.`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -103,15 +105,15 @@ const Details = ({
             className="mySwiper"
           >
             {slider.map(({ id, image }) => {
-              const myLoader = () => {
-                return image;
+              const myLoader = ({ width = 150 }) => {
+                return `${image}?w=${width}
+                `;
               };
               return (
                 <SwiperSlide key={id}>
                   <Image
                     src={image}
                     loader={myLoader}
-                    unoptimized={true}
                     width={625}
                     height={371}
                     alt={alt}
@@ -227,13 +229,14 @@ const Details = ({
               <Icon icon="akar-icons:location" color="#1d282e" height={20} />
               <p className="details__location-p">{location}</p>
             </div>
-            <img
+            <Image
               src={location_img}
               alt={alt_img}
               height={312}
               width={572}
+              loader={myLoader_2}
               className="details__location-img"
-            ></img>
+            ></Image>
           </div>
         </div>
         <div className="details__property-wrapper">
@@ -267,10 +270,20 @@ const Details = ({
       <div className="reviewsDiv">
         {reviews.map(
           ({ id, title, headline, date, description, image, alt }) => {
+            const myLoader_3 = ({ width = 150 }) => {
+              return `${image}?w=${width}
+              `;
+            };
             return (
               <div key={id} className="reviews">
                 <div className="reviews__wrapper">
-                  <img src={image} alt={alt} height={82} width={82}></img>
+                  <Image
+                    src={image}
+                    alt={alt}
+                    height={82}
+                    width={82}
+                    loader={myLoader_3}
+                  ></Image>
                   <div className="reviews__headline-wrapper">
                     <h4 className="reviews__title">{title}</h4>
                     <p>{date}</p>

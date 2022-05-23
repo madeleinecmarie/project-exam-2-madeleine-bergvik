@@ -1,4 +1,4 @@
-import { Nav } from "../layout/Nav";
+import { Nav } from "./Nav";
 import Searchbar from "../searchbar/Searchbar";
 
 function Header() {
@@ -6,6 +6,7 @@ function Header() {
     <>
       <div className="heroImg">
         <Nav />
+
         <div className="herotext">
           <p className="herotext__p">
             Be adventurous in

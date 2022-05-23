@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import next from "next";
-import { Bookingform } from "../../components/forms/BookingForm";
+import { Bookingform } from "../forms/BookingForm";
 import Image from "next/image";
 
 const ModalBooking = ({

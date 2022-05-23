@@ -1,11 +1,13 @@
 import Head from "next/head";
-import Footer from "../components/layout/Footer";
-import { Nav } from "../components/layout/Nav";
-import Searchbar from "../components/searchbar/Searchbar";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+
+// Components
 import Filter from "../components/filter/Filter";
+import Footer from "../components/layout/Footer";
+import { Nav } from "../components/layout/Nav";
+import Searchbar from "../components/searchbar/Searchbar";
 
 //API Call
 import { getHotels } from "../lib/apiCall";
@@ -96,8 +98,9 @@ const Stays = ({ hotel }) => {
                 free_cancellation,
                 alt_featured_img,
               }) => {
-                const myLoader = () => {
-                  return featured_img;
+                const myLoader = ({ width = 150 }) => {
+                  return `${featured_img}?w=${width}
+                  `;
                 };
 
                 return (
@@ -108,7 +111,6 @@ const Stays = ({ hotel }) => {
                         alt={alt_featured_img}
                         src={featured_img}
                         loader={myLoader}
-                        unoptimized={true}
                         width={386}
                         height={230}
                         className="hotel__img"

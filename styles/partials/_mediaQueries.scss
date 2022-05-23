@@ -143,17 +143,42 @@
 }
 
 @media (max-width: 1023px) {
+  // Header
   .nav {
-    padding-top: 10px;
     width: 100%;
+    background-color: var(--black);
+    position: fixed;
+    overflow: hidden;
+    z-index: 99;
+    top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &__hamburger {
+      margin-right: 15px;
+    }
+
+    &__mobile {
+      align-items: center;
+      padding-top: 30px;
+      padding-bottom: 60px;
+    }
+
+    &__links-wrapper {
+      margin-right: 0px;
+    }
+  }
+
+  // Home
+  .heroImg {
+    height: 720px;
   }
 
   .logo-container {
-    padding-left: 12px;
+    margin-left: 30px;
   }
 
   // Details
-
   .booking {
     flex-direction: column;
     width: 70%;
@@ -182,16 +207,16 @@
       width: 100%;
     }
   }
+
+  .heroImg {
+    height: 730px;
+  }
 }
 
 @media (max-width: 920px) {
   // Details
   .bookingform {
     width: 450px;
-
-    // &__form {
-    //   margin-top: 10px;
-    // }
   }
 
   .contactform.bookingform__form {
@@ -299,11 +324,35 @@
 }
 
 @media (max-width: 800px) {
+  .searchbar__div {
+    margin-top: 225px;
+  }
+
   .searchbar {
     width: 720px;
 
     &__input-3 {
       width: 110px;
+    }
+  }
+
+  .heroImg {
+    height: 660px;
+  }
+
+  .herotext {
+    padding-left: 35px;
+
+    &__span {
+      font-size: 5.3rem;
+    }
+  }
+
+  .home {
+    &__h1 {
+      width: 60%;
+      text-align: center;
+      margin: auto;
     }
   }
 }
@@ -333,6 +382,10 @@
   }
 
   // Home
+  .heroImg {
+    height: 600px;
+  }
+
   .newsletter {
     &__email {
       width: 60%;
@@ -341,6 +394,14 @@
 
   .herotext {
     padding-left: 0;
+
+    &__p {
+      padding-top: 200px;
+    }
+  }
+
+  .searchbar__div {
+    margin-top: 200px;
   }
 
   // Contact
@@ -351,10 +412,15 @@
     }
   }
 
+  // Hotels
   .hotels {
     &__section-1 {
       height: 380px;
     }
+  }
+
+  .hotel__wrapper {
+    justify-content: space-evenly;
   }
 
   // Details
@@ -470,13 +536,13 @@
 
   .herotext {
     &__span {
-      font-size: 5rem;
+      font-size: 4.3rem;
       line-height: 30px;
     }
   }
 
   .home {
-    padding-top: 350px;
+    padding-top: 470px;
   }
 
   // Hotels
@@ -499,6 +565,18 @@
       flex-direction: column;
       width: 70%;
     }
+  }
+
+  .searchbar__div {
+    margin-top: 200px;
+  }
+
+  .heroImg {
+    height: 525px;
+  }
+
+  .home {
+    padding-top: 520px;
   }
 
   // Hotels
@@ -554,6 +632,14 @@
     &__email {
       width: 75%;
     }
+  }
+
+  .searchbar__div {
+    margin-top: 120px;
+  }
+
+  .heroImg {
+    height: 480px;
   }
 
   // Hotels
@@ -633,8 +719,23 @@
 
 @media (max-width: 495px) {
   .attractions {
-    &__headline {
+    &__headline,
+    &__inner {
       text-align: center;
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  // Hotels
+  .hotel {
+    &__baseline {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__price {
+      margin-bottom: 10px;
     }
   }
 }
@@ -686,13 +787,6 @@
     }
   }
 
-  .herotext {
-    &__p {
-      margin-left: 12px;
-      margin-top: 185px;
-    }
-  }
-
   .attractions {
     &__card {
       width: 80%;
@@ -708,12 +802,17 @@
 
   .hotel {
     &__amenities {
-      width: 70%;
+      width: 80%;
     }
 
     &__wrapper {
       width: 95%;
-      height: 545px;
+      height: 650px;
+    }
+
+    &__line {
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
 
@@ -741,13 +840,6 @@
       font-size: 3.6rem;
       line-height: 10px;
     }
-  }
-}
-
-@media (max-width: 404px) {
-  // Hotels
-  .hotel__wrapper {
-    height: 530px;
   }
 }
 
@@ -801,10 +893,6 @@
   .hotel {
     &__h4 {
       flex-direction: column;
-    }
-
-    &__wrapper {
-      height: 560px;
     }
   }
 

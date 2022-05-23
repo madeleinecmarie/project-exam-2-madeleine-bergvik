@@ -1,7 +1,9 @@
 import Head from "next/head";
-import { Nav } from "../components/layout/Nav";
-import { ContactForm } from "../components/contactform/ContactForm";
 import { Icon } from "@iconify/react";
+
+// Components
+import { Nav } from "../components/layout/Nav";
+import { ContactForm } from "../components/forms/ContactForm";
 
 export default function Contact() {
   return (
@@ -10,7 +12,7 @@ export default function Contact() {
         <title>Contact Holidaze</title>
         <meta
           name="description"
-          content="Feel free to contact Holidaze whenever you need help with booking or issues that may occur."
+          content="Hi! Feel free to contact Holidaze whenever you need help with your bookings and our customer service will help you with any question or issue you might have"
         />
       </Head>
       <Nav />

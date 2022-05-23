@@ -1,10 +1,12 @@
-// import { useRouter } from "next/router";
-import Logo from "../logo/Logo";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Image from "next/image";
+import LogoImage from "../../public/images/logo.png";
 
 export const Nav = () => {
   const [active, setActive] = useState(false);
+  const router = useRouter();
 
   const handleClick = () => {
     setActive(!active);
@@ -13,9 +15,21 @@ export const Nav = () => {
   return (
     <>
       <nav className="nav active flex items-center flex-wrap">
-        <Logo />
+        <div className="logo-container">
+          <Link href="/" passHref>
+            <a>
+              <Image
+                src={LogoImage}
+                width={122}
+                height={36}
+                alt="Holidaze logo"
+                className="logo"
+              ></Image>
+            </a>
+          </Link>
+        </div>
         <button
-          className=" inline-flex p-3 rounded lg:hidden text-white ml-auto hover:text-white outline-none"
+          className="nav__hamburger inline-flex p-3 rounded lg:hidden text-white ml-auto hover:text-white outline-none"
           onClick={handleClick}
         >
           <svg
@@ -37,21 +51,29 @@ export const Nav = () => {
         <div
           className={`${
             active ? "" : "hidden"
-          }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+          }   w-full lg:inline-flex lg:flex-grow lg:w-auto nav__links-wrapper`}
         >
-          <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+          <div className="nav__mobile gap-14 lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
             <Link href="/">
-              <a className="nav__links lg:inline-flex lg:w-auto w-auto px-3 py-2 rounded text-white  items-center justify-center">
+              <a className={router.pathname === "/" ? "activeNav" : "inactive"}>
                 Home
               </a>
             </Link>
             <Link href="/hotels">
-              <a className="nav__links lg:inline-flex lg:w-auto w-auto px-3 py-2 rounded text-white items-center justify-center">
+              <a
+                className={
+                  router.pathname === "/hotels" ? "activeNav" : "inactive"
+                }
+              >
                 Hotels
               </a>
             </Link>
             <Link href="/contact">
-              <a className="nav__links lg:inline-flex lg:w-auto w-auto px-3 py-2 rounded text-white  items-center justify-center">
+              <a
+                className={
+                  router.pathname === "/contact" ? "activeNav" : "inactive"
+                }
+              >
                 Contact
               </a>
             </Link>

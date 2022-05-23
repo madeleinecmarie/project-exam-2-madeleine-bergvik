@@ -1,4 +1,3 @@
-import { Nav } from "../components/layout/Nav";
 import Image from "next/image";
 import Head from "next/head";
 import { Icon } from "@iconify/react";
@@ -7,34 +6,18 @@ import { Tabs } from "@mantine/core";
 import { parseCookies } from "nookies";
 import axios from "axios";
 import { useRouter } from "next/router";
+import React from "react";
+
+// Components
+import { Nav } from "../components/layout/Nav";
 import AddHotelsModal from "../components/modal/AddHotelsModal";
 
-//API Call
+// API Call
 import { BaseURL } from "../lib/apiUrl";
 
-const Admin = ({
-  user,
-  hotels,
-  enquiries,
-  messages,
-  JWT,
-  openModal,
-  onClose,
-  id,
-  openEnquiry,
-  openMessage,
-}) => {
-  // const [hotel, setHotel] = useState();
-  // const [message, setMessage] = useState();
-  // const [enquiry, setEnquiry] = useState();
+const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
-
-  // const [editModal, setEditModal] = useState(false);
-  // const [addModal, setAddModal] = useState(false);
-  // const [enquiryModal, setEnquiryModal] = useState(false);
-  // const [messageModal, setMessageModal] = useState(false);
-
   const router = useRouter();
   const { email, username } = user;
 
@@ -54,7 +37,7 @@ const Admin = ({
         <title>Admin - Holidaze</title>
         <meta
           name="description"
-          content="Holidaze admin page - a place where you can read messages and enquiries from customers, add, deleted and edit hotels. "
+          content="Holidaze admin page - a place where you can read messages and enquiries from customers, add and delete hotels."
         />
       </Head>
       <header className="admin-header">
@@ -101,26 +84,32 @@ const Admin = ({
                             id,
                             name,
                             short_description,
-                            stars,
+
                             featured_img,
                             price,
+                            stars,
                             amenities,
                             free_cancellation,
                             location,
                             alt_featured_img,
-                            elm,
                           }) => {
+                            const myLoader = ({ width = 150 }) => {
+                              return `${featured_img}?w=${width}
+                              `;
+                            };
+
                             return (
                               <tr key={id} className="admin__tr-body">
                                 <td className="admin__td admin__td-id">{id}</td>
                                 <td className="admin__td admin__td-img">
-                                  <img
+                                  <Image
                                     alt={alt_featured_img}
                                     src={featured_img}
                                     height={200}
-                                    width={200}
+                                    width={300}
+                                    loader={myLoader}
                                     className="admin__img"
-                                  ></img>
+                                  ></Image>
                                 </td>
                                 <td className="admin__td admin__td-name">
                                   {name}

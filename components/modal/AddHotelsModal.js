@@ -2,6 +2,9 @@ import { Icon } from "@iconify/react";
 import { Formik, Form, Field, FieldArray, getIn } from "formik";
 import * as Yup from "yup";
 import React from "react";
+import axios from "axios";
+import { BaseURL } from "../../lib/apiUrl";
+import { useRouter } from "next/router";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -12,63 +15,49 @@ const SignupSchema = Yup.object().shape({
     .min(10, "Description is too short")
     .max(200, "Description is way too long")
     .required("Description is required"),
-  price: Yup.string()
-    .min(200, "Price is too low")
-    .max(6000, "Price is too high")
-    .required("Price is required"),
+  price: Yup.string().required("Price is required"),
   location: Yup.string()
     .min(4, "Location is too short")
     .max(40, "Location is too long")
     .required("Location is required"),
   description_1: Yup.string()
     .min(5, "Description 1 is too short")
-    .max(20, "Description 1 is too long")
+    .max(200, "Description 1 is too long")
     .required("Description 1 is required"),
   description_2: Yup.string()
     .min(5, "Description 2 is too short")
-    .max(20, "Description 2 is too long")
+    .max(200, "Description 2 is too long")
     .required("Description 2 is required"),
   description_3: Yup.string()
     .min(5, "Description 3 is too short")
-    .max(20, "Description 3 is too long")
+    .max(200, "Description 3 is too long")
     .required("Description 3 is required"),
   description_4: Yup.string()
     .min(5, "Description  4 is too short")
-    .max(20, "Description 4 is too long")
+    .max(200, "Description 4 is too long")
     .required("Description 4 is required"),
   property_surroundings_1: Yup.string()
     .min(5, "Property surroundings 1 too short")
-    .max(30, "Property surroundings 1 too long")
+    .max(100, "Property surroundings 1 too long")
     .required("Property surroundings 1 is required"),
   property_surroundings_2: Yup.string()
     .min(1, "Property surroundings 2 is too short")
-    .max(3, "Property surroundings 2 is too long")
+    .max(100, "Property surroundings 2 is too long")
     .required("Property surroundings 2 is required"),
   property_surroundings_3: Yup.string()
     .min(1, "Property surroundings 3 too short")
-    .max(3, "Property surroundings 3 is too long")
+    .max(100, "Property surroundings 3 is too long")
     .required("Property surroundings 3 is required"),
-  alt_featured_img: Yup.string()
-    .min(5, "Alt text must be longer than 5 letters")
-    .max(30, "Alt text are way too long")
-    .required("Alt text is required"),
-  alt_img: Yup.string()
-    .min(5, "Alt text must be longer than 5 letters")
-    .max(30, "Alt text are way too long")
-    .required("Alt text is required"),
+
   amenities: Yup.string()
     .min(5, "Amenities must be longer than 5 letters")
     .max(50, "Amenities are way too long")
     .required("Amenities is required"),
   id: Yup.string().required("ID is required"),
   stars: Yup.string()
-    .min(1, "Stars must be longer than 1")
-    .max(5, "Stars can not be longer than 5")
+    .min(0, "Need to add stars")
+    .max(1, "Stars can only be 1-5")
     .required("Stars is required"),
-  alt_img: Yup.string()
-    .min(5, "Alt text must be longer than 5 letters")
-    .max(30, "Alt text are way too long")
-    .required("Alt text is required"),
   slider: Yup.array()
     .of(
       Yup.object().shape({
@@ -97,8 +86,11 @@ const ErrorMessage = ({ image }) => (
   </Field>
 );
 
-const AddHotelsModal = ({ setIsOpen }) => {
-  //   const [checked, setChecked] = React.useState(true);
+const AddHotelsModal = ({ setIsOpen, JWT }) => {
+  const router = useRouter();
+  // const [success, setSuccess] = useState;
+  // const [error, setError] = useState;
+
   return (
     <>
       <div onClick={() => setIsOpen(false)} />
@@ -108,7 +100,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
             <Icon icon="ci:close-small" color="#f3ae54" height={46} />
           </button>
           <h2 className="addmodal__headline">Add a new hotel</h2>
-          {/* <div className="modal__form"> */}
+
           <Formik
             initialValues={{
               name: "",
@@ -122,17 +114,32 @@ const AddHotelsModal = ({ setIsOpen }) => {
               property_surroundings_1: "",
               property_surroundings_2: "",
               property_surroundings_3: "",
-              alt_featured_img: "",
               amenities: "",
-              alt_img: "",
               id: "",
               stars: "",
               free_cancellation: false,
               slider: [],
             }}
             validationSchema={SignupSchema}
-            onSubmit={(values) => {
-              console.log(values);
+            onSubmit={(newHotel) => {
+              console.log(newHotel);
+
+              async function postNewHotel() {
+                let res = await axios.post(
+                  `${BaseURL}
+                /hotels/`,
+                  newHotel,
+                  {
+                    headers: {
+                      Authorization: `Bearer ${JWT}`,
+                    },
+                  }
+                );
+                alert("New hotel is added!");
+                router.replace(router.asPath);
+                console.log(res);
+              }
+              postNewHotel(newHotel);
             }}
           >
             {({ errors, touched, values }) => (
@@ -145,6 +152,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Hotelname
                         </label>
                         <Field
+                          id="name"
                           name="name"
                           className="addhotelsform__input"
                           type="text"
@@ -158,6 +166,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           ID
                         </label>
                         <Field
+                          id="id"
                           name="id"
                           className="addhotelsform__input addhotelsform__input-short"
                           type="text"
@@ -171,6 +180,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Price/NOK
                         </label>
                         <Field
+                          id="price"
                           name="price"
                           className="addhotelsform__input addhotelsform__input-short"
                           type="text"
@@ -185,6 +195,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Stars
                         </label>
                         <Field
+                          id="stars"
                           name="stars"
                           className="addhotelsform__input addhotelsform__input-short"
                           type="text"
@@ -201,6 +212,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Short description
                         </label>
                         <Field
+                          id="short_description"
                           name="short_description"
                           className="addhotelsform__input"
                           type="text"
@@ -220,6 +232,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Location
                         </label>
                         <Field
+                          id="location"
                           name="location"
                           className="addhotelsform__input"
                           type="text"
@@ -240,6 +253,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Description 1
                         </label>
                         <Field
+                          id="description_1"
                           name="description_1"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -259,6 +273,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Description 2
                         </label>
                         <Field
+                          id="description_2"
                           name="description_2"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -280,6 +295,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Description 3
                         </label>
                         <Field
+                          id="description_3"
                           name="description_3"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -299,6 +315,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Description 4
                         </label>
                         <Field
+                          id="description_4"
                           name="description_4"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -321,6 +338,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Property surroundings 1
                         </label>
                         <Field
+                          id="property_surroundings_1"
                           name="property_surroundings_1"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -341,6 +359,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Property surroundings 2
                         </label>
                         <Field
+                          id="property_surroundings_2"
                           name="property_surroundings_2"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -363,6 +382,7 @@ const AddHotelsModal = ({ setIsOpen }) => {
                           Property surroundings 3
                         </label>
                         <Field
+                          id="property_surroundings_3"
                           name="property_surroundings_3"
                           className="addhotelsform__input addhotelsform__input-height"
                           type="text"
@@ -377,64 +397,33 @@ const AddHotelsModal = ({ setIsOpen }) => {
                       </div>
                       <div></div>
                     </div>
-                    <h3 className="addhotelsform__h3">
-                      Alt text images & hotel amenities
-                    </h3>
+                    <h3 className="addhotelsform__h3">Amenities</h3>
                     <div className="addhotelsform__flex">
                       <div>
-                        <label htmlFor="alt_img" className="contactform__label">
-                          Location image alt
+                        <label
+                          htmlFor="amenities"
+                          className="contactform__label"
+                        >
+                          Amenities
                         </label>
                         <Field
-                          name="alt_img"
+                          iid="amenities"
+                          name="amenities"
                           className="addhotelsform__input"
                           type="text"
                         />
-                        {errors.alt_img && touched.alt_img ? (
-                          <div className="input__error">{errors.alt_img}</div>
+                        {errors.amenities && touched.amenities ? (
+                          <div className="input__error">{errors.amenities}</div>
                         ) : null}
                       </div>
-                      <div>
-                        <div>
-                          <label
-                            htmlFor="amenities"
-                            className="contactform__label"
-                          >
-                            Amenities
-                          </label>
-                          <Field
-                            name="amenities"
-                            className="addhotelsform__input"
-                            type="text"
-                          />
-                          {errors.amenities && touched.amenities ? (
-                            <div className="input__error">
-                              {errors.amenities}
-                            </div>
-                          ) : null}
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div className="addhotelsform__checkbox-wrapper">
-                    <h3>Does the hotel have free cancellation?</h3>
-                    <label>
-                      <Field
-                        name="free_cancellation"
-                        type="checkbox"
-                        //   defaultChecked={!checked}
-                        //   onChange={() => setChecked(!checked)}
-                      />
-                      <span className="addhotelsform__checkbox-span">
-                        Free cancellation
-                      </span>
-                    </label>
                   </div>
                   <div>
                     <h3 className="addhotelsform__h3">Add slider images</h3>
 
                     <div>
                       <FieldArray
+                        id="slider"
                         name="slider"
                         render={(arrayHelpers) => (
                           <div>
@@ -483,12 +472,33 @@ const AddHotelsModal = ({ setIsOpen }) => {
                                 Add slider image
                               </button>
                             )}
-                            <div>
-                              <button type="submit">Submit</button>
-                            </div>
                           </div>
                         )}
                       />
+                      <div className="addhotelsform__checkbox-wrapper">
+                        <h3>Does the hotel have free cancellation?</h3>
+                        <label>
+                          <Field
+                            id="free_cancellation"
+                            name="free_cancellation"
+                            type="checkbox"
+                            //   defaultChecked={!checked}
+                            //   onChange={() => setChecked(!checked)}
+                          />
+                          <span className="addhotelsform__checkbox-span">
+                            Free cancellation
+                          </span>
+                        </label>
+                      </div>
+
+                      <div>
+                        <button
+                          type="submit"
+                          className="formBtn addhotelsform__submit-btn"
+                        >
+                          Submit
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -496,14 +506,9 @@ const AddHotelsModal = ({ setIsOpen }) => {
             )}
           </Formik>
         </div>
-        {/* </div> */}
       </div>
     </>
   );
 };
 
 export default AddHotelsModal;
-
-// Need to add:
-
-// free_cancellation

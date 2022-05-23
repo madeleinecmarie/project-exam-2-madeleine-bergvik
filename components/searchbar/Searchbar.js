@@ -6,24 +6,17 @@ import axios from "axios";
 function Searchbar() {
   const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
 
-  // const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
 
-  useEffect(() => {
-    const loadPosts = async () => {
-      // setLoading(true);
-      const response = await axios.get("http://localhost:1337/hotels");
-      setPosts(response.data);
-      // setLoading(false);
-    };
+  // useEffect(() => {
+  //   const loadPosts = async () => {
+  //     const response = await axios.get("http://localhost:1337/hotels");
+  //     setPosts(response.data);
+  //   };
 
-    // loading ? (
-    //   <h4>Loading ...</h4>
-    // ) :
-
-    loadPosts();
-  }, []);
+  //   loadPosts();
+  // }, []);
 
   return (
     <div>
