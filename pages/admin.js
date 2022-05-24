@@ -329,7 +329,7 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
               >
                 Add hotel
               </button>
-              {isOpen && <AddHotelsModal setIsOpen={setIsOpen} />}
+              {isOpen && <AddHotelsModal JWT={JWT} setIsOpen={setIsOpen} />}
             </div>
           </div>
         </div>

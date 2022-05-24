@@ -66,10 +66,8 @@ const Details = ({
     free_cancellation,
     location,
     location_img,
-    alt_img,
     reviews,
     slider,
-    alt,
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,7 +114,7 @@ const Details = ({
                     loader={myLoader}
                     width={625}
                     height={371}
-                    alt={alt}
+                    alt={`Images of ${name} rooms and amenities`}
                   />
                 </SwiperSlide>
               );
@@ -231,7 +229,7 @@ const Details = ({
             </div>
             <Image
               src={location_img}
-              alt={alt_img}
+              alt="Image of location"
               height={312}
               width={572}
               loader={myLoader_2}
@@ -268,35 +266,33 @@ const Details = ({
         <p>900 verified Holidaze guest reviews</p>
       </div>
       <div className="reviewsDiv">
-        {reviews.map(
-          ({ id, title, headline, date, description, image, alt }) => {
-            const myLoader_3 = ({ width = 150 }) => {
-              return `${image}?w=${width}
+        {reviews.map(({ id, title, headline, date, description, image }) => {
+          const myLoader_3 = ({ width = 150 }) => {
+            return `${image}?w=${width}
               `;
-            };
-            return (
-              <div key={id} className="reviews">
-                <div className="reviews__wrapper">
-                  <Image
-                    src={image}
-                    alt={alt}
-                    height={82}
-                    width={82}
-                    loader={myLoader_3}
-                  ></Image>
-                  <div className="reviews__headline-wrapper">
-                    <h4 className="reviews__title">{title}</h4>
-                    <p>{date}</p>
-                  </div>
-                </div>
-                <div className="reviews__body">
-                  <h4 className="reviews__title">{headline}</h4>
-                  <p className="reviews__description">{description}</p>
+          };
+          return (
+            <div key={id} className="reviews">
+              <div className="reviews__wrapper">
+                <Image
+                  src={image}
+                  alt={`Image of ${title} avatar`}
+                  height={82}
+                  width={82}
+                  loader={myLoader_3}
+                ></Image>
+                <div className="reviews__headline-wrapper">
+                  <h4 className="reviews__title">{title}</h4>
+                  <p>{date}</p>
                 </div>
               </div>
-            );
-          }
-        )}
+              <div className="reviews__body">
+                <h4 className="reviews__title">{headline}</h4>
+                <p className="reviews__description">{description}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div>
         <p className="reviewsLink">See all 900 reviews</p>

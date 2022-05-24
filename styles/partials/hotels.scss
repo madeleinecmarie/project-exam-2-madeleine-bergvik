@@ -103,7 +103,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    height: 260px;
+    height: 280px;
     width: 100%;
     margin: auto;
   }
@@ -136,15 +136,18 @@
   }
 
   &__amenities {
+    margin-top: 5px;
+  }
+
+  &__amenities-text {
     font-weight: var(--medium);
-    // margin-top: 10px;
   }
 
   &__baseline {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   &__price {

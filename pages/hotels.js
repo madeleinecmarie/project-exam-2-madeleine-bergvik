@@ -96,7 +96,16 @@ const Stays = ({ hotel }) => {
                 price,
                 amenities,
                 free_cancellation,
-                alt_featured_img,
+
+                free_wifi,
+                queen_size_bed,
+                non_smoking_rooms,
+                parking,
+                bar,
+                pets_allowed,
+                swimming_pool,
+                shower_only,
+                free_parking,
               }) => {
                 const myLoader = ({ width = 150 }) => {
                   return `${featured_img}?w=${width}
@@ -108,7 +117,7 @@ const Stays = ({ hotel }) => {
                     <div className="hotel__line"></div>
                     <div className="hotel__wrapper">
                       <Image
-                        alt={alt_featured_img}
+                        alt={`Image of ${name} room`}
                         src={featured_img}
                         loader={myLoader}
                         width={386}
@@ -124,7 +133,37 @@ const Stays = ({ hotel }) => {
                           </div>
                         </h4>
 
-                        <p className="hotel__amenities">{amenities}</p>
+                        <div className="hotel__amenities">
+                          <p className="hotel__amenities-text">
+                            {free_wifi === true ? "Free WiFi" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {queen_size_bed === true ? "Queen size bed" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {non_smoking_rooms === true
+                              ? "Non smoking rooms"
+                              : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {parking === true ? "Parking" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {bar === true ? "Bar" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {pets_allowed === true ? "Pets allowed" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {swimming_pool === true ? "Swimming pool" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {shower_only === true ? "Shower only" : ""}
+                          </p>
+                          <p className="hotel__amenities-text">
+                            {free_parking === true ? "Free parking" : ""}
+                          </p>
+                        </div>
                         <p className="hotel__p">{short_description}</p>
 
                         <div className="hotel__baseline">

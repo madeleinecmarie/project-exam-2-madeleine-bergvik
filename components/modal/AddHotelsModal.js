@@ -48,16 +48,21 @@ const SignupSchema = Yup.object().shape({
     .min(1, "Property surroundings 3 too short")
     .max(100, "Property surroundings 3 is too long")
     .required("Property surroundings 3 is required"),
-
   amenities: Yup.string()
     .min(5, "Amenities must be longer than 5 letters")
-    .max(50, "Amenities are way too long")
+    .max(200, "Amenities are way too long")
     .required("Amenities is required"),
-  id: Yup.string().required("ID is required"),
   stars: Yup.string()
     .min(0, "Need to add stars")
     .max(1, "Stars can only be 1-5")
     .required("Stars is required"),
+  location_img: Yup.string()
+    .required("Image required")
+    .min(4, "Image link must be longer")
+    .matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Enter correct image url"
+    ),
   slider: Yup.array()
     .of(
       Yup.object().shape({
@@ -88,8 +93,6 @@ const ErrorMessage = ({ image }) => (
 
 const AddHotelsModal = ({ setIsOpen, JWT }) => {
   const router = useRouter();
-  // const [success, setSuccess] = useState;
-  // const [error, setError] = useState;
 
   return (
     <>
@@ -115,29 +118,34 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               property_surroundings_2: "",
               property_surroundings_3: "",
               amenities: "",
-              id: "",
               stars: "",
               free_cancellation: false,
+              location_img: "",
+              featured_img: "",
               slider: [],
+              reviews: [
+                // {
+                //   title: "",
+                //   headline: "",
+                //   date: "",
+                //   description: "",
+                //   image: "",
+                // },
+              ],
             }}
             validationSchema={SignupSchema}
             onSubmit={(newHotel) => {
               console.log(newHotel);
-
-              async function postNewHotel() {
-                let res = await axios.post(
-                  `${BaseURL}
-                /hotels/`,
-                  newHotel,
-                  {
-                    headers: {
-                      Authorization: `Bearer ${JWT}`,
-                    },
-                  }
-                );
+              console.log(JWT);
+              async function postNewHotel(newHotel) {
+                let res = await axios.post(`${BaseURL}/hotels/`, newHotel, {
+                  headers: {
+                    Authorization: `Bearer ${JWT}`,
+                  },
+                });
+                console.log("res", res);
                 alert("New hotel is added!");
                 router.replace(router.asPath);
-                console.log(res);
               }
               postNewHotel(newHotel);
             }}
@@ -162,20 +170,6 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                         ) : null}
                       </div>
                       <div>
-                        <label htmlFor="id" className="contactform__label">
-                          ID
-                        </label>
-                        <Field
-                          id="id"
-                          name="id"
-                          className="addhotelsform__input addhotelsform__input-short"
-                          type="text"
-                        />
-                        {errors.id && touched.id ? (
-                          <div className="input__error">{errors.id}</div>
-                        ) : null}
-                      </div>
-                      <div>
                         <label htmlFor="price" className="contactform__label">
                           Price/NOK
                         </label>
@@ -192,7 +186,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
 
                       <div>
                         <label htmlFor="stars" className="contactform__label">
-                          Stars
+                          Stars (1-5)
                         </label>
                         <Field
                           id="stars"
@@ -207,6 +201,22 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                     </div>
 
                     <div className="addhotelsform__flex">
+                      <div>
+                        <label htmlFor="name" className="contactform__label">
+                          Featured image
+                        </label>
+                        <Field
+                          id="featured_img"
+                          name="featured_img"
+                          className="addhotelsform__input"
+                          type="text"
+                        />
+                        {errors.featured_img && touched.featured_img ? (
+                          <div className="input__error">
+                            {errors.featured_img}
+                          </div>
+                        ) : null}
+                      </div>
                       <div>
                         <label htmlFor="name" className="contactform__label">
                           Short description
@@ -224,6 +234,9 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           </div>
                         ) : null}
                       </div>
+                    </div>
+                    <h3 className="addhotelsform__h3">Location</h3>
+                    <div className="addhotelsform__flex">
                       <div>
                         <label
                           htmlFor="location"
@@ -241,9 +254,28 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           <div className="input__error">{errors.location}</div>
                         ) : null}
                       </div>
+                      <div>
+                        <label
+                          htmlFor="location_img"
+                          className="contactform__label"
+                        >
+                          Location image
+                        </label>
+                        <Field
+                          id="location_img"
+                          name="location_img"
+                          className="addhotelsform__input"
+                        ></Field>
+                        {errors.location_img && touched.location_img ? (
+                          <div className="input__error">
+                            {errors.location_img}
+                          </div>
+                        ) : null}
+                      </div>
                     </div>
                     <h3 className="addhotelsform__h3">Descriptions</h3>
-                    <p>Write 4 smaller sections of text</p>
+                    <p>Write 4 smaller sections of text about the hotel</p>
+
                     <div className="addhotelsform__flex">
                       <div>
                         <label
@@ -428,7 +460,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                         render={(arrayHelpers) => (
                           <div>
                             {values.slider && values.slider.length > 0 ? (
-                              values.slider.map((value, index) => (
+                              values.slider.map((value, index, alt_img) => (
                                 <div key={index}>
                                   <Field
                                     name={`slider.${index}.image`}
@@ -436,6 +468,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                   />
                                   <ErrorMessage
                                     image={`slider.[${index}].image`}
+                                    alt={alt_img}
                                   />
                                   <div className="addhotelsform__btn-wrapper">
                                     <div>
@@ -482,8 +515,6 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                             id="free_cancellation"
                             name="free_cancellation"
                             type="checkbox"
-                            //   defaultChecked={!checked}
-                            //   onChange={() => setChecked(!checked)}
                           />
                           <span className="addhotelsform__checkbox-span">
                             Free cancellation
@@ -512,3 +543,13 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
 };
 
 export default AddHotelsModal;
+
+// Free WiFi,
+// Queen size bed,
+// Non-smoking rooms
+// Parking
+// Bar
+// Pets allowed
+// Swimming pool
+// Shower only,
+// No pets allowed
