@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setCookie } from "nookies";
 
-export default async (req, res) => {
+export default async function login(req, res) {
   const { password, identifier } = req.body;
 
   try {
@@ -21,4 +21,4 @@ export default async (req, res) => {
   } catch (e) {
     res.status(400).send(e.response.data.message[0].messages[0]);
   }
-};
+}
