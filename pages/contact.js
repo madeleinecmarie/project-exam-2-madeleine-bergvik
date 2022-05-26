@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 // Components
 import { Nav } from "../components/layout/Nav";
 import { ContactForm } from "../components/forms/ContactForm";
+import Footer from "../components/layout/Footer";
 
 export default function Contact() {
   return (
@@ -46,6 +47,7 @@ export default function Contact() {
           <ContactForm />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

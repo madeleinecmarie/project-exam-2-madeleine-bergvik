@@ -32,13 +32,25 @@ function Footer() {
         <div className="footer__div-2">
           <ul className="footer__ul">
             <li className="footer__links">
-              <Link href="/stays" passHref>
-                <a className={router.pathname === "/stays"}>Stays</a>
+              <Link href="/hotels" passHref>
+                <a
+                  className={
+                    router.pathname === "/hotels" ? "activeNav" : "inactive"
+                  }
+                >
+                  Hotels
+                </a>
               </Link>
             </li>
             <li className="footer__links">
               <Link href="/contact" passHref>
-                <a className={router.pathname === "/contact"}>Contact</a>
+                <a
+                  className={
+                    router.pathname === "/contact" ? "activeNav" : "inactive"
+                  }
+                >
+                  Contact
+                </a>
               </Link>
             </li>
             <li className="footer__links">Privacy Policy</li>

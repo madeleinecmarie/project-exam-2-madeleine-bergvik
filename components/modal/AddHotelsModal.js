@@ -113,7 +113,6 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               property_surroundings_1: "",
               property_surroundings_2: "",
               property_surroundings_3: "",
-              amenities: "",
               stars: "",
               location_img: "",
               featured_img: "",
@@ -127,15 +126,15 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               shower_only: false,
               free_parking: false,
               slider: [],
-              reviews: [
-                // {
-                //   title: "",
-                //   headline: "",
-                //   date: "",
-                //   description: "",
-                //   image: "",
-                // },
-              ],
+              // reviews: [
+              //   {
+              //     title: "",
+              //     headline: "",
+              //     date: "",
+              //     description: "",
+              //     image: "",
+              //   },
+              // ],
             }}
             validationSchema={SignupSchema}
             onSubmit={(newHotel) => {
@@ -148,7 +147,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                   },
                 });
                 console.log("res", res);
-                alert("New hotel is added!");
+                alert("Nice! A new hotel is added");
                 router.replace(router.asPath);
               }
               postNewHotel(newHotel);
@@ -601,6 +600,8 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                             </span>
                           </label>
                         </div>
+
+                        <h3>Add reviews</h3>
                       </div>
 
                       <div>
