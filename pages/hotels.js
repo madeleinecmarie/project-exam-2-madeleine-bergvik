@@ -191,8 +191,8 @@ const Stays = ({ hotel }) => {
                 shower_only,
                 free_parking,
               }) => {
-                const myLoader = ({ width = 150 }) => {
-                  return `${featured_img}?w=${width}
+                const myLoader = ({ width = 150, quality = 50 }) => {
+                  return `${featured_img}?w=${width}&q=${quality || 75}
                   `;
                 };
 

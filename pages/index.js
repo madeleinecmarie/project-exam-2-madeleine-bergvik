@@ -91,8 +91,8 @@ export default function Home({ attraction }) {
 
           <div className="attractions__inner">
             {attraction.map(({ id, image, headline, description, alt }) => {
-              const myLoader = ({ width = 150 }) => {
-                return `${image}?w=${width}
+              const myLoader = ({ width = 150, quality = 50 }) => {
+                return `${image}?w=${width}&q=${quality || 75}
             `;
               };
 

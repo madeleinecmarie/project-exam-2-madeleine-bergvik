@@ -8,9 +8,22 @@ const ModalBooking = ({
   name,
   location,
   price,
-  amenities,
-  alt_featured_img,
+  free_cancellation,
+  free_wifi,
+  queen_size_bed,
+  non_smoking_rooms,
+  parking,
+  bar,
+  pets_allowed,
+  swimming_pool,
+  shower_only,
+  free_parking,
 }) => {
+  const myLoader = ({ width = 150, quality = 50 }) => {
+    return `${featured_img}?w=${width}&q=${quality || 75}
+    `;
+  };
+
   return (
     <>
       <div onClick={() => setIsBooking(false)} />
@@ -28,11 +41,12 @@ const ModalBooking = ({
               <h1 className="booking__h1">Booking</h1>
               <div>
                 <Image
-                  alt={alt_featured_img}
+                  alt="Image of hotelroom"
                   width={311}
                   height={193}
                   src={featured_img}
                   className="booking__img"
+                  loader={myLoader}
                 ></Image>
                 <h4 className="booking__h4">{name}</h4>
                 <div className="booking__location">
@@ -43,12 +57,42 @@ const ModalBooking = ({
                   />
                   <p className="booking__location-text">{location}</p>
                 </div>
-                <p className="booking__amenities">{amenities}</p>
+                <div className="hotel__amenities">
+                  <p className="hotel__amenities-text">
+                    {free_wifi === true ? "Free WiFi" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {queen_size_bed === true ? "Queen size bed" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {non_smoking_rooms === true ? "Non smoking rooms" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {parking === true ? "Parking" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {bar === true ? "Bar" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {pets_allowed === true ? "Pets allowed" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {swimming_pool === true ? "Swimming pool" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {shower_only === true ? "Shower only" : ""}
+                  </p>
+                  <p className="hotel__amenities-text">
+                    {free_parking === true ? "Free parking" : ""}
+                  </p>
+                </div>
               </div>
               <div className="booking__line"></div>
               <div>
                 <h4 className="booking__h4 booking__summary">Summary</h4>
+
                 <div className="booking__summary-wrapper">
+                  <p>{free_cancellation === true ? "Free cancellation" : ""}</p>
                   <p className="booking__dates">Booking dates:</p>
                   {/* <p className="booking__price">{price} NOK x nights</p> */}
                   <p className="booking__price">{price} NOK / per night</p>

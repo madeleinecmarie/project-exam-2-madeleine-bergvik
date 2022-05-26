@@ -81,8 +81,8 @@ const Details = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isBooking, setIsBooking] = useState(false);
 
-  const myLoader_2 = ({ width = 150 }) => {
-    return `${location_img}?w=${width}
+  const myLoader_2 = ({ width = 150, quality = 50 }) => {
+    return `${location_img}?w=${width}&q=${quality || 75}
     `;
   };
   return (
@@ -103,7 +103,6 @@ const Details = ({
         <div className="details__sliderDiv">
           <Swiper
             loop
-            // key={id}
             pagination={{
               clickable: true,
             }}
@@ -111,8 +110,8 @@ const Details = ({
             className="mySwiper"
           >
             {slider.map(({ id, image }) => {
-              const myLoader = ({ width = 150 }) => {
-                return `${image}?w=${width}
+              const myLoader = ({ width = 150, quality = 50 }) => {
+                return `${image}?w=${width}&q=${quality || 75}
                 `;
               };
               return (
@@ -168,11 +167,7 @@ const Details = ({
           </div>
 
           <div className="details__baseline">
-            {free_cancellation === true ? (
-              <p>Free cancellation</p>
-            ) : (
-              <div style={{ display: "none" }}></div>
-            )}
+            <p>{free_cancellation === true ? "Free cancellation" : ""}</p>
 
             <p className="hotel__price">
               {price} NOK /<span className="hotel__span"> night</span>
@@ -200,8 +195,17 @@ const Details = ({
                 featured_img={featured_img}
                 name={name}
                 location={location}
-                amenities={amenities}
                 price={price}
+                free_cancellation={free_cancellation}
+                free_wifi={free_wifi}
+                queen_size_bed={queen_size_bed}
+                non_smoking_rooms={non_smoking_rooms}
+                parking={parking}
+                bar={bar}
+                pets_allowed={pets_allowed}
+                swimming_pool={swimming_pool}
+                shower_only={shower_only}
+                free_parking={free_parking}
               />
             )}
           </div>
@@ -301,8 +305,8 @@ const Details = ({
       </div>
       <div className="reviewsDiv">
         {reviews.map(({ id, title, headline, date, description, image }) => {
-          const myLoader_3 = ({ width = 150 }) => {
-            return `${image}?w=${width}
+          const myLoader_3 = ({ width = 150, quality = 50 }) => {
+            return `${image}?w=${width}&q=${quality || 75}
               `;
           };
           return (

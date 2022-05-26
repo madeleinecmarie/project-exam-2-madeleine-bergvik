@@ -48,10 +48,6 @@ const SignupSchema = Yup.object().shape({
     .min(1, "Property surroundings 3 too short")
     .max(100, "Property surroundings 3 is too long")
     .required("Property surroundings 3 is required"),
-  // amenities: Yup.string()
-  //   .min(5, "Amenities must be longer than 5 letters")
-  //   .max(200, "Amenities are way too long")
-  //   .required("Amenities is required"),
   stars: Yup.string()
     .min(0, "Need to add stars")
     .max(1, "Stars can only be 1-5")

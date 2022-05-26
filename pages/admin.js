@@ -109,7 +109,9 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                             alt_featured_img,
                           }) => {
                             const myLoader = ({ width = 150 }) => {
-                              return `${featured_img}?w=${width}
+                              return `${featured_img}?w=${width}&q=${
+                                quality || 75
+                              }
                               `;
                             };
 
