@@ -25,14 +25,17 @@ const SignupSchema = Yup.object().shape({
 
 export const EnquiryForm = () => {
   const [error, setError] = useState(false);
+  const [enquierySent, setEnquierySent] = useState(false);
 
   const HandleSubmit = async (values) => {
     try {
       await axios.post("http://localhost:1337/enquiries", values);
       setError(false);
+      setEnquierySent(true);
     } catch (err) {
       console.log(err.response.data.messages);
       setError(true);
+      setEnquierySent(false);
     }
   };
 
@@ -126,9 +129,19 @@ export const EnquiryForm = () => {
                 <div style={{ color: "red" }}>{errors.message}</div>
               ) : null}
             </div>
+            <div>
+              {enquierySent ? (
+                <div className="text-green-600 font-bold">Enquiery is sent</div>
+              ) : null}
+              {error ? (
+                <div className="text-red-600 font-bold">
+                  Enquiery not sent, please try again
+                </div>
+              ) : null}
+            </div>
             <div className="contactform__BtnDiv">
               <button type="submit" className="formBtn">
-                Send message
+                Send enquiery
               </button>
             </div>
           </Form>

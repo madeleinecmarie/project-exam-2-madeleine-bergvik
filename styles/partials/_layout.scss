@@ -100,3 +100,77 @@ input {
     color: var(--gray);
   }
 }
+
+.modal {
+  background-color: var(--black);
+  width: 560px;
+  height: auto;
+  z-index: 99;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: var(--radius);
+  margin-top: 30px;
+  overflow-y: scroll;
+  color: var(--white);
+
+  &__close-btn {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+    margin-top: -1px;
+    margin-right: 1px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  &__p {
+    color: var(--white);
+    width: 70%;
+    padding-left: 45px;
+    margin-top: 20px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 320px;
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  &__content-text {
+    margin-top: 30px;
+  }
+
+  &__bodytext {
+    margin-top: 4px;
+  }
+
+  &__deleteBtn {
+    margin-top: 30px;
+  }
+}
+
+.modal-opacity-bgd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(123, 129, 129, 0.1);
+  // background-color: var(--black-opacity);
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}

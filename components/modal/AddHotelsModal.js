@@ -13,7 +13,7 @@ const SignupSchema = Yup.object().shape({
     .required("Name is required"),
   short_description: Yup.string()
     .min(10, "Description is too short")
-    .max(200, "Description is way too long")
+    .max(400, "Description is way too long")
     .required("Description is required"),
   price: Yup.string().required("Price is required"),
   location: Yup.string()
@@ -48,10 +48,10 @@ const SignupSchema = Yup.object().shape({
     .min(1, "Property surroundings 3 too short")
     .max(100, "Property surroundings 3 is too long")
     .required("Property surroundings 3 is required"),
-  amenities: Yup.string()
-    .min(5, "Amenities must be longer than 5 letters")
-    .max(200, "Amenities are way too long")
-    .required("Amenities is required"),
+  // amenities: Yup.string()
+  //   .min(5, "Amenities must be longer than 5 letters")
+  //   .max(200, "Amenities are way too long")
+  //   .required("Amenities is required"),
   stars: Yup.string()
     .min(0, "Need to add stars")
     .max(1, "Stars can only be 1-5")
@@ -119,9 +119,17 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               property_surroundings_3: "",
               amenities: "",
               stars: "",
-              free_cancellation: false,
               location_img: "",
               featured_img: "",
+              free_cancellation: false,
+              free_wifi: false,
+              queen_size_bed: false,
+              non_smoking_rooms: false,
+              bar: false,
+              pets_allowed: false,
+              swimming_pool: false,
+              shower_only: false,
+              free_parking: false,
               slider: [],
               reviews: [
                 // {
@@ -367,7 +375,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           htmlFor="property_surroundings_1"
                           className="contactform__label"
                         >
-                          Property surroundings 1
+                          Main amenities
                         </label>
                         <Field
                           id="property_surroundings_1"
@@ -388,7 +396,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           htmlFor="property_surroundings_2"
                           className="contactform__label"
                         >
-                          Property surroundings 2
+                          Room amenities
                         </label>
                         <Field
                           id="property_surroundings_2"
@@ -411,7 +419,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           htmlFor="property_surroundings_3"
                           className="contactform__label"
                         >
-                          Property surroundings 3
+                          Whats around
                         </label>
                         <Field
                           id="property_surroundings_3"
@@ -432,21 +440,96 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                     <h3 className="addhotelsform__h3">Amenities</h3>
                     <div className="addhotelsform__flex">
                       <div>
-                        <label
-                          htmlFor="amenities"
-                          className="contactform__label"
-                        >
-                          Amenities
-                        </label>
-                        <Field
-                          iid="amenities"
-                          name="amenities"
-                          className="addhotelsform__input"
-                          type="text"
-                        />
-                        {errors.amenities && touched.amenities ? (
-                          <div className="input__error">{errors.amenities}</div>
-                        ) : null}
+                        <div className="addhotelsform__checkboxes-1">
+                          <label>
+                            <Field
+                              id="free_wifi"
+                              name="free_wifi"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Free WiFi
+                            </span>
+                          </label>
+                          <label>
+                            <Field
+                              id="queen_size_bed"
+                              name="queen_size_bed"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Queen size bed
+                            </span>
+                          </label>
+                          <label>
+                            <Field
+                              id="non_smoking_rooms"
+                              name="non_smoking_rooms"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Non smoking rooms
+                            </span>
+                          </label>
+                          <label>
+                            <Field
+                              id="parking"
+                              name="parking"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Parking
+                            </span>
+                          </label>
+                          <label>
+                            <Field id="bar" name="bar" type="checkbox" />
+                            <span className="addhotelsform__checkbox-span">
+                              Bar
+                            </span>
+                          </label>
+                        </div>
+                        <div className="addhotelsform__checkboxes-2">
+                          <label>
+                            <Field
+                              id="pets_allowed"
+                              name="pets_allowed"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Pets allowed
+                            </span>
+                          </label>
+                          <label>
+                            <Field
+                              id="swimming_pool"
+                              name="swimming_pool"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Swimming pool
+                            </span>
+                          </label>
+                          <label>
+                            <Field
+                              id="shower_only"
+                              name="shower_only"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Shower only
+                            </span>
+                          </label>
+                          <label>
+                            <Field
+                              id="free_parking"
+                              name="free_parking"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Free parking
+                            </span>
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -510,16 +593,18 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                       />
                       <div className="addhotelsform__checkbox-wrapper">
                         <h3>Does the hotel have free cancellation?</h3>
-                        <label>
-                          <Field
-                            id="free_cancellation"
-                            name="free_cancellation"
-                            type="checkbox"
-                          />
-                          <span className="addhotelsform__checkbox-span">
-                            Free cancellation
-                          </span>
-                        </label>
+                        <div className="addhotelsform__label-freecancellation">
+                          <label>
+                            <Field
+                              id="free_cancellation"
+                              name="free_cancellation"
+                              type="checkbox"
+                            />
+                            <span className="addhotelsform__checkbox-span">
+                              Free cancellation
+                            </span>
+                          </label>
+                        </div>
                       </div>
 
                       <div>
@@ -543,13 +628,3 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
 };
 
 export default AddHotelsModal;
-
-// Free WiFi,
-// Queen size bed,
-// Non-smoking rooms
-// Parking
-// Bar
-// Pets allowed
-// Swimming pool
-// Shower only,
-// No pets allowed

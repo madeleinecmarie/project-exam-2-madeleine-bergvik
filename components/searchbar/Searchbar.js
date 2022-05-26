@@ -1,51 +1,43 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { DateRangePicker } from "@mantine/dates";
 import { Icon } from "@iconify/react";
-import axios from "axios";
 
-function Searchbar() {
+function Searchbar({ hotel }) {
   const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
+  // const [hotels, setHotels] = useState("");
+  // const [query, setQuery] = useState("");
 
-  const [posts, setPosts] = useState([]);
-  const [searchTitle, setSearchTitle] = useState("");
+  // const handleOnSearch = (event) => {
+  //   event.preventDefault();
+  //   setHotels(event.target.value);
+  // };
 
-  // useEffect(() => {
-  //   const loadPosts = async () => {
-  //     const response = await axios.get("http://localhost:1337/hotels");
-  //     setPosts(response.data);
-  //   };
+  // const handleSearch = (event) => {
+  //   event.preventDefault();
+  //   setQuery(event.target.value);
+  // };
 
-  //   loadPosts();
-  // }, []);
+  // const filterHotels = () => {
+  //   return hotel.filter(
+  //     (hotel) =>
+  //       hotel.name.toLowerCase().indexOf(query.toLocaleLowerCase()) > -1
+  //   );
+  // };
 
   return (
     <div>
       <div className="searchbar">
-        <form className="searchbar__form">
+        <form
+          className="searchbar__form"
+          // onSubmit={(event) => handleOnSearch(event)}
+        >
           <div>
             <input
               className="searchbar__input searchbar__input-1"
               placeholder="Search for hotel"
               type="text"
-              onChange={(e) => setSearchTitle(e.target.value)}
+              // onChange={(event) => handleSearch(event)}
             />
-
-            {posts
-              .filter((value) => {
-                if (searchTitle === "") {
-                  return value;
-                } else if (
-                  value.name
-                    .toLowerCase()
-                    .includes(searchTitle.toLocaleLowerCase())
-                ) {
-                  return value;
-                }
-              })
-
-              .map((item) => (
-                <h5 key={item.id}>{item.name}</h5>
-              ))}
           </div>
 
           <DateRangePicker

@@ -55,7 +55,6 @@ const Details = ({
     featured_img,
     stars,
     price,
-    amenities,
     description_1,
     description_2,
     description_3,
@@ -68,6 +67,15 @@ const Details = ({
     location_img,
     reviews,
     slider,
+    free_wifi,
+    queen_size_bed,
+    non_smoking_rooms,
+    parking,
+    bar,
+    pets_allowed,
+    swimming_pool,
+    shower_only,
+    free_parking,
   },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -129,9 +137,35 @@ const Details = ({
               <Icon icon="fa:star" color="#f2d432" height={16} />
             </div>
           </h1>
-
-          <p className="hotel__amenities">{amenities}</p>
           <p className="details__p">{short_description}</p>
+
+          <div className="hotel__amenities">
+            <p className="hotel__amenities-text">
+              {free_wifi === true ? "Free WiFi" : ""}
+            </p>
+            <p className="hotel__amenities-text">
+              {queen_size_bed === true ? "Queen size bed" : ""}
+            </p>
+            <p className="hotel__amenities-text">
+              {non_smoking_rooms === true ? "Non smoking rooms" : ""}
+            </p>
+            <p className="hotel__amenities-text">
+              {parking === true ? "Parking" : ""}
+            </p>
+            <p className="hotel__amenities-text">{bar === true ? "Bar" : ""}</p>
+            <p className="hotel__amenities-text">
+              {pets_allowed === true ? "Pets allowed" : ""}
+            </p>
+            <p className="hotel__amenities-text">
+              {swimming_pool === true ? "Swimming pool" : ""}
+            </p>
+            <p className="hotel__amenities-text">
+              {shower_only === true ? "Shower only" : ""}
+            </p>
+            <p className="hotel__amenities-text">
+              {free_parking === true ? "Free parking" : ""}
+            </p>
+          </div>
 
           <div className="details__baseline">
             {free_cancellation === true ? (

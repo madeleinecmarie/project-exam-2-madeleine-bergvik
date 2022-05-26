@@ -2,12 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useState } from "react";
+import { DateRangePicker } from "@mantine/dates";
 
 // Components
 import Filter from "../components/filter/Filter";
 import Footer from "../components/layout/Footer";
 import { Nav } from "../components/layout/Nav";
-import Searchbar from "../components/searchbar/Searchbar";
+// import Searchbar from "../components/searchbar/Searchbar";
 
 //API Call
 import { getHotels } from "../lib/apiCall";
@@ -22,6 +24,27 @@ export async function getStaticProps() {
 }
 
 const Stays = ({ hotel }) => {
+  const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
+  const [hotels, setHotels] = useState("");
+  const [query, setQuery] = useState("");
+
+  const handleOnSearch = (event) => {
+    event.preventDefault();
+    setHotels(event.target.value);
+  };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setQuery(event.target.value);
+  };
+
+  const filterHotels = () => {
+    return hotel.filter(
+      (hotel) =>
+        hotel.name.toLowerCase().indexOf(query.toLocaleLowerCase()) > -1
+    );
+  };
+
   return (
     <>
       <Head>
@@ -42,7 +65,70 @@ const Stays = ({ hotel }) => {
             <h1 className="hotels__h1">Find the best place for you to stay</h1>
           </div>
           <div className="hotels__searchbar">
-            <Searchbar className="pt-10" />
+            {/* <Searchbar className="pt-10" hotel={hotel} /> */}
+
+            <div hotel={hotel}>
+              <div className="searchbar">
+                <form
+                  className="searchbar__form"
+                  onSubmit={(event) => handleOnSearch(event)}
+                >
+                  <div>
+                    <input
+                      className="searchbar__input searchbar__input-1"
+                      placeholder="Search for hotel"
+                      type="text"
+                      onChange={(event) => handleSearch(event)}
+                    />
+                  </div>
+
+                  <DateRangePicker
+                    placeholder="Check in/out date"
+                    className="searchbar__datepicker"
+                    value={value}
+                    onChange={setValue}
+                  />
+                  <select
+                    className="searchbar__input searchbar__input-3 searchbar__input-3-margintop"
+                    type="text"
+                  >
+                    <option value="Add guests">Add guests</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+
+                  <select
+                    className="searchbar__input searchbar__input-3"
+                    type="text"
+                  >
+                    <option value="Add rooms">Add rooms</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+
+                  <button
+                    className="searchbar__btn"
+                    type="submit"
+                    value="submit"
+                  >
+                    <Icon
+                      icon="carbon:search"
+                      color="#1d282e"
+                      width={38}
+                      height={38}
+                    />
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -86,7 +172,7 @@ const Stays = ({ hotel }) => {
           </div> */}
 
           <div className="results__div">
-            {hotel.map(
+            {filterHotels().map(
               ({
                 id,
                 name,
@@ -94,9 +180,7 @@ const Stays = ({ hotel }) => {
                 stars,
                 featured_img,
                 price,
-                amenities,
                 free_cancellation,
-
                 free_wifi,
                 queen_size_bed,
                 non_smoking_rooms,
@@ -132,6 +216,7 @@ const Stays = ({ hotel }) => {
                             <Icon icon="fa:star" color="#f2d432" height={16} />
                           </div>
                         </h4>
+                        <p className="hotel__p">{short_description}</p>
 
                         <div className="hotel__amenities">
                           <p className="hotel__amenities-text">
@@ -164,7 +249,6 @@ const Stays = ({ hotel }) => {
                             {free_parking === true ? "Free parking" : ""}
                           </p>
                         </div>
-                        <p className="hotel__p">{short_description}</p>
 
                         <div className="hotel__baseline">
                           <div>

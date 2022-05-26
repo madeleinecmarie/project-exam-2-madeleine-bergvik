@@ -25,14 +25,17 @@ const SignupSchema = Yup.object().shape({
 
 export const ContactForm = () => {
   const [error, setError] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
 
   const HandleSubmit = async (values) => {
     try {
       await axios.post("http://localhost:1337/messages", values);
       setError(false);
+      setMessageSent(true);
     } catch (err) {
       console.log(err.response.data.messages);
       setError(true);
+      setMessageSent(false);
     }
   };
 
@@ -124,6 +127,16 @@ export const ContactForm = () => {
               />
               {errors.message && touched.message ? (
                 <div style={{ color: "red" }}>{errors.message}</div>
+              ) : null}
+            </div>
+            <div>
+              {messageSent ? (
+                <div className="text-green-600 font-bold">Message is sent</div>
+              ) : null}
+              {error ? (
+                <div className="text-red-600 font-bold">
+                  Message not sent, please try again
+                </div>
               ) : null}
             </div>
             <div className="contactform__BtnDiv">

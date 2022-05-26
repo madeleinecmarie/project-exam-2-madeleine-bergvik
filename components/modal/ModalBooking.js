@@ -1,5 +1,4 @@
 import { Icon } from "@iconify/react";
-import next from "next";
 import { Bookingform } from "../forms/BookingForm";
 import Image from "next/image";
 
@@ -28,13 +27,13 @@ const ModalBooking = ({
             <div>
               <h1 className="booking__h1">Booking</h1>
               <div>
-                <img
+                <Image
                   alt={alt_featured_img}
                   width={311}
                   height={193}
                   src={featured_img}
                   className="booking__img"
-                ></img>
+                ></Image>
                 <h4 className="booking__h4">{name}</h4>
                 <div className="booking__location">
                   <Icon

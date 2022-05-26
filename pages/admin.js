@@ -11,6 +11,9 @@ import React from "react";
 // Components
 import { Nav } from "../components/layout/Nav";
 import AddHotelsModal from "../components/modal/AddHotelsModal";
+import DeleteModal from "../components/modal/DeleteModal";
+import DeleteEnqueryModal from "../components/modal/DeleteEnquieryModal";
+import DeleteMessageModal from "../components/modal/DeleteMessageModal";
 
 // API Call
 import { BaseURL } from "../lib/apiUrl";
@@ -18,6 +21,19 @@ import { BaseURL } from "../lib/apiUrl";
 const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+
+  // Delete hotels
+  const [isDelete, setIsDelete] = useState(false);
+  const [deleteId, setDeleteId] = useState();
+
+  // Delete enquries
+  const [isDeleteEnquery, setIsDeleteEnquery] = useState(false);
+  const [deleteEnquieryId, setDeleteEnquieryId] = useState();
+
+  // Delete messages
+  const [isDeleteMessage, setIsDeleteMessage] = useState(false);
+  const [deleteMessageId, setDeleteMessageId] = useState();
+
   const router = useRouter();
   const { email, username } = user;
 
@@ -84,13 +100,12 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                             id,
                             name,
                             short_description,
-
                             featured_img,
                             price,
-                            stars,
-                            amenities,
-                            free_cancellation,
-                            location,
+                            // stars,
+                            // amenities,
+                            // free_cancellation,
+                            // location,
                             alt_featured_img,
                           }) => {
                             const myLoader = ({ width = 150 }) => {
@@ -135,26 +150,16 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                     color="#1d282e"
                                     height={22}
                                     onClick={() => {
-                                      let deleteHotels = confirm(
-                                        `Are you 100% sure you want to delete this hotel?`
-                                      );
-                                      if (deleteHotels) {
-                                        async function deleteHotel() {
-                                          let response = await axios.delete(
-                                            `${BaseURL}/hotels/${id}`,
-                                            {
-                                              headers: {
-                                                Authorization: `Bearer ${JWT}`,
-                                              },
-                                            }
-                                          );
-                                          router.replace(router.asPath);
-                                          console.log(response);
-                                        }
-                                        deleteHotel();
-                                      }
+                                      setIsDelete(true), setDeleteId(id);
                                     }}
                                   />
+                                  {isDelete && (
+                                    <DeleteModal
+                                      setIsDelete={setIsDelete}
+                                      deleteId={deleteId}
+                                      JWT={JWT}
+                                    />
+                                  )}
                                 </td>
                               </tr>
                             );
@@ -217,26 +222,17 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                   color="#1d282e"
                                   height={20}
                                   onClick={() => {
-                                    let deleteEnqueries = confirm(
-                                      `Are you 100% sure you want to delete this enquiery?`
-                                    );
-                                    if (deleteEnqueries) {
-                                      async function deleteEnquery() {
-                                        let response = await axios.delete(
-                                          `${BaseURL}/enquiries/${id}`,
-                                          {
-                                            headers: {
-                                              Authorization: `Bearer ${JWT}`,
-                                            },
-                                          }
-                                        );
-                                        router.replace(router.asPath);
-                                        console.log(response);
-                                      }
-                                      deleteEnquery();
-                                    }
+                                    setIsDeleteEnquery(true);
+                                    setDeleteEnquieryId(id);
                                   }}
                                 />
+                                {isDeleteEnquery && (
+                                  <DeleteEnqueryModal
+                                    setIsDeleteEnquery={setIsDeleteEnquery}
+                                    deleteEnquieryId={deleteEnquieryId}
+                                    JWT={JWT}
+                                  />
+                                )}
                               </td>
                             </tr>
                           );
@@ -291,26 +287,17 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                   color="#1d282e"
                                   height={25}
                                   onClick={() => {
-                                    let deleteMessages = confirm(
-                                      `Are you 100% sure you want to delete this message?`
-                                    );
-                                    if (deleteMessages) {
-                                      async function deleteMessage() {
-                                        let response = await axios.delete(
-                                          `${BaseURL}/messages/${id}`,
-                                          {
-                                            headers: {
-                                              Authorization: `Bearer ${JWT}`,
-                                            },
-                                          }
-                                        );
-                                        router.replace(router.asPath);
-                                        console.log(response);
-                                      }
-                                      deleteMessage();
-                                    }
+                                    setIsDeleteMessage(true),
+                                      setDeleteMessageId(id);
                                   }}
                                 />
+                                {isDeleteMessage && (
+                                  <DeleteMessageModal
+                                    setIsDeleteMessage={setIsDeleteMessage}
+                                    deleteMessageId={deleteMessageId}
+                                    JWT={JWT}
+                                  />
+                                )}
                               </td>
                             </tr>
                           );
