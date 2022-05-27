@@ -99,7 +99,6 @@ const SignupSchema = Yup.object().shape({
           .min(4, "Date is too short")
           .max(30, "Date is too long")
           .required("Date is required"),
-        // date: date().min(new Date("01-01-2022")).max(new Date()).required(),
       })
     )
     .required("You must have reviews")
