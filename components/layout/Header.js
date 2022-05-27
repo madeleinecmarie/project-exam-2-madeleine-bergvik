@@ -1,5 +1,4 @@
 import { Nav } from "./Nav";
-import Searchbar from "../searchbar/Searchbar";
 
 function Header() {
   return (
@@ -13,9 +12,7 @@ function Header() {
             <span className="herotext__span block">STAVANGER</span>
           </p>
         </div>
-        <div className="searchbar__div">
-          <Searchbar />
-        </div>
+        {/* <div className="searchbar__div"></div> */}
       </div>
     </>
   );
