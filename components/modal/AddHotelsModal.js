@@ -126,15 +126,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               shower_only: false,
               free_parking: false,
               slider: [],
-              // reviews: [
-              //   {
-              //     title: "",
-              //     headline: "",
-              //     date: "",
-              //     description: "",
-              //     image: "",
-              //   },
-              // ],
+              reviews: [],
             }}
             validationSchema={SignupSchema}
             onSubmit={(newHotel) => {
@@ -586,7 +578,11 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           </div>
                         )}
                       />
+
                       <div className="addhotelsform__checkbox-wrapper">
+                        <div>
+                          <h3>Add reviews</h3>
+                        </div>
                         <h3>Does the hotel have free cancellation?</h3>
                         <div className="addhotelsform__label-freecancellation">
                           <label>
@@ -600,8 +596,6 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                             </span>
                           </label>
                         </div>
-
-                        <h3>Add reviews</h3>
                       </div>
 
                       <div>

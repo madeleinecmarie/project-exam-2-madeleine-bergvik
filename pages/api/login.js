@@ -5,10 +5,13 @@ export default async function login(req, res) {
   const { password, identifier } = req.body;
 
   try {
-    const postRes = await axios.post("http://localhost:1337/auth/local", {
-      identifier,
-      password,
-    });
+    const postRes = await axios.post(
+      "https://madeleine-bergvik-project-exam.herokuapp.com/auth/local",
+      {
+        identifier,
+        password,
+      }
+    );
 
     setCookie({ res }, "jwt", postRes.data.jwt, {
       httpOnly: true,
