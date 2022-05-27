@@ -9,7 +9,6 @@ import { DateRangePicker } from "@mantine/dates";
 import Filter from "../components/filter/Filter";
 import Footer from "../components/layout/Footer";
 import { Nav } from "../components/layout/Nav";
-// import Searchbar from "../components/searchbar/Searchbar";
 
 //API Call
 import { getHotels } from "../lib/apiCall";
