@@ -20,7 +20,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export const getStaticPaths = async () => {
-  const res = await fetch(BaseURL + "/hotels/");
+  const res = await fetch(BaseURL + "hotels/");
   const data = await res.json();
 
   console.log(data);
