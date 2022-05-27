@@ -10,7 +10,7 @@ const DeleteMessageModal = ({ setIsDeleteMessage, JWT, deleteMessageId }) => {
 
   async function handleMessageDelete() {
     try {
-      let res = await axios.delete(`${BaseURL}/messages/${deleteMessageId}`, {
+      let res = await axios.delete(`${BaseURL}messages/${deleteMessageId}`, {
         headers: {
           Authorization: `Bearer ${JWT}`,
         },

@@ -10,7 +10,7 @@ const DeleteModal = ({ setIsDelete, deleteId, JWT }) => {
 
   async function handleDelete() {
     try {
-      let res = await axios.delete(`${BaseURL}/hotels/${deleteId}`, {
+      let res = await axios.delete(`${BaseURL}hotels/${deleteId}`, {
         headers: {
           Authorization: `Bearer ${JWT}`,
         },

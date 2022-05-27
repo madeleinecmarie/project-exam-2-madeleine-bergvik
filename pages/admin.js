@@ -108,7 +108,10 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                             // location,
                             alt_featured_img,
                           }) => {
-                            const myLoader = ({ width = 150 }) => {
+                            const myLoader = ({
+                              width = 150,
+                              quality = 50,
+                            }) => {
                               return `${featured_img}?w=${width}&q=${
                                 quality || 75
                               }
@@ -364,26 +367,6 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
-
-  // if (JWT) {
-  //   try {
-  //     const loginData = await axios.get(BaseURL + "/users/me", {
-  //       headers: {
-  //         Authorization: `Bearer ${JWT}`,
-  //       },
-  //     });
-  //     const HotelsData = await axios.get(BaseURL + "/hotels");
-  //     const contactData = await axios.get(BaseURL + "/messages");
-  //     const enquiryData = await axios.get(BaseURL + "/enquiries");
-
-  //     user = loginData.data;
-  //     cabins = HotelsData.data;
-  //     messages = contactData.data;
-  //     enquiries = enquiryData.data;
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
 
   return {
     props: {

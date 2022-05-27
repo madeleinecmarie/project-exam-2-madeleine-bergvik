@@ -316,7 +316,7 @@ const Details = ({
               <div className="reviews__wrapper">
                 <Image
                   src={image}
-                  alt={`Image of ${title} avatar`}
+                  alt={`Image of avatar`}
                   height={82}
                   width={82}
                   loader={myLoader_3}

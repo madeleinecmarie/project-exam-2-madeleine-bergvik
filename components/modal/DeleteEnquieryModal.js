@@ -10,7 +10,7 @@ const DeleteEnqueryModal = ({ setIsDeleteEnquery, JWT, deleteEnquieryId }) => {
 
   async function handleEnquieryDelete() {
     try {
-      let res = await axios.delete(`${BaseURL}/enquiries/${deleteEnquieryId}`, {
+      let res = await axios.delete(`${BaseURL}enquiries/${deleteEnquieryId}`, {
         headers: {
           Authorization: `Bearer ${JWT}`,
         },

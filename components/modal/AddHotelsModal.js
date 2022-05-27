@@ -76,24 +76,41 @@ const SignupSchema = Yup.object().shape({
   reviews: Yup.array()
     .of(
       Yup.object().shape({
-        // image: Yup.string()
-        //   .required("Image required")
-        //   .min(1, "Image link must be longer")
-        //   .matches(
-        //     /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-        //     "Enter correct image url"
-        //   ),
+        title: Yup.string()
+          .min(4, "Title is too short")
+          .max(20, "Title is too long")
+          .required("Title is required"),
+        headline: Yup.string()
+          .min(4, "Headline is too short")
+          .max(20, "Headline is too long")
+          .required("Headline is required"),
+        description: Yup.string()
+          .min(4, "Description is too short")
+          .max(100, "Description is too long")
+          .required("Description is required"),
+        image: Yup.string()
+          .required("Image required")
+          .min(1, "Image link must be longer")
+          .matches(
+            /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+            "Enter correct image url"
+          ),
+        date: Yup.string()
+          .min(4, "Date is too short")
+          .max(30, "Date is too long")
+          .required("Date is required"),
+        // date: date().min(new Date("01-01-2022")).max(new Date()).required(),
       })
     )
-    .required("You must add images")
-    .min(4, "Minimum of 4 image urls"),
+    .required("You must have reviews")
+    .min(3, "Total of 3 reviews"),
 });
 
-const ErrorMessage = ({ image }) => (
-  <Field name={image}>
+const ErrorMessage = ({ item }) => (
+  <Field name={item}>
     {({ form }) => {
-      const error = getIn(form.errors, image);
-      const touch = getIn(form.touched, image);
+      const error = getIn(form.errors, item);
+      const touch = getIn(form.touched, item);
       return touch || error ? (
         <div className="input__error">{error}</div>
       ) : null;
@@ -147,7 +164,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               console.log(newHotel);
               console.log(JWT);
               async function postNewHotel(newHotel) {
-                let res = await axios.post(`${BaseURL}/hotels/`, newHotel, {
+                let res = await axios.post(`${BaseURL}hotels/`, newHotel, {
                   headers: {
                     Authorization: `Bearer ${JWT}`,
                   },
@@ -549,9 +566,10 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                   <Field
                                     name={`slider.${index}.image`}
                                     className="addhotelsform__input"
+                                    type="text"
                                   />
                                   <ErrorMessage
-                                    image={`slider.[${index}].image`}
+                                    item={`slider.[${index}].image`}
                                     alt="Images of hotelrooms and amenities"
                                   />
                                   <div className="addhotelsform__btn-wrapper">
@@ -604,16 +622,99 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                 {values.reviews && values.reviews.length > 0 ? (
                                   values.reviews.map((value, index) => (
                                     <div key={index}>
-                                      <Field
-                                        name={`reviews.${index}.title`}
-                                        className="addhotelsform__input"
-                                      />
-                                      <ErrorMessage
-                                        image={`slider.[${index}].image`}
-                                        alt="Images of person avatars"
-                                      />
+                                      <div className="addhotelsform__flex">
+                                        <div>
+                                          <label
+                                            htmlFor="title"
+                                            className="contactform__label"
+                                          >
+                                            Title
+                                          </label>
+                                          <Field
+                                            name={`reviews.${index}.title`}
+                                            className="addhotelsform__input"
+                                            type="text"
+                                          />
+
+                                          <ErrorMessage
+                                            item={`reviews.[${index}].title`}
+                                          />
+                                        </div>
+                                        <div>
+                                          <label
+                                            htmlFor="headline"
+                                            className="contactform__label"
+                                          >
+                                            Headline
+                                          </label>
+                                          <Field
+                                            name={`reviews.${index}.headline`}
+                                            className="addhotelsform__input"
+                                            type="text"
+                                          />
+                                          <ErrorMessage
+                                            item={`reviews.[${index}].headline`}
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="addhotelsform__flex">
+                                        <div>
+                                          <label
+                                            htmlFor="date"
+                                            className="contactform__label"
+                                          >
+                                            Date
+                                          </label>
+                                          <Field
+                                            name={`reviews.${index}.date`}
+                                            className="addhotelsform__input"
+                                            type="text"
+                                          />
+                                          <ErrorMessage
+                                            item={`reviews.[${index}].date`}
+                                          />
+                                        </div>
+                                        <div>
+                                          <label
+                                            htmlFor="image"
+                                            className="contactform__label"
+                                          >
+                                            Image
+                                          </label>
+                                          <Field
+                                            name={`reviews.${index}.image`}
+                                            className="addhotelsform__input"
+                                            type="text"
+                                            alt="alt"
+                                          />
+                                          <ErrorMessage
+                                            item={`reviews.[${index}].image`}
+                                          />
+                                        </div>
+                                      </div>
+
+                                      <div>
+                                        <div>
+                                          <label
+                                            htmlFor="description"
+                                            className="contactform__label"
+                                          >
+                                            Description
+                                          </label>
+                                          <Field
+                                            name={`reviews.${index}.description`}
+                                            className="addhotelsform__input addhotelsform__input-height"
+                                            type="text"
+                                            component="textarea"
+                                          />
+                                          <ErrorMessage
+                                            item={`reviews.[${index}].description`}
+                                          />
+                                        </div>
+                                      </div>
+
                                       <div className="addhotelsform__btn-wrapper">
-                                        {/* <div>
+                                        <div>
                                           <button
                                             type="button"
                                             className="addhotelsform__btn"
@@ -621,10 +722,10 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                               arrayReviews.insert(index, "")
                                             }
                                           >
-                                            Add another image
+                                            Add another review
                                           </button>
-                                        </div> */}
-                                        {/* <div>
+                                        </div>
+                                        <div>
                                           <button
                                             type="button"
                                             className="addhotelsform__btn addhotelsform__btn-remove"
@@ -632,37 +733,40 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                               arrayReviews.remove(index)
                                             }
                                           >
-                                            Remove image
+                                            Remove review
                                           </button>
-                                        </div> */}
+                                        </div>
                                       </div>
                                     </div>
                                   ))
                                 ) : (
                                   <button
                                     type="button"
-                                    onClick={() => arrayHelpers.push("")}
+                                    onClick={() => arrayReviews.push("")}
                                     className="addhotelsform__btn"
                                   >
-                                    Add slider image
+                                    Add review
                                   </button>
                                 )}
                               </div>
                             )}
                           />
                         </div>
-                        <h3>Does the hotel have free cancellation?</h3>
-                        <div className="addhotelsform__label-freecancellation">
-                          <label>
-                            <Field
-                              id="free_cancellation"
-                              name="free_cancellation"
-                              type="checkbox"
-                            />
-                            <span className="addhotelsform__checkbox-span">
-                              Free cancellation
-                            </span>
-                          </label>
+
+                        <div>
+                          <h3>Does the hotel have free cancellation?</h3>
+                          <div className="addhotelsform__label-freecancellation">
+                            <label>
+                              <Field
+                                id="free_cancellation"
+                                name="free_cancellation"
+                                type="checkbox"
+                              />
+                              <span className="addhotelsform__checkbox-span">
+                                Free cancellation
+                              </span>
+                            </label>
+                          </div>
                         </div>
                       </div>
 
