@@ -338,14 +338,14 @@ export const getServerSideProps = async (ctx) => {
 
   if (JWT) {
     try {
-      const loginData = await axios.get(BaseURL + "/users/me", {
+      const loginData = await axios.get(BaseURL + "users/me", {
         headers: {
           Authorization: `Bearer ${JWT}`,
         },
       });
-      const hotelsData = await axios.get(BaseURL + "/hotels");
-      const contactData = await axios.get(BaseURL + "/messages");
-      const enquiryData = await axios.get(BaseURL + "/enquiries");
+      const hotelsData = await axios.get(BaseURL + "hotels");
+      const contactData = await axios.get(BaseURL + "messages");
+      const enquiryData = await axios.get(BaseURL + "enquiries");
 
       user = loginData.data;
       hotels = hotelsData.data;

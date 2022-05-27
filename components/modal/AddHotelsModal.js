@@ -73,6 +73,20 @@ const SignupSchema = Yup.object().shape({
     )
     .required("You must add images")
     .min(4, "Minimum of 4 image urls"),
+  reviews: Yup.array()
+    .of(
+      Yup.object().shape({
+        // image: Yup.string()
+        //   .required("Image required")
+        //   .min(1, "Image link must be longer")
+        //   .matches(
+        //     /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+        //     "Enter correct image url"
+        //   ),
+      })
+    )
+    .required("You must add images")
+    .min(4, "Minimum of 4 image urls"),
 });
 
 const ErrorMessage = ({ image }) => (
@@ -530,7 +544,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                         render={(arrayHelpers) => (
                           <div>
                             {values.slider && values.slider.length > 0 ? (
-                              values.slider.map((value, index, alt_img) => (
+                              values.slider.map((value, index) => (
                                 <div key={index}>
                                   <Field
                                     name={`slider.${index}.image`}
@@ -538,7 +552,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                   />
                                   <ErrorMessage
                                     image={`slider.[${index}].image`}
-                                    alt={alt_img}
+                                    alt="Images of hotelrooms and amenities"
                                   />
                                   <div className="addhotelsform__btn-wrapper">
                                     <div>
@@ -580,8 +594,62 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                       />
 
                       <div className="addhotelsform__checkbox-wrapper">
+                        <h3>Add reviews</h3>
                         <div>
-                          <h3>Add reviews</h3>
+                          <FieldArray
+                            id="reviews"
+                            name="reviews"
+                            render={(arrayReviews) => (
+                              <div>
+                                {values.reviews && values.reviews.length > 0 ? (
+                                  values.reviews.map((value, index) => (
+                                    <div key={index}>
+                                      <Field
+                                        name={`reviews.${index}.title`}
+                                        className="addhotelsform__input"
+                                      />
+                                      <ErrorMessage
+                                        image={`slider.[${index}].image`}
+                                        alt="Images of person avatars"
+                                      />
+                                      <div className="addhotelsform__btn-wrapper">
+                                        {/* <div>
+                                          <button
+                                            type="button"
+                                            className="addhotelsform__btn"
+                                            onClick={() =>
+                                              arrayReviews.insert(index, "")
+                                            }
+                                          >
+                                            Add another image
+                                          </button>
+                                        </div> */}
+                                        {/* <div>
+                                          <button
+                                            type="button"
+                                            className="addhotelsform__btn addhotelsform__btn-remove"
+                                            onClick={() =>
+                                              arrayReviews.remove(index)
+                                            }
+                                          >
+                                            Remove image
+                                          </button>
+                                        </div> */}
+                                      </div>
+                                    </div>
+                                  ))
+                                ) : (
+                                  <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.push("")}
+                                    className="addhotelsform__btn"
+                                  >
+                                    Add slider image
+                                  </button>
+                                )}
+                              </div>
+                            )}
+                          />
                         </div>
                         <h3>Does the hotel have free cancellation?</h3>
                         <div className="addhotelsform__label-freecancellation">
