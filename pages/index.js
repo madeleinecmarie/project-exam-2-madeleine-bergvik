@@ -16,7 +16,7 @@ import { getHotels } from "../lib/apiCall";
 import { BaseURL } from "../lib/apiUrl";
 
 export async function getStaticProps() {
-  const attractionArray = await getHotels(BaseURL + "/attractions");
+  const attractionArray = await getHotels(BaseURL + "attractions");
 
   return {
     props: { attraction: attractionArray },

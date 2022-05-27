@@ -39,7 +39,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const res = await fetch("http://localhost:1337/hotels/" + id);
+  const res = await fetch(
+    "https://madeleine-bergvik-project-exam.herokuapp.com/hotels/" + id
+  );
   const data = await res.json();
 
   return {
