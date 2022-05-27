@@ -26,18 +26,56 @@
     margin: auto;
     margin-top: 60px;
   }
+
+  &__h2 {
+    margin-bottom: 40px;
+  }
+}
+
+.filterModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 99;
+  width: 90%;
+  max-width: 800px;
+  height: auto;
+  padding: 30px 30px 50px;
+  border-radius: var(--radius);
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  color: var(--white);
+
+  &__close-btn {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+    margin-top: -1px;
+    margin-right: 1px;
+  }
+}
+
+.responsive__filter {
+  display: none;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 40px;
 }
 
 .filter {
   margin-top: 40px;
   z-index: 2;
 
-  // background-color: var(--white);
-
-  // &__sorting,
-  // &__rating {
-  //   margin-top: 50px;
-  // }
+  &__input-wrapper {
+    margin-left: 5px;
+  }
+  &__sorting,
+  &__rating {
+    margin-top: 20px;
+  }
 
   &__inner {
     padding-left: 20px;
@@ -57,10 +95,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 10px;
-  padding-left: 20px;
+  margin-top: 20px;
+  padding-left: 5px;
   padding-bottom: 20px;
   height: 150px;
+  gap: 10px;
 
   &__label {
     padding-left: 12px;

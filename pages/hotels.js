@@ -9,6 +9,7 @@ import { DateRangePicker } from "@mantine/dates";
 import Filter from "../components/filter/Filter";
 import Footer from "../components/layout/Footer";
 import { Nav } from "../components/layout/Nav";
+import FilterModal from "../components/modal/FilterModal";
 
 //API Call
 import { getHotels } from "../lib/apiCall";
@@ -26,6 +27,7 @@ const Stays = ({ hotel }) => {
   const [value, setValue] = [new Date(2021, 11, 1), new Date(2021, 11, 5)];
   const [hotels, setHotels] = useState("");
   const [query, setQuery] = useState("");
+  const [openFilter, setOpenFilter] = useState(false);
 
   const handleOnSearch = (event) => {
     event.preventDefault();
@@ -64,8 +66,6 @@ const Stays = ({ hotel }) => {
             <h1 className="hotels__h1">Find the best place for you to stay</h1>
           </div>
           <div className="hotels__searchbar">
-            {/* <Searchbar className="pt-10" hotel={hotel} /> */}
-
             <div hotel={hotel}>
               <div className="searchbar">
                 <form
@@ -133,42 +133,24 @@ const Stays = ({ hotel }) => {
 
         <div className="hotelsWrapper">
           <div className="hotels__h2-wrapper">
-            <h2>Hotels</h2>
-            <div className="filter">
-              <Filter />
+            <h2 className="hotels__h2">Hotels</h2>
+            <div>
+              <div
+                onClick={() => setOpenFilter(true)}
+                className="responsive__filter"
+              >
+                <Icon
+                  icon="system-uicons:filtering"
+                  color="#1d282e"
+                  height={40}
+                  width={40}
+                />
+              </div>
             </div>
+            <Filter />
           </div>
 
-          {/* <div className="filter__sorting">
-              <h4>Filter by</h4>
-              <input type="checkbox" className="filter__input" />
-              <label className="filter__label">Free cancellation</label>
-            </div> */}
-          {/* <div className="filter__rating"></div>
-            <h4>Star Rating</h4>
-            <div className="inputs">
-              <div>
-                <input type="checkbox" className="" />
-                <label className="inputs__label">1 stars</label>
-              </div>
-              <div>
-                <input type="checkbox" className="" />
-                <label className="inputs__label">2 stars</label>
-              </div>
-              <div>
-                <input type="checkbox" className="" />
-                <label className="inputs__label">3 stars</label>
-              </div>
-              <div>
-                <input type="checkbox" className="" />
-                <label className="inputs__label">4 stars</label>
-              </div>
-              <div>
-                <input type="checkbox" className="" />
-                <label className="inputs__label">5 stars</label>
-              </div>
-            </div>
-          </div> */}
+          {openFilter && <FilterModal setOpenFilter={setOpenFilter} />}
 
           <div className="results__div">
             {filterHotels().map(

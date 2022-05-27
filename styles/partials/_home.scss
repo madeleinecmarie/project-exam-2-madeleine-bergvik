@@ -1,5 +1,5 @@
 .heroImg {
-  height: 795px;
+  height: 700px;
   background-size: cover;
   background-image: url("/images/hero-image.jpg");
   background-repeat: no-repeat;
@@ -25,9 +25,9 @@
 
 .home {
   background-color: var(--black);
-  height: 815px;
+  height: 760px;
   text-align: center;
-  padding-top: 144px;
+  padding-top: 140px;
 
   &__section-1 {
     color: var(--white);
@@ -65,21 +65,21 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 50px;
     width: 50%;
   }
 
   &__emailInput {
     width: 496px;
     border-radius: var(--radius);
-    height: 65px;
+    height: 55px;
     padding-left: 10px;
   }
 
   &__btn {
     background-color: var(--orange);
     border-radius: var(--radius);
-    height: 65px;
+    height: 55px;
     width: 160px;
     margin-left: 10px;
   }

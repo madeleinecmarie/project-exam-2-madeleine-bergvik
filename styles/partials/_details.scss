@@ -125,7 +125,8 @@
 
   &__property-inner {
     display: flex;
-    margin: auto;
+    justify-content: center;
+    gap: 30px;
     margin-top: 40px;
   }
 
@@ -133,8 +134,8 @@
     font-weight: var(--medium);
   }
 
-  &__property-bodytext {
-    width: 65%;
+  &__property-3 {
+    width: 80%;
   }
 }
 
@@ -279,6 +280,7 @@
 
   &__h1 {
     color: var(--black);
+    margin-bottom: 40px;
   }
 
   &__img {
