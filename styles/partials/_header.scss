@@ -8,14 +8,11 @@
 
 .nav {
   padding-top: 24px;
-  // position: fixed;
-  // overflow: hidden;
   background-color: transparent;
-  // z-index: 99;
-  // top: 0;
   width: 100%;
   max-width: 1500px;
   min-width: 300px;
+  padding-bottom: 30px;
 
   & a {
     font-size: var(--btn-nav);

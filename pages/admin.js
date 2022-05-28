@@ -65,7 +65,12 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
           <div className="admin__logout">
             <div>Username: {username}</div>
             <div>Email: {email}</div>
-            <button onClick={logout}>Logout</button>
+
+            <div className="admin__logout-btn">
+              <button className="nav__btn" onClick={logout}>
+                Log out
+              </button>
+            </div>
           </div>
           <h1 className="admin__headline">Admin</h1>
         </div>

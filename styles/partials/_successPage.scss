@@ -1,0 +1,23 @@
+.success {
+  background-color: var(--white);
+  text-align: center;
+
+  &__headline {
+    color: var(--black);
+    padding-top: 90px;
+    margin-bottom: 6px;
+  }
+
+  &__img {
+    margin-top: 60px;
+  }
+
+  &__btn-wrapper {
+    margin-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  &__btn {
+    width: 229px;
+  }
+}

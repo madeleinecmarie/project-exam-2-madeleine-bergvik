@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap");
+
 html,
 body {
   padding: 0;
@@ -169,7 +171,6 @@ input {
   top: 0;
   left: 0;
   background-color: rgba(123, 129, 129, 0.1);
-  // background-color: var(--black-opacity);
   height: 100%;
   width: 100%;
   z-index: 2;

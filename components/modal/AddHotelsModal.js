@@ -618,7 +618,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                         )}
                       />
 
-                      {/* <div>
+                      <div>
                         {errors.slider && touched.slider ? (
                           <div className="input__error">
                             {errors.slider === "string" ? (
@@ -626,7 +626,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                             ) : null}
                           </div>
                         ) : null}
-                      </div> */}
+                      </div>
                     </div>
 
                     <div className="addhotelsform__checkbox-wrapper">
@@ -731,23 +731,6 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                                           item={`reviews.[${index}].description`}
                                         />
                                       </div>
-                                      {/* <div>
-                                          <label
-                                            htmlFor="alt"
-                                            className="contactform__label"
-                                          >
-                                            Alt
-                                          </label>
-                                          <Field
-                                            name={`reviews.${index}.alt`}
-                                            className="addhotelsform__input"
-                                            type="text"
-                                            alt="Image of avatar"
-                                          />
-                                          <ErrorMessage
-                                            item={`reviews.[${index}].alt`}
-                                          />
-                                        </div> */}
                                     </div>
 
                                     <div className="addhotelsform__btn-wrapper">
@@ -789,15 +772,15 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                           )}
                         />
                       </div>
-                      {/* <div>
-                          {errors.reviews && touched.reviews ? (
-                            <div className="input__error">
-                              {errors.reviews === "string" ? (
-                                <div>{errors.reviews}</div>
-                              ) : null}
-                            </div>
-                          ) : null}
-                        </div> */}
+                      <div>
+                        {errors.reviews && touched.reviews ? (
+                          <div className="input__error">
+                            {errors.reviews === "string" ? (
+                              <div>{errors.reviews}</div>
+                            ) : null}
+                          </div>
+                        ) : null}
+                      </div>
 
                       <div>
                         <h3>Does the hotel have free cancellation?</h3>

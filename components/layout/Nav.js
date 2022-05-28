@@ -78,9 +78,11 @@ export const Nav = () => {
               </a>
             </Link>
             <div>
-              <Link href="/loginPage" passHref>
-                <button className="nav__btn">Log in</button>
-              </Link>
+              <div>
+                <Link href="/loginPage" passHref>
+                  <button className="nav__btn">Log in</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

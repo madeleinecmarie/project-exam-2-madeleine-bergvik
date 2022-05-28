@@ -12,7 +12,6 @@ function Header() {
             <span className="herotext__span block">STAVANGER</span>
           </p>
         </div>
-        {/* <div className="searchbar__div"></div> */}
       </div>
     </>
   );

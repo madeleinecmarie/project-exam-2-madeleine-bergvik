@@ -56,7 +56,6 @@ const LoginComponent = () => {
                   </label>
                   <Field
                     className="contactform__input"
-                    // placeholder="Username"
                     type="text"
                     name="identifier"
                   />
@@ -74,7 +73,6 @@ const LoginComponent = () => {
                   </label>
                   <Field
                     className="contactform__input"
-                    // placeholder="Password"
                     type="password"
                     name="password"
                   />
