@@ -302,7 +302,7 @@ const Details = ({
         </div>
       </div>
       <div className="reviewsHeadline">
-        <h3>4,9/5 Reviews</h3>
+        <h3>Reviews</h3>
         <p>900 verified Holidaze guest reviews</p>
       </div>
       <div className="reviewsDiv">

@@ -80,36 +80,36 @@ const SignupSchema = Yup.object().shape({
     )
     .required("You must add images")
     .min(3, "Minimum of 3 image urls"),
-  // reviews: Yup.array()
-  //   .of(
-  //     Yup.object().shape({
-  //       title: Yup.string()
-  //         .min(4, "Title is too short")
-  //         .max(20, "Title is too long")
-  //         .required("Title is required"),
-  //       headline: Yup.string()
-  //         .min(4, "Headline is too short")
-  //         .max(20, "Headline is too long")
-  //         .required("Headline is required"),
-  //       description: Yup.string()
-  //         .min(4, "Description is too short")
-  //         .max(100, "Description is too long")
-  //         .required("Description is required"),
-  //       date: Yup.string()
-  //         .min(4, "Date is too short")
-  //         .max(30, "Date is too long")
-  //         .required("Date is required"),
-  //       image: Yup.string()
-  //         .required("Image required")
-  //         .min(1, "Image link must be longer")
-  //         .matches(
-  //           /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-  //           "Enter correct image url"
-  //         ),
-  //     })
-  //   )
-  //   .required("You must have reviews")
-  //   .min(3, "Minimum 3 reviews"),
+  reviews: Yup.array()
+    .of(
+      Yup.object().shape({
+        title: Yup.string()
+          .min(4, "Title is too short")
+          .max(20, "Title is too long")
+          .required("Title is required"),
+        headline: Yup.string()
+          .min(4, "Headline is too short")
+          .max(20, "Headline is too long")
+          .required("Headline is required"),
+        description: Yup.string()
+          .min(4, "Description is too short")
+          .max(100, "Description is too long")
+          .required("Description is required"),
+        date: Yup.string()
+          .min(4, "Date is too short")
+          .max(30, "Date is too long")
+          .required("Date is required"),
+        image: Yup.string()
+          .required("Image required")
+          .min(1, "Image link must be longer")
+          .matches(
+            /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+            "Enter correct image url"
+          ),
+      })
+    )
+    .required("You must have reviews")
+    .min(3, "Minimum 3 reviews"),
 });
 
 const ErrorMessage = ({ item }) => (
@@ -163,7 +163,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
               shower_only: false,
               free_parking: false,
               slider: [],
-              // reviews: [],
+              reviews: [],
             }}
             validationSchema={SignupSchema}
             onSubmit={(newHotel) => {
@@ -179,7 +179,7 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                 alert("Nice! A new hotel is added");
                 router.replace(router.asPath);
               }
-              postNewHotel(newHotel);
+              postNewHotel();
             }}
           >
             {({ errors, touched, values }) => (
@@ -632,7 +632,163 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
                     <div className="addhotelsform__checkbox-wrapper">
                       <h3>Add reviews</h3>
 
-                      <div></div>
+                      <div>
+                        <FieldArray
+                          id="reviews"
+                          name="reviews"
+                          render={(arrayReviews) => (
+                            <div>
+                              {values.reviews && values.reviews.length > 0 ? (
+                                values.reviews.map((value, index) => (
+                                  <div key={index}>
+                                    <div className="addhotelsform__flex">
+                                      <div>
+                                        <label
+                                          htmlFor="title"
+                                          className="contactform__label"
+                                        >
+                                          Title
+                                        </label>
+                                        <Field
+                                          id={`reviews.${index}.title`}
+                                          name={`reviews.${index}.title`}
+                                          className="addhotelsform__input"
+                                          type="text"
+                                        />
+
+                                        <ErrorMessage
+                                          item={`reviews.[${index}].title`}
+                                        />
+                                      </div>
+                                      <div>
+                                        <label
+                                          htmlFor="headline"
+                                          className="contactform__label"
+                                        >
+                                          Headline
+                                        </label>
+                                        <Field
+                                          name={`reviews.${index}.headline`}
+                                          className="addhotelsform__input"
+                                          type="text"
+                                        />
+                                        <ErrorMessage
+                                          item={`reviews.[${index}].headline`}
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="addhotelsform__flex">
+                                      <div>
+                                        <label
+                                          htmlFor="date"
+                                          className="contactform__label"
+                                        >
+                                          Date
+                                        </label>
+                                        <Field
+                                          name={`reviews.${index}.date`}
+                                          className="addhotelsform__input"
+                                          type="date"
+                                        />
+                                        <ErrorMessage
+                                          item={`reviews.[${index}].date`}
+                                        />
+                                      </div>
+                                      <div>
+                                        <label
+                                          htmlFor="image"
+                                          className="contactform__label"
+                                        >
+                                          Image
+                                        </label>
+                                        <Field
+                                          name={`reviews.${index}.image`}
+                                          className="addhotelsform__input"
+                                          type="text"
+                                          alt="Image of avatar"
+                                        />
+                                        <ErrorMessage
+                                          item={`reviews.[${index}].image`}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    <div>
+                                      <div>
+                                        <label
+                                          htmlFor="description"
+                                          className="contactform__label"
+                                        >
+                                          Description
+                                        </label>
+                                        <Field
+                                          name={`reviews.${index}.description`}
+                                          className="addhotelsform__input addhotelsform__input-height"
+                                          type="text"
+                                          component="textarea"
+                                        />
+                                        <ErrorMessage
+                                          item={`reviews.[${index}].description`}
+                                        />
+                                      </div>
+                                      {/* <div>
+                                          <label
+                                            htmlFor="alt"
+                                            className="contactform__label"
+                                          >
+                                            Alt
+                                          </label>
+                                          <Field
+                                            name={`reviews.${index}.alt`}
+                                            className="addhotelsform__input"
+                                            type="text"
+                                            alt="Image of avatar"
+                                          />
+                                          <ErrorMessage
+                                            item={`reviews.[${index}].alt`}
+                                          />
+                                        </div> */}
+                                    </div>
+
+                                    <div className="addhotelsform__btn-wrapper">
+                                      <div>
+                                        <button
+                                          type="button"
+                                          className="addhotelsform__btn"
+                                          onClick={() =>
+                                            arrayReviews.insert(index, "")
+                                          }
+                                        >
+                                          Add another review
+                                        </button>
+                                      </div>
+                                      <div>
+                                        <button
+                                          type="button"
+                                          className="addhotelsform__btn addhotelsform__btn-remove"
+                                          onClick={() =>
+                                            arrayReviews.remove(index)
+                                          }
+                                        >
+                                          Remove review
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => arrayReviews.push("")}
+                                  className="addhotelsform__btn"
+                                >
+                                  Add review
+                                </button>
+                              )}
+                            </div>
+                          )}
+                        />
+                      </div>
                       {/* <div>
                           {errors.reviews && touched.reviews ? (
                             <div className="input__error">
