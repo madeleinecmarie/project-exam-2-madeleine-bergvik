@@ -169,8 +169,8 @@ const AddHotelsModal = ({ setIsOpen, JWT }) => {
             onSubmit={(newHotel) => {
               console.log(newHotel);
               console.log(JWT);
-              async function postNewHotel(newHotel) {
-                let res = await axios.post(BaseURL + "hotels/", newHotel, {
+              async function postNewHotel() {
+                let res = await axios.post(`${BaseURL}hotels`, newHotel, {
                   headers: {
                     Authorization: `Bearer ${JWT}`,
                   },
