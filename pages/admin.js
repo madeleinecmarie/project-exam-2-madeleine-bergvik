@@ -89,7 +89,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                         <th className="admin__th">Hotels</th>
                         <th className="admin__th">Price</th>
                         <th className="admin__th">Description</th>
-                        {/* <th className="admin__th">Edit</th> */}
                         <th className="admin__th">Delete</th>
                       </tr>
                     </thead>
@@ -102,10 +101,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                             short_description,
                             featured_img,
                             price,
-                            // stars,
-                            // amenities,
-                            // free_cancellation,
-                            // location,
                             alt_featured_img,
                           }) => {
                             const myLoader = ({
@@ -135,17 +130,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                   {name}
                                 </td>
                                 <td className="admin__td">{price} NOK</td>
-                                {/* <td className="admin__td">
-                                <Icon
-                                  icon="akar-icons:edit"
-                                  color="#1d282e"
-                                  height={20}
-                                  onClick={() => setEditModal(true)}
-                                />
-                                {editModal && (
-                                  <EditModal setEditModal={setEditModal} />
-                                )}
-                              </td> */}
                                 <td className="admin__td admin__td-description">
                                   {short_description}
                                 </td>
@@ -154,6 +138,7 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                     icon="cil:trash"
                                     color="#1d282e"
                                     height={22}
+                                    className="admin__trash-icon"
                                     onClick={() => {
                                       setIsDelete(true), setDeleteId(id);
                                     }}
@@ -184,7 +169,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                       <th className="admin__th">Lastname</th>
                       <th className="admin__th">Email</th>
                       <th className="admin__th">Subject</th>
-                      {/* <th className="admin__th">Edit</th> */}
                       <th className="admin__th">Message</th>
                       <th className="admin__th">Delete</th>
                     </tr>
@@ -213,19 +197,13 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                 {email}
                               </td>
                               <td className="admin__td">{subject}</td>
-                              {/* <td className="admin__td admin__td-edit">
-                              <Icon
-                                icon="akar-icons:edit"
-                                color="#1d282e"
-                                height={20}
-                              />
-                            </td> */}
                               <td className="admin__td">{message}</td>
                               <td className="admin__td">
                                 <Icon
                                   icon="cil:trash"
                                   color="#1d282e"
-                                  height={20}
+                                  height={22}
+                                  className="admin__trash-icon"
                                   onClick={() => {
                                     setIsDeleteEnquery(true);
                                     setDeleteEnquieryId(id);
@@ -257,7 +235,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                       <th className="admin__th">Email</th>
                       <th className="admin__th">Subject</th>
                       <th className="admin__th">Message</th>
-                      {/* <th className="admin__th">Edit</th> */}
                       <th className="admin__th">Delete</th>
                     </tr>
                   </thead>
@@ -290,7 +267,8 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                 <Icon
                                   icon="cil:trash"
                                   color="#1d282e"
-                                  height={25}
+                                  height={22}
+                                  className="admin__trash-icon"
                                   onClick={() => {
                                     setIsDeleteMessage(true),
                                       setDeleteMessageId(id);

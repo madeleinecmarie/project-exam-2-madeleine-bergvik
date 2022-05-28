@@ -20,7 +20,7 @@
 
   &__table {
     background-color: var(--white);
-    width: 90%;
+    width: 95%;
     border-radius: var(--radius);
     margin: auto;
   }
@@ -80,10 +80,6 @@
   }
 }
 
-// .admin__addhotel-btn:hover {
-//   background-color: var(--orange);
-// }
-
 .mantine-Group-root.__mantine-ref-tabsList.mantine-Tabs-tabsList.mantine-1wh8mct {
   margin: auto;
   width: 90%;
@@ -95,13 +91,8 @@
 
 .mantine-15ssm7.__mantine-ref-tabActive {
   background-color: var(--orange);
-  // color: var(--black);
   width: 144px;
   height: 45px;
-}
-
-.mantine-15ssm7.__mantine-ref-tabActive {
-  color: var(--black);
 }
 
 .mantine-Tabs-tabControl.mantine-Tabs-pills.mantine-Group-child.mantine-qi2p0q,
