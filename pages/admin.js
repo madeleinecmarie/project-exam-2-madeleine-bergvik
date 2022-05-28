@@ -138,7 +138,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                     icon="cil:trash"
                                     color="#1d282e"
                                     height={22}
-                                    className="admin__trash-icon"
                                     onClick={() => {
                                       setIsDelete(true), setDeleteId(id);
                                     }}
@@ -203,7 +202,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                   icon="cil:trash"
                                   color="#1d282e"
                                   height={22}
-                                  className="admin__trash-icon"
                                   onClick={() => {
                                     setIsDeleteEnquery(true);
                                     setDeleteEnquieryId(id);
@@ -268,7 +266,6 @@ const Admin = ({ user, hotels, enquiries, messages, JWT }) => {
                                   icon="cil:trash"
                                   color="#1d282e"
                                   height={22}
-                                  className="admin__trash-icon"
                                   onClick={() => {
                                     setIsDeleteMessage(true),
                                       setDeleteMessageId(id);

@@ -2,6 +2,7 @@ import axios from "axios";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
+import { BaseURL } from "../../lib/apiUrl";
 
 const SignupSchema = Yup.object().shape({
   firstname: Yup.string()
@@ -29,7 +30,7 @@ export const EnquiryForm = () => {
 
   const HandleSubmit = async (values) => {
     try {
-      await axios.post("http://localhost:1337/enquiries", values);
+      await axios.post(BaseURL + "enquiries", values);
       setError(false);
       setEnquierySent(true);
     } catch (err) {
