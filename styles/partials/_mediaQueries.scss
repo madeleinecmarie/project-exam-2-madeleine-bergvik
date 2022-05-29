@@ -542,6 +542,13 @@
     &__h1 {
       width: 65%;
     }
+
+    &__headline {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+    }
   }
 }
 
