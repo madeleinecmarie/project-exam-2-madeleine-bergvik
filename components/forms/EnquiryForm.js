@@ -132,10 +132,10 @@ export const EnquiryForm = () => {
             </div>
             <div>
               {enquierySent ? (
-                <div className="text-green-600 font-bold">Enquiery is sent</div>
+                <div className="contactform__error">Enquiery is sent</div>
               ) : null}
               {error ? (
-                <div className="text-red-600 font-bold">
+                <div className="contactform__error-red">
                   Enquiery not sent, please try again
                 </div>
               ) : null}

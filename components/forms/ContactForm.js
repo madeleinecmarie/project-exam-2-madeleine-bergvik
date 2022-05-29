@@ -132,10 +132,10 @@ export const ContactForm = () => {
             </div>
             <div>
               {messageSent ? (
-                <div className="text-green-600 font-bold">Message is sent</div>
+                <div className="contactform__error">Message is sent</div>
               ) : null}
               {error ? (
-                <div className="text-red-600 font-bold">
+                <div className="contactform__error-red">
                   Message not sent, please try again
                 </div>
               ) : null}
