@@ -93,7 +93,7 @@ const SignupSchema = Yup.object().shape({
           .required("Headline is required"),
         description: Yup.string()
           .min(4, "Description is too short")
-          .max(100, "Description is too long")
+          .max(400, "Description is too long")
           .required("Description is required"),
         date: Yup.string()
           .min(4, "Date is too short")
