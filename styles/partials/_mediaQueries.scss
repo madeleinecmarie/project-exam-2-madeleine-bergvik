@@ -84,9 +84,17 @@
   }
 
   // Hotels
-  .hotels {
-    &__searchbar {
-      padding-left: 10px;
+  .searchbar {
+    width: 890px;
+
+    &__input-1 {
+      width: 230px;
+    }
+
+    &__datepicker {
+      & input {
+        width: 230px;
+      }
     }
   }
 
@@ -122,7 +130,6 @@
   }
 
   // Details
-
   .details {
     &__info-wrapper {
       flex-direction: column;
