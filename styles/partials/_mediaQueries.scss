@@ -505,6 +505,21 @@
   .reviewsLink {
     width: 82%;
   }
+
+  // Hotels
+
+  .searchbar {
+    width: 630px;
+
+    &__input-3 {
+      width: 110px;
+    }
+
+    &__input-1,
+    &__datepicker input {
+      width: 130px;
+    }
+  }
 }
 
 @media (max-width: 730px) {
