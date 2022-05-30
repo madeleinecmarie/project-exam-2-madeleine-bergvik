@@ -348,10 +348,15 @@
   }
 
   .searchbar {
-    width: 720px;
+    width: 680px;
 
     &__input-3 {
       width: 110px;
+    }
+
+    &__input-1,
+    &__datepicker input {
+      width: 140px;
     }
   }
 
@@ -426,17 +431,6 @@
 
     &__p {
       padding-top: 200px;
-    }
-  }
-
-  // Hotels
-
-  .searchbar {
-    width: 680px;
-
-    &__input-1,
-    &__datepicker input {
-      width: 140px;
     }
   }
 
