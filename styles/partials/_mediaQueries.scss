@@ -281,8 +281,15 @@
 }
 
 @media (max-width: 880px) {
-  // Home
+  h1 {
+    font-size: 2.2rem;
+  }
 
+  h2 {
+    font-size: 2rem;
+  }
+
+  // Home
   .attractions {
     &__card {
       width: 45%;
@@ -396,14 +403,6 @@
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
   .footer {
     &__inner {
       flex-direction: column;
