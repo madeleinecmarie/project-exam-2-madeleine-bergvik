@@ -429,6 +429,17 @@
     }
   }
 
+  // Hotels
+
+  .searchbar {
+    width: 680px;
+
+    &__input-1,
+    &__datepicker input {
+      width: 140px;
+    }
+  }
+
   // Details
   .details {
     flex-direction: column;
@@ -501,7 +512,6 @@
 
   .searchbar {
     height: 480px;
-    width: 430px;
 
     &__form {
       flex-direction: column;
