@@ -278,36 +278,36 @@
       width: auto;
     }
   }
+}
 
-  @media (max-width: 880px) {
-    // Home
+@media (max-width: 880px) {
+  // Home
 
-    .attractions {
-      &__card {
-        width: 45%;
-      }
+  .attractions {
+    &__card {
+      width: 45%;
+    }
+  }
+
+  .newsletter {
+    &__btn {
+      padding: 15px;
+    }
+  }
+
+  // Hotels
+  .hotel {
+    &__line {
+      width: 600px;
     }
 
-    .newsletter {
-      &__btn {
-        padding: 15px;
-      }
-    }
-
-    // Hotels
-    .hotel {
-      &__line {
-        width: 600px;
-      }
-
-      &__p {
-        width: auto;
-      }
+    &__p {
+      width: auto;
     }
   }
 
   .searchbar {
-    width: 790px;
+    width: 760px;
 
     &__input-1 {
       width: 165px;
@@ -323,22 +323,22 @@
       }
     }
   }
+}
 
-  .contactform {
-    margin-top: 50px;
+.contactform {
+  margin-top: 50px;
 
-    &__messagefield {
-      margin-top: 6px;
-    }
+  &__messagefield {
+    margin-top: 6px;
+  }
 
-    &__inputShort {
-      width: 168px;
-    }
+  &__inputShort {
+    width: 168px;
+  }
 
-    &__input,
-    &__messagefield {
-      width: 350px;
-    }
+  &__input,
+  &__messagefield {
+    width: 350px;
   }
 }
 
