@@ -21,6 +21,7 @@ I made this project for the project exam 2 in the last year in spring 2022. It i
 - Strapi
 - Heroku
 - Netlify
+- Figma
 - Visual Studio Code
 
 ## Getting Started
