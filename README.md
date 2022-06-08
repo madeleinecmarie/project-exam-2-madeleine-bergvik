@@ -2,7 +2,7 @@ Username and password for Admin:
 Email: admin@admin.com
 Password: Admin1234
 
-# Project exam 2
+# Project Exam 2
 
 ![holidaze](https://user-images.githubusercontent.com/69841827/172658893-7dc0dfac-418c-49c4-8d8c-dd7d755e6f38.png)
 
