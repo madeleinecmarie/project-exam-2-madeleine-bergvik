@@ -4,7 +4,7 @@ Password: Admin1234
 
 # Project Exam 2
 
-![holidaze](https://user-images.githubusercontent.com/69841827/172658893-7dc0dfac-418c-49c4-8d8c-dd7d755e6f38.png)
+![holidaze](https://magical-mochi-ef492f.netlify.app/_next/image?url=%2Fimages%2Fholidaze.png&w=2048&q=75)
 
 Holidaze is a hotelbooking site where you can book rooms, apartments and B&B's in Stavanger.  
 
